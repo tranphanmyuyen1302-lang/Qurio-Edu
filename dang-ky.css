@@ -1,0 +1,903 @@
+
+/* =========================================
+   QURIO - TRANG ĐĂNG KÝ
+   ========================================= */
+
+:root {
+  --dk-primary: #625cff;
+  --dk-blue: #4c8cff;
+  --dk-navy: #10275b;
+  --dk-text: #243966;
+  --dk-muted: #7283ad;
+  --dk-border: #dce4fb;
+  --dk-input: #f5f7fc;
+}
+
+/* Nền trang */
+html {
+  min-height: 100%;
+}
+
+body.register-page {
+  min-height: 100vh;
+  height: auto;
+  margin: 0;
+  padding: 26px 20px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(
+      circle at 15% 15%,
+      #ffffff 0,
+      #f7f8ff 40%,
+      #e8ecff 100%
+    );
+  font-family: "Be Vietnam Pro", sans-serif;
+  color: var(--dk-text);
+}
+
+/* Khung chính hai cột */
+.register-container {
+  width: min(1270px, 100%);
+  min-height: 820px;
+  height: auto;
+  margin: auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.95fr);
+  align-items: stretch;
+  overflow: hidden;
+  border: 1px solid #dce3ff;
+  border-radius: 25px;
+  background: #fff;
+  box-shadow: 0 22px 65px rgba(62, 83, 160, 0.13);
+  box-sizing: border-box;
+}
+
+/* =========================================
+   CỘT TRÁI
+   ========================================= */
+
+.register-container .welcome-panel {
+  min-width: 0;
+  min-height: 820px;
+  height: 100%;
+  position: relative;
+  box-sizing: border-box;
+  padding: 38px 36px 30px;
+  overflow: hidden;
+  border-radius: 24px 0 0 24px;
+  background: linear-gradient(
+    145deg,
+    #fafbff 0%,
+    #f0f2ff 55%,
+    #edf0ff 100%
+  );
+}
+
+/* Logo và tên Qurio */
+.register-container .brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.register-container .brand img {
+  display: block;
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+}
+
+.register-container .brand-text strong {
+  display: block;
+  color: var(--dk-navy);
+  font-size: 34px;
+  font-weight: 800;
+  letter-spacing: -1.2px;
+}
+
+.register-container .brand-slogan {
+  margin: 8px 0 34px;
+  color: #6076ad;
+  font-size: 13px;
+}
+
+/* Lời chào */
+.register-container .welcome-content {
+  position: relative;
+  z-index: 1;
+}
+
+.register-container .eyebrow {
+  margin: 0 0 18px;
+  color: var(--dk-primary);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 1.1px;
+}
+
+.register-container .welcome-content h1 {
+  max-width: 540px;
+  margin: 0;
+  color: var(--dk-navy);
+  font-size: clamp(30px, 3vw, 42px);
+  font-weight: 800;
+  line-height: 1.27;
+  letter-spacing: -1.2px;
+}
+
+.register-container .welcome-content h1 span {
+  display: block;
+  color: var(--dk-primary);
+}
+
+.register-container .description {
+  margin: 18px 0 0;
+  color: #6b80ae;
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+/* Ảnh minh họa: dùng hình của trang Đăng Nhập */
+.register-container .illustration {
+  width: 100%;
+  height: 270px;
+  margin: 22px auto 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+.register-container .illustration img {
+  display: block;
+  width: min(100%, 390px);
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Trích dẫn */
+.register-container .quote {
+  position: relative;
+  z-index: 1;
+  max-width: 390px;
+  margin: 10px 0 0;
+  color: #6579a6;
+  font-size: 13px;
+  font-style: italic;
+  line-height: 1.9;
+}
+
+.register-container .quote-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  margin: 0 0 8px;
+  border-radius: 14px;
+  background: #eeedff;
+  color: var(--dk-primary);
+  font-size: 23px;
+  font-weight: 800;
+  font-style: normal;
+}
+
+/* =========================================
+   CỘT PHẢI
+   ========================================= */
+
+.register-container .register-panel {
+  min-width: 0;
+  min-height: 820px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 36px clamp(24px, 3.2vw, 48px);
+  border-radius: 0 24px 24px 0;
+  background: #fff;
+  overflow: visible;
+}
+
+.register-container .register-inner {
+  width: 100%;
+  max-width: 430px;
+  min-width: 0;
+  margin: 0 auto;
+}
+
+.register-inner h2 {
+  margin: 0;
+  color: var(--dk-navy);
+  font-size: clamp(29px, 2.5vw, 36px);
+  line-height: 1.3;
+  font-weight: 800;
+  letter-spacing: -0.8px;
+}
+
+.register-inner .subtitle {
+  margin: 8px 0 18px;
+  color: var(--dk-muted);
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+/* =========================================
+   CHỌN HỌC SINH / GIÁO VIÊN
+   ========================================= */
+
+.register-inner .role-picker {
+  width: 100%;
+  min-width: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5px;
+  margin: 0 0 17px;
+  padding: 5px;
+  border: 1px solid var(--dk-border);
+  border-radius: 13px;
+  background: #f4f6fb;
+  box-sizing: border-box;
+}
+
+.register-inner .visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.register-inner .role-option {
+  min-width: 0;
+  min-height: 43px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9px;
+  color: #7888ac;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.register-inner .role-option input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.register-inner .role-option.active {
+  color: #1551a4;
+  background: #fff;
+  box-shadow: 0 3px 12px rgba(66, 93, 151, 0.09);
+}
+
+.register-inner .role-option:focus-within {
+  outline: 2px solid var(--dk-primary);
+  outline-offset: 2px;
+}
+
+/* =========================================
+   NHÓM TRƯỜNG NHẬP
+   ========================================= */
+
+.register-inner .form-group {
+  min-width: 0;
+  margin: 0 0 12px;
+}
+
+.register-inner .form-group > label {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--dk-text);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.register-inner .form-group > label small {
+  color: #8593b4;
+  font-size: 10px;
+  font-weight: 400;
+}
+
+.register-inner .two-columns {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.9fr);
+  gap: 12px;
+}
+
+.register-inner .two-columns > .form-group {
+  min-width: 0;
+}
+
+/* Ô nhập */
+.register-inner .input-box {
+  width: 100%;
+  min-width: 0;
+  height: 48px;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 12px;
+  box-sizing: border-box;
+  border: 1px solid var(--dk-border);
+  border-radius: 11px;
+  background: var(--dk-input);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.register-inner .input-box:focus-within {
+  border-color: #7975ff;
+  background: #fff;
+  box-shadow: 0 0 0 4px rgba(98, 92, 255, 0.09);
+}
+
+.register-inner .input-box input {
+  flex: 1;
+  width: 100%;
+  min-width: 0;
+  height: 100%;
+  padding: 0;
+  box-sizing: border-box;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--dk-navy);
+  font-family: inherit;
+  font-size: 12px;
+}
+
+.register-inner .input-box input::placeholder {
+  color: #91a0bd;
+  opacity: 1;
+}
+
+/* Nút hiện / ẩn mật khẩu */
+.register-inner .eye-button {
+  flex: 0 0 auto;
+  padding: 6px 1px 6px 5px;
+  border: 0;
+  background: transparent;
+  color: var(--dk-primary);
+  font-family: inherit;
+  font-size: 10px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.register-inner .eye-button:focus-visible {
+  outline: 2px solid var(--dk-primary);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.register-inner .field-hint {
+  display: block;
+  margin-top: 5px;
+  color: #8997b7;
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+/* =========================================
+   ĐIỀU KHOẢN
+   ========================================= */
+
+.register-inner .terms-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  margin: 1px 0 15px;
+  color: #67779c;
+  font-size: 10px;
+  line-height: 1.8;
+}
+
+.register-inner .terms-row input {
+  flex: 0 0 auto;
+  width: 14px;
+  height: 14px;
+  margin: 3px 0 0;
+  accent-color: var(--dk-primary);
+  cursor: pointer;
+}
+
+.register-inner .terms-row label {
+  min-width: 0;
+  cursor: pointer;
+}
+
+.register-inner .terms-row a,
+.register-inner .register-footer a {
+  color: var(--dk-primary);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.register-inner .terms-row a:hover,
+.register-inner .register-footer a:hover {
+  text-decoration: underline;
+}
+
+/* =========================================
+   NÚT TẠO TÀI KHOẢN
+   ========================================= */
+
+.register-inner .primary-button {
+  width: 100%;
+  min-height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 15px;
+  box-sizing: border-box;
+  border: 0;
+  border-radius: 12px;
+  background: linear-gradient(110deg, #695bff, #498bff);
+  box-shadow: 0 9px 20px rgba(95, 99, 255, 0.2);
+  color: #fff;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.register-inner .primary-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 24px rgba(95, 99, 255, 0.27);
+}
+
+.register-inner .primary-button:focus-visible {
+  outline: 3px solid #b5b2ff;
+  outline-offset: 3px;
+}
+
+/* =========================================
+   HOẶC ĐĂNG KÝ BẰNG
+   ========================================= */
+
+.register-inner .divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 17px 0 12px;
+  color: #8593b5;
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+.register-inner .divider::before,
+.register-inner .divider::after {
+  content: "";
+  height: 1px;
+  flex: 1;
+  background: #e1e7f7;
+}
+
+/* Google và Microsoft */
+.register-inner .social-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.register-inner .social-button {
+  min-width: 0;
+  min-height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px;
+  border: 1px solid var(--dk-border);
+  border-radius: 11px;
+  background: #fff;
+  color: #304675;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.register-inner .social-button:hover {
+  background: #f7f8ff;
+  border-color: #aeb8ff;
+}
+
+.register-inner .google-logo {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
+}
+
+.register-inner .microsoft-logo {
+  flex: 0 0 auto;
+  display: grid;
+  grid-template-columns: 7px 7px;
+  grid-template-rows: 7px 7px;
+  gap: 2px;
+}
+
+.register-inner .microsoft-logo i:nth-child(1) {
+  background: #f25022;
+}
+
+.register-inner .microsoft-logo i:nth-child(2) {
+  background: #7fba00;
+}
+
+.register-inner .microsoft-logo i:nth-child(3) {
+  background: #00a4ef;
+}
+
+.register-inner .microsoft-logo i:nth-child(4) {
+  background: #ffb900;
+}
+
+/* =========================================
+   PASSKEY / FACE ID
+   ========================================= */
+
+.register-inner .passkey-button {
+  width: 100%;
+  min-height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  margin-top: 10px;
+  padding: 9px 12px;
+  box-sizing: border-box;
+  border: 1px solid #dce0ff;
+  border-radius: 11px;
+  background: #f7f7ff;
+  color: #5559dc;
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.register-inner .passkey-button svg {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
+}
+
+.register-inner .passkey-button:hover {
+  background: #eeeeff;
+  border-color: #b8bdff;
+}
+
+/* =========================================
+   THÔNG BÁO
+   ========================================= */
+
+.register-inner .message {
+  margin: 12px 0 0;
+  padding: 11px 12px;
+  border: 1px solid #dce4fb;
+  border-radius: 9px;
+  background: #f0f4ff;
+  color: #36538e;
+  font-size: 12px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.register-inner .message.error {
+  border-color: #ffd4d4;
+  background: #fff0f0;
+  color: #b42332;
+}
+
+.register-inner .message.success {
+  border-color: #b8e8cc;
+  background: #eafaf1;
+  color: #167347;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+/* =========================================
+   CHÂN TRANG
+   ========================================= */
+
+.register-inner .register-footer {
+  margin: 16px 0 0;
+  color: #7887aa;
+  text-align: center;
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+.register-inner .bottom-tagline {
+  margin: 12px 0 0;
+  color: #98a4c0;
+  text-align: center;
+  font-size: 10px;
+}
+
+.register-inner .bottom-tagline span {
+  color: var(--dk-primary);
+}
+
+/* =========================================
+   TABLET
+   ========================================= */
+
+@media (max-width: 900px) {
+  body.register-page {
+    padding: 16px 12px;
+  }
+
+  .register-container {
+    width: min(620px, 100%);
+    min-height: 0;
+    height: auto;
+    grid-template-columns: 1fr;
+    margin: 0 auto;
+  }
+
+  .register-container .welcome-panel {
+    min-height: 0;
+    height: auto;
+    padding: 28px;
+    border-radius: 24px 24px 0 0;
+  }
+
+  .register-container .illustration {
+    height: 210px;
+  }
+
+  .register-container .register-panel {
+    min-height: 0;
+    padding: 30px 28px;
+    border-radius: 0 0 24px 24px;
+  }
+
+  .register-container .register-inner {
+    max-width: 510px;
+  }
+}
+
+/* =========================================
+   ĐIỆN THOẠI
+   ========================================= */
+
+@media (max-width: 480px) {
+  body.register-page {
+    padding: 0;
+  }
+
+  .register-container {
+    width: 100%;
+    border-radius: 0;
+  }
+
+  .register-container .welcome-panel {
+    padding: 24px 20px;
+    border-radius: 0;
+  }
+
+  .register-container .brand img {
+    width: 54px;
+    height: 54px;
+  }
+
+  .register-container .brand-text strong {
+    font-size: 30px;
+  }
+
+  .register-container .welcome-content h1 {
+    font-size: 30px;
+  }
+
+  .register-container .illustration {
+    height: 170px;
+  }
+
+  .register-container .register-panel {
+    padding: 26px 20px 30px;
+    border-radius: 0;
+  }
+
+  .register-inner h2 {
+    font-size: 28px;
+  }
+
+  .register-inner .two-columns {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .register-inner .form-group {
+    margin-bottom: 13px;
+  }
+
+  .register-inner .social-buttons {
+    gap: 8px;
+  }
+
+  .register-inner .social-button {
+    gap: 6px;
+    font-size: 11px;
+  }
+}
+
+
+
+/* FIX: KHÔNG CẮT ĐẦU VÀ CUỐI TRANG ĐĂNG KÝ */
+
+html {
+  min-height: 100%;
+  height: auto;
+}
+
+body.register-page {
+  min-height: 100vh;
+  height: auto !important;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 22px 20px;
+  box-sizing: border-box;
+}
+
+.register-container {
+  width: min(1270px, 100%);
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  margin: 0 auto;
+  align-items: stretch;
+  overflow: visible !important;
+}
+
+.register-container .welcome-panel {
+  height: auto !important;
+  min-height: 810px;
+  overflow: hidden;
+}
+
+.register-container .register-panel {
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 42px;
+  padding-bottom: 32px;
+  overflow: visible !important;
+}
+
+.register-container .register-inner {
+  width: 100%;
+  max-width: 430px;
+  margin: 0 auto;
+}
+
+/* Màn hình thấp: vẫn cho phép cuộn hết trang */
+@media (min-width: 901px) {
+  body.register-page {
+    align-items: flex-start;
+  }
+
+  .register-container .register-panel {
+    padding-top: 42px;
+  }
+}
+
+/* Điện thoại */
+@media (max-width: 900px) {
+  body.register-page {
+    padding: 12px;
+  }
+
+  .register-container {
+    grid-template-columns: minmax(0, 1fr);
+    overflow: visible !important;
+  }
+
+  .register-container .welcome-panel {
+    min-height: 0;
+    height: auto;
+  }
+
+  .register-container .register-panel {
+    min-height: 0;
+    padding: 30px 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  body.register-page {
+    padding: 0;
+  }
+
+  .register-container .register-panel {
+    padding: 28px 20px;
+  }
+}
+
+
+
+/* Biểu tượng con mắt hiện/ẩn mật khẩu */
+.register-inner .eye-button {
+  width: 25px;
+  height: 32px;
+  flex: 0 0 25px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: #7184b5;
+  cursor: pointer;
+}
+
+.register-inner .eye-icon {
+  display: block;
+  width: 19px;
+  height: 19px;
+  transition: color 0.2s;
+}
+
+.register-inner .eye-button:hover {
+  color: #625cff;
+}
+
+.register-inner .eye-button:focus-visible {
+  outline: 2px solid #625cff;
+  outline-offset: 2px;
+  border-radius: 5px;
+}
+
+/* Ô chọn môn giảng dạy */
+.register-inner .input-box select {
+  width: 100%;
+  min-width: 0;
+  height: 100%;
+  padding: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #243966;
+  font-family: inherit;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.register-inner .input-box select:invalid,
+.register-inner .input-box select option[value=""] {
+  color: #91a0bd;
+}
+
+.register-inner #teacherFields[hidden],
+.register-inner #studentFields[hidden] {
+  display: none !important;
+}
