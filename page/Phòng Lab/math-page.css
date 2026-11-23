@@ -1,0 +1,68 @@
+*{box-sizing:border-box}.math-page{max-width:none!important;width:100%!important;padding:20px 24px 65px!important;background:#faf8ff}.math-layout{display:grid;grid-template-columns:minmax(0,1fr) 310px;gap:18px;max-width:1700px;margin:auto}.math-left,.math-right{min-width:0}.math-right{display:grid;gap:12px;align-content:start}.math-crumb{font-size:12px;color:#7c44e9;margin:0 0 13px}.math-crumb a{color:#352a6c;text-decoration:none;margin-right:12px}.math-crumb b{margin-left:12px}.math-banner{min-height:115px;display:flex;align-items:center;gap:18px;padding:18px 22px;background:linear-gradient(110deg,#e9dcff,#91a5ff 65%,#6858f7);border-radius:18px;overflow:hidden;box-shadow:0 7px 18px #6754c52b}.math-pi{display:grid;place-items:center;background:linear-gradient(140deg,#43b9ff,#0454ee);border-radius:14px;width:62px;height:62px;color:#fff;font:700 47px Georgia;box-shadow:0 7px 14px #3754a94d}.math-banner h1{font-size:29px!important;color:#1e1b65!important;margin:0 0 7px!important}.math-banner p{font-size:11px!important;color:#332c7b!important;margin:0!important}.math-art{font-size:53px;margin-left:auto;white-space:nowrap}.math-tabs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:16px 0}.math-tabs button{min-height:47px;padding:9px 5px;border-radius:12px;border:1px solid #e6dafa;background:#fff;color:#32235f;font:700 11px 'Be Vietnam Pro',sans-serif;cursor:pointer;box-shadow:0 4px 12px #634aaf1b}.math-tabs button.active{background:linear-gradient(110deg,#9b4bfa,#6828ef);color:white}.math-editor{background:white;border:1px solid #e6dafa;border-radius:16px;overflow:hidden;box-shadow:0 8px 22px #5941aa1b}.math-editor-top{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;padding:12px 15px;background:#f3edff}.math-editor-top b{font:700 20px Arial;color:#181727}.math-editor-top span{font-size:11px;font-weight:700;margin-left:9px;color:#352768}.math-editor-top button{border:0;background:transparent;color:#3d277b;padding:10px;cursor:pointer;font:700 10px 'Be Vietnam Pro',sans-serif}.math-editor-top button.math-save{color:white;background:#7c43eb;border-radius:9px}.math-applet{height:590px;min-width:0;position:relative;background:white;overflow:hidden}.math-applet>p{display:grid;place-items:center;height:100%;color:#9485ac}.math-editor-foot{padding:12px 15px;border-top:1px solid #eee8f7;display:flex;justify-content:space-between;gap:12px;color:#9186a8;font-size:10px}.math-editor-foot a{color:#7b44df;text-decoration:none;font-weight:700}.math-panel{background:linear-gradient(135deg,#fff,#f6efff);border:1px solid #e7d9fb;border-radius:18px;padding:18px;box-shadow:0 7px 17px #5737a91b}.math-panel-head{display:flex;align-items:center;gap:10px;font-size:21px;margin-bottom:15px}.math-panel-head b{font-size:13px;color:#25205a;flex:1}.math-panel-head span{font-size:11px;color:#7a3fe7;border-radius:20px;background:#eee4ff;padding:5px 9px}.math-goal{display:flex;gap:8px;align-items:center;font-size:11px;margin:10px 0}.math-goal input{accent-color:#7435e9}.math-goal label{flex:1;overflow-wrap:anywhere}.math-goal.done label{text-decoration:line-through;color:#a39ab5}.math-goal button{border:0;background:none;color:#b39aca;cursor:pointer}.math-add{margin-top:10px;width:100%;border:1px dashed #c7adf6;border-radius:10px;padding:12px;color:#7136e3;background:#faf5ff;font:700 11px 'Be Vietnam Pro',sans-serif;cursor:pointer}#mathGoalForm input{width:100%;padding:10px;border:1px solid #d8c7f3;border-radius:9px}#mathGoalForm button{padding:8px 13px;margin:7px 5px 0 0;border:0;border-radius:8px;background:#7d46e8;color:white;cursor:pointer}.math-safety p{font-size:10px;line-height:1.7;color:#453a65;margin:10px 0}.math-tools{display:grid;grid-template-columns:1fr 1fr;gap:8px}.math-tools button,.math-tools a{background:#f2eaff;border:1px solid #e5d8fa;border-radius:10px;padding:12px 5px;text-decoration:none;text-align:center;color:#5934b4;font:700 10px 'Be Vietnam Pro',sans-serif;cursor:pointer}.math-dialog{border:1px solid #e3d5fa;border-radius:18px;padding:20px;width:min(400px,95vw);box-shadow:0 25px 70px #25154d66}.math-dialog::backdrop{background:#24153f88}.math-dialog-head{display:flex;justify-content:space-between;align-items:center}.math-dialog-head button{font-size:23px;border:0;background:#eee6ff;border-radius:8px;padding:5px 12px;cursor:pointer}.math-dialog output{display:block;text-align:right;background:#f6f1ff;padding:17px;margin:15px 0;font-size:24px;border-radius:10px}.math-calc-keys{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}.math-calc-keys button{padding:12px;border:1px solid #e5d8f9;border-radius:9px;background:#fff;cursor:pointer}.math-calc-keys button:last-child{background:#7844e9;color:white}.math-editor:fullscreen{background:white;padding:10px}.math-editor:fullscreen .math-applet{height:calc(100vh - 140px)}@media(max-width:1200px){.math-layout{grid-template-columns:1fr}.math-right{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:700px){.math-page{padding:12px!important}.math-art{display:none}.math-tabs{grid-template-columns:repeat(2,minmax(0,1fr))}.math-right{grid-template-columns:1fr}.math-applet{height:520px}}
+/* Toán học: bỏ banner, ưu tiên không gian làm việc GeoGebra */
+.math-page .math-crumb{margin-bottom:18px}
+.math-page .math-tabs{margin-top:0}
+.math-page .math-applet iframe{display:block;width:100%;height:100%;border:0}
+
+/* MathDA calculator overlay, independent from Qurio shared shell */
+.mathda-dialog{width:min(1120px,96vw);max-width:96vw;height:min(850px,94vh);max-height:94vh;padding:0;overflow:hidden;display:none;flex-direction:column;background:#fff;border:1px solid #ded4f9;border-radius:20px}
+.mathda-dialog[open]{display:flex}
+.mathda-dialog .math-dialog-head{flex:none;padding:15px 20px;border-bottom:1px solid #ece5fa;background:#faf7ff;gap:12px}
+.mathda-dialog .math-dialog-head strong{display:block;font-size:17px;color:#251853}
+.mathda-dialog .math-dialog-head small{display:block;margin-top:4px;font-size:11px;color:#8679a6}
+.mathda-frame-wrap{flex:1;min-height:0;background:#fff}
+.mathda-frame-wrap iframe{width:100%;height:100%;border:0;display:block}
+.mathda-bottom{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:12px 20px;background:#faf7ff;border-top:1px solid #ece5fa;font-size:11px;color:#6c6282}
+.mathda-bottom a{font-weight:700;color:#713de4;text-decoration:none}
+@media(max-width:700px){.mathda-dialog{width:100vw;max-width:100vw;height:96vh;max-height:96vh;border-radius:12px}.mathda-bottom{font-size:10px}}
+
+/* Một nút máy tính cân đối, rõ ràng trong thẻ Công cụ nhanh */
+.math-editor-foot #mathStatus { display:none !important; }
+.math-tools { display:block !important; }
+.math-tools #mathCalc { width:100% !important; min-height:72px; display:flex !important; align-items:center; justify-content:flex-start; gap:12px; padding:13px 14px !important; border-radius:15px; border:1px solid #e4d8fc; background:linear-gradient(110deg,#f3eaff,#f9f6ff); color:#6140bc; text-align:left; cursor:pointer; box-shadow:0 4px 11px rgba(107,76,196,.08); transition:transform .2s,background .2s,box-shadow .2s; }
+.math-tools #mathCalc:hover { transform:translateY(-2px); background:#eee4ff; box-shadow:0 9px 18px rgba(107,76,196,.15); }
+.math-tools .math-calc-glyph { width:43px; height:43px; display:grid; place-items:center; flex:none; border-radius:12px; background:linear-gradient(135deg,#8f5df1,#6e40de); color:white; font-size:23px; box-shadow:0 4px 10px #7c55de30; }
+.math-tools .math-calc-copy { flex:1; min-width:0; display:flex; flex-direction:column; gap:5px; }
+.math-tools .math-calc-copy strong { font-size:12px; color:#38265f; font-weight:800; }
+.math-tools .math-calc-copy small { font-size:9px; color:#9084aa; line-height:1.5; }
+.math-tools .math-calc-arrow { display:grid;place-items:center; width:28px;height:28px; flex:none; background:#fff; border-radius:50%; color:#8053dc; font-size:17px; }
+
+/* Full-screen GeoGebra: fill the available viewport instead of keeping 590px height. */
+.math-editor:fullscreen,
+.math-editor:-webkit-full-screen {
+  display:flex !important;
+  flex-direction:column !important;
+  box-sizing:border-box !important;
+  width:100vw !important;
+  height:100dvh !important;
+  max-height:100dvh !important;
+  margin:0 !important;
+  padding:0 !important;
+  border:0 !important;
+  border-radius:0 !important;
+  overflow:hidden !important;
+  background:#fff !important;
+}
+.math-editor:fullscreen .math-editor-top,
+.math-editor:fullscreen .math-editor-foot,
+.math-editor:-webkit-full-screen .math-editor-top,
+.math-editor:-webkit-full-screen .math-editor-foot {
+  flex:0 0 auto !important;
+}
+.math-editor:fullscreen .math-applet,
+.math-editor:-webkit-full-screen .math-applet {
+  flex:1 1 0 !important;
+  display:block !important;
+  width:100% !important;
+  height:auto !important;
+  min-height:0 !important;
+  overflow:hidden !important;
+}
+.math-editor:fullscreen .math-applet iframe,
+.math-editor:-webkit-full-screen .math-applet iframe {
+  width:100% !important;
+  height:100% !important;
+  border:0 !important;
+}
+.math-editor:fullscreen .math-editor-top{padding:9px 16px}
+.math-editor:fullscreen .math-editor-foot{padding:7px 16px}

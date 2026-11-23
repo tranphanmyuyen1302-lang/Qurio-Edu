@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="vi">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gia sư AI | Qurio</title>
+<style>
+  body {
+    max-width: 42rem;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    font: 16px/1.6 system-ui;
+    color: #231b43;
+    background: #f7f5ff;
+  }
+  textarea {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    margin: .5rem 0;
+    padding: .75rem;
+    font: inherit;
+  }
+  #chat p { white-space: pre-wrap; overflow-wrap: anywhere; }
+  button { padding: .6rem 1rem; font: inherit; }
+</style>
+
+<a href="../../Trang Chủ/trang-chu.html">Về trang chủ</a>
+<h1>Gia sư AI</h1>
+<div id="chat" role="log" aria-label="Hỏi đáp"></div>
+<p id="status" role="status"></p>
+<a href="../../Đăng Nhập/dang-nhap.html">Đăng nhập Qurio</a>
+
+<form id="questionForm">
+  <label for="question">Câu hỏi của bạn</label>
+  <textarea id="question" maxlength="2000" rows="3" required></textarea>
+  <button id="send" type="submit">Gửi</button>
+</form>
+
+<script src="../../Chung/site-config.js"></script>
+<script src="../../Chung/chung.js"></script>
+<script src="../../Chung/qurio-connect.js"></script>
+<script>
+  const byId = id => document.getElementById(id);
+  const statusBox = byId('status');
+
+  function addTurn(question, answer) {
+    const turn = document.createElement('p');
+    turn.textContent = 'Bạn: ' + question + '\n\nQurio: ' + answer;
+    byId('chat').append(turn);
+  }
+
+  byId('send').disabled = true;
+  window.QurioAI.history().then(history => {
+    if (Array.isArray(history)) {
+      history.forEach(item => addTurn(item.question, item.answer));
+    }
+  }).catch(error => {
+    statusBox.textContent = error.message;
+  }).finally(() => {
+    byId('send').disabled = false;
+  });
+
+  byId('questionForm').onsubmit = async event => {
+    event.preventDefault();
+    const input = byId('question');
+    const button = byId('send');
+    const question = input.value.trim();
+    if (!question || button.disabled) return;
+
+    button.disabled = true;
+    statusBox.textContent = 'Đang trả lời…';
+    try {
+      addTurn(question, await window.QurioAI.ask('chat', { question }));
+      if (input.value.trim() === question) input.value = '';
+      statusBox.textContent = '';
+    } catch (error) {
+      statusBox.textContent = error.message;
+    } finally {
+      button.disabled = false;
+    }
+  };
+</script>
+
+<script src="qurio-ai-client.js"></script>
+
+<script>
+document.getElementById("qurioAiSend")
+  .addEventListener("click", async () => {
+    const question = document
+      .getElementById("qurioAiQuestion").value;
+
+    const result = document
+      .getElementById("qurioAiResult");
+
+    const button = document
+      .getElementById("qurioAiSend");
+
+    button.disabled = true;
+    result.textContent = "AI đang trả lời...";
+
+    try {
+      // Thay bằng cách lấy session token
+      // thực tế của hệ thống đăng nhập Qurio.
+      const token = sessionStorage.getItem("qurio_token");
+
+      const answer = await guiCauHoiAI(
+        question,
+        token
+      );
+
+      result.textContent = answer;
+    } catch (error) {
+      result.textContent = error.message;
+    } finally {
+      button.disabled = false;
+    }
+  });
+</script>
+
+<section class="qurio-ai-box">
+  <h2>Gia sư AI Qurio</h2>
+  <p>Đặt câu hỏi để được giải thích kiến thức.</p>
+
+  <textarea
+    id="qurioAiQuestion"
+    placeholder="Nhập câu hỏi của bạn..."
+    rows="4"
+  ></textarea>
+
+  <button id="qurioAiSend" type="button">
+    Gửi câu hỏi
+  </button>
+
+  <div id="qurioAiResult" role="status"></div>
+</section>
+
+</html>
