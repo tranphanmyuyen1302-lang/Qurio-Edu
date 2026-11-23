@@ -1,0 +1,269 @@
+<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Kế hoạch học tập | Qurio</title><link rel="icon" href="../../img/Qurio-transparent.png"><link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="../../Trang Chủ/trang-chu.css"><link rel="stylesheet" href="../../Chung/qurio-layout.css"><style>
+/* The actual Qurio homepage structure. No iframe, no fixed document height. */
+body{margin:0;overflow-x:hidden}
+.workspace{min-width:0}
+.page-content.planner-host{padding:0!important;max-width:none!important;width:100%;min-width:0}
+.planner-root{--purple:#7948e8;--violet:#9957f7;--dark:#24204c;--muted:#817b9d;--line:#e8e0f7;--bg:#faf8ff;--card:#fff;--shadow:0 8px 26px rgba(90,54,163,.065);width:100%;min-width:0;background:#f8f7ff;font-family:'Be Vietnam Pro',sans-serif;color:#24204c;font-size:13px}
+.planner-root .app.plan-only{display:block;min-height:0}
+.planner-root .app.plan-only>.main{margin:0;width:100%;min-width:0}
+.planner-root .content{width:100%;box-sizing:border-box}
+/* Native footer lives after workspace (as on Trang chủ, Diễn đàn), spans FULL viewport */
+body>.qurio-footer{width:100%;clear:both}
+@scope (.planner-root) {
+
+:root{--purple:#7948e8;--violet:#9957f7;--dark:#24204c;--muted:#817b9d;--line:#e8e0f7;--bg:#faf8ff;--card:#fff;--shadow:0 8px 26px rgba(90,54,163,.065)}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);font:13px 'Be Vietnam Pro',sans-serif;color:var(--dark)}button,input,select,textarea{font:inherit}button{cursor:pointer}button:disabled{opacity:.5;cursor:not-allowed}a{text-decoration:none;color:inherit}.app{display:flex;min-height:100vh}.sidebar{width:236px;position:sticky;top:0;height:100vh;flex-shrink:0;background:linear-gradient(180deg,#fff 65%,#f0eaff);border-right:1px solid var(--line);display:flex;flex-direction:column;padding:24px 13px;z-index:20}.brand{font-size:28px;font-weight:800;color:#713fe5;letter-spacing:-1px;padding:4px 12px 25px}.brand span{display:inline-grid;place-items:center;background:linear-gradient(135deg,#ad81f5,#6540ec);color:white;width:39px;height:39px;border-radius:13px;margin-right:7px}.nav{display:flex;flex-direction:column;gap:6px}.nav a{display:flex;align-items:center;gap:12px;padding:12px;border-radius:12px;color:#4d4771;font-weight:600}.nav a:hover{background:#f5f0ff}.nav a.active{background:linear-gradient(90deg,#7950e6,#9d61ef);color:white;box-shadow:0 6px 16px #7c4bea30}.nav i{width:19px;height:19px}.side-art{margin-top:auto;border-radius:22px;background:linear-gradient(160deg,#e9dfff,#f7edff);padding:18px 13px;color:#7843d6;text-align:center}.side-art .robot{font-size:50px}.side-art b{display:block;font-size:12px;line-height:1.8}.main{min-width:0;flex:1}.topbar{height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:0 25px;background:white;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10}.search{width:min(490px,55%);height:43px;border:1px solid #e5dcf6;background:#faf8ff;border-radius:15px;display:flex;align-items:center;gap:12px;padding:0 16px;color:#8c7cad}.search input{border:0;outline:0;background:transparent;width:100%;min-width:0;color:#34245e}.topright{display:flex;align-items:center;gap:18px}.topright .avatar{height:40px;width:40px;background:#ede3ff;color:#7648e6;border-radius:50%;display:grid;place-items:center;font-weight:800}.topright small{display:block;color:#9a91ad;margin-top:4px}.content{padding:20px 23px 32px;max-width:1900px;margin:auto}.hero{min-height:155px;border:1px solid #e7d8ff;border-radius:23px;background:radial-gradient(circle at 80% 30%,#c4a9ff 0,transparent 36%),linear-gradient(105deg,#f0e4ff,#f5eaff 57%,#ddd6ff);display:flex;align-items:center;justify-content:space-between;overflow:hidden;padding:25px 32px;position:relative}.hero:before,.hero:after{content:'';position:absolute;border-radius:50%;background:#ffffff4b;width:240px;height:240px;right:12%;top:-170px}.hero:after{width:130px;height:130px;right:-25px;top:60px}.hero h1{font-size:30px;margin:0 0 10px;color:#5123a5;letter-spacing:-1px}.hero p{max-width:630px;line-height:1.9;margin:0;color:#5e4a91}.hero-graphic{display:flex;align-items:center;gap:8px;font-size:66px;z-index:1;filter:drop-shadow(0 12px 8px #8a64c740)}.hero-graphic span:nth-child(2){font-size:48px}.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:14px 0}.stat{border:1px solid var(--line);background:white;border-radius:17px;min-height:95px;display:flex;align-items:center;gap:11px;padding:15px;box-shadow:var(--shadow)}.stat .ico{width:45px;height:45px;flex-shrink:0;border-radius:14px;background:#f1eaff;color:#7e48e9;display:grid;place-items:center}.stat .ico i{width:24px}.stat small{color:#817b9d;display:block;font-weight:600;line-height:1.6}.stat strong{font-size:20px;display:block;margin-top:5px}.columns{display:grid;grid-template-columns:minmax(0,1.92fr) minmax(320px,.98fr);gap:14px;align-items:start}.stack{display:flex;flex-direction:column;gap:13px;min-width:0}.panel{border:1px solid var(--line);background:white;border-radius:19px;box-shadow:var(--shadow);padding:16px}.panel-head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:13px;flex-wrap:wrap}.panel h2{font-size:16px;display:flex;align-items:center;gap:9px;margin:0;letter-spacing:-.3px}.panel h2 i{color:#8047ec;width:21px}.sub{font-size:11px;color:var(--muted);line-height:1.7}.btn{background:#f4edff;color:#6937d3;border:1px solid #e4d4ff;border-radius:12px;padding:10px 12px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;gap:7px}.btn i{width:15px;height:15px}.btn:hover{filter:brightness(.98)}.btn.primary{color:white;background:linear-gradient(110deg,#7847e7,#a05df4);border-color:transparent}.btn.sm{padding:7px 10px;font-size:11px}.controls{display:flex;gap:7px;align-items:center;flex-wrap:wrap}.weeklabel{font-size:11px;font-weight:700}.calendar-wrap{overflow:auto;border:1px solid #ece6f8;border-radius:13px}.calendar{width:100%;border-collapse:collapse;table-layout:fixed;min-width:670px}.calendar th{padding:10px 5px;background:#f5f1ff;color:#48316e;font-size:11px;border-right:1px solid #ece6f8}.calendar th:first-child{width:91px}.calendar th small{display:block;color:#988ab7;margin-top:5px;font-size:10px}.calendar td{border-top:1px solid #eee8f8;border-right:1px solid #eee8f8;height:60px;vertical-align:top;padding:4px}.calendar td:first-child{text-align:center;font-size:10px;color:#8279a3;font-weight:700;vertical-align:middle;background:#fcfaff}.event{width:100%;border:0;border-radius:8px;background:#eae2ff;color:#5431aa;text-align:left;padding:7px 6px;font-size:10px;font-weight:700;margin-bottom:4px;line-height:1.5;overflow-wrap:anywhere}.event.blue{background:#e2efff;color:#2e65bb}.event.pink{background:#ffe6f2;color:#ad3779}.event.green{background:#e0f7eb;color:#21865b}.event small{display:block;opacity:.72}.empty{padding:17px;text-align:center;color:#aba2be;font-size:11px}.task-table{width:100%;border-collapse:collapse}.task-table th{background:#f5f1ff;text-align:left;color:#61567f;font-size:10px;padding:10px}.task-table td{padding:10px;border-bottom:1px solid #f1edfa;font-size:11px}.task-table tr:last-child td{border:0}.task-table td:first-child{width:32px}.task-table td:last-child{width:44px}.task-table input[type=checkbox]{accent-color:#8a50ef;width:16px;height:16px}.pill{display:inline-block;border-radius:20px;background:#f0eaff;color:#6e40c9;font-size:10px;padding:5px 8px;font-weight:700;white-space:nowrap}.pill.high{background:#ffe4ec;color:#d13c65}.pill.medium{background:#fff0d7;color:#a66c11}.pill.low{background:#e3f8ec;color:#248b5d}.taskdone{text-decoration:line-through;color:#aaa}.tabs{display:flex;gap:5px;flex-wrap:wrap}.tabs button{border:1px solid #e9e2f8;background:#fff;color:#786b98;border-radius:15px;padding:7px 10px;font-size:10px}.tabs button.on{background:#8751e8;color:white;border-color:#8751e8}.goal{padding:13px;border-radius:13px;background:linear-gradient(110deg,#f1e9ff,#fbf9ff);margin:8px 0}.goal strong{font-size:12px}.goal small{display:block;color:#8877a5;margin-top:5px;line-height:1.7}.progress{height:7px;border-radius:9px;background:#e9dff7;margin-top:9px;overflow:hidden}.progress span{display:block;height:100%;background:linear-gradient(90deg,#7e4ce8,#b576f9);border-radius:9px}.ai{background:linear-gradient(155deg,#fff,#faf5ff)}.ai-banner{background:linear-gradient(105deg,#f3eaff,#f8f3ff);border-radius:13px;padding:14px;display:flex;align-items:center;gap:12px;margin-bottom:11px}.ai-face{width:51px;height:51px;flex-shrink:0;border-radius:15px;background:#e6d8ff;display:grid;place-items:center;font-size:30px}.ai-banner p{margin:0;color:#675788;font-size:11px;line-height:1.8}.suggestion{display:flex;gap:10px;align-items:start;border:1px solid #ece6f7;border-radius:12px;padding:12px;margin-top:8px;background:white}.suggestion i{width:18px;color:#8245e7;flex-shrink:0}.suggestion b{display:block;font-size:11px;margin-bottom:5px}.suggestion p{font-size:10px;color:#82779d;line-height:1.7;margin:0}.exam{display:flex;align-items:center;gap:10px;padding:12px 0;border-bottom:1px solid #eee8f7}.exam:last-child{border-bottom:0}.exam .ico{border-radius:12px;width:39px;height:39px;background:#f0e9ff;display:grid;place-items:center;color:#8046e8}.exam .meta{flex:1;min-width:0}.exam b{font-size:11px}.exam small{display:block;margin-top:6px;color:#9185a9;font-size:10px}.exam .days{font-size:10px;font-weight:700;background:#f7e9ff;color:#a343d6;border-radius:12px;padding:8px;white-space:nowrap}.compare{display:grid;grid-template-columns:1fr 1fr;gap:9px}.compare .item{background:#f9f7ff;border:1px solid #e8e0f7;border-radius:12px;padding:12px}.compare .item:last-child{border-color:#b994ff;background:#f5edff}.compare b{font-size:11px}.compare p{font-size:10px;line-height:1.8;color:#71648d}.compare .item strong{font-size:19px;color:#7543e9}.footer{background:#161d35;color:#c5cee8;margin-top:26px;padding:30px 28px 18px}.foot-grid{display:grid;grid-template-columns:1.25fr 1fr 1fr;gap:30px;max-width:1450px;margin:auto}.footer h3{color:white;margin:0 0 16px}.footer p{line-height:2;margin:7px 0;font-size:11px}.foot-bottom{border-top:1px solid #384058;margin:23px auto 0;padding-top:17px;max-width:1450px;display:flex;justify-content:space-between;gap:15px;font-size:10px}.modal{position:fixed;inset:0;background:#20123a75;display:none;align-items:center;justify-content:center;padding:15px;z-index:40}.modal.open{display:flex}.dialog{background:white;border-radius:20px;padding:22px;width:min(520px,100%);max-height:92vh;overflow:auto;box-shadow:0 25px 60px #28164d50}.dialog h2{margin:0 0 17px;font-size:19px}.fields{display:grid;grid-template-columns:1fr 1fr;gap:12px}.field{display:flex;flex-direction:column;gap:7px;font-size:11px;font-weight:700}.field.full{grid-column:1/-1}.field input,.field select,.field textarea{width:100%;padding:12px;border-radius:10px;border:1px solid #e5ddf4;outline:none;background:#fdfbff;color:#342552}.field textarea{resize:vertical;min-height:70px}.dialog-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:20px}.toast{position:fixed;bottom:25px;right:22px;background:#292042;color:white;border-radius:12px;padding:13px 18px;z-index:60;box-shadow:0 12px 30px #26174450;display:none;max-width:340px;line-height:1.6}.mobile-menu{display:none}.section-note{font-size:10px;color:#8d83a4;margin:8px 0 0}.link{color:#7e43e8;font-weight:700;font-size:11px;border:0;background:transparent}.hidden{display:none!important}@media(max-width:1260px){.sidebar{width:205px}.content{padding:17px}.columns{grid-template-columns:minmax(0,1.65fr) minmax(290px,1fr)}.stat{padding:10px}.hero h1{font-size:25px}}@media(max-width:1000px){.columns{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}.sidebar{width:185px}.hero-graphic{font-size:44px}.hero-graphic span:nth-child(2){font-size:35px}}@media(max-width:680px){.sidebar{display:none;position:fixed;left:0;top:0}.sidebar.show{display:flex}.mobile-menu{display:inline-flex}.topbar{padding:0 13px;height:65px}.search{width:100%}.topright .usertext{display:none}.content{padding:12px}.hero{padding:20px}.hero h1{font-size:22px}.hero-graphic{display:none}.stats{gap:7px}.stat{min-height:85px}.stat strong{font-size:16px}.stat .ico{width:35px;height:35px}.foot-grid{grid-template-columns:1fr}.foot-bottom{flex-direction:column}.fields{grid-template-columns:1fr}.field.full{grid-column:auto}.compare{grid-template-columns:1fr}}
+
+/* Content-only mode: shared shell lives in parent page */
+html,body{overflow-x:hidden}body{background:transparent}.app{display:block;min-height:0}.app>.main{margin:0;width:100%;min-width:0}.content{max-width:none;width:100%;padding:22px 22px 38px}.modal{z-index:1000}
+
+
+/* QURIO PLANNER PREMIUM — polished content, isolated from the shared shell */
+:root{--purple:#7445ee;--violet:#915cff;--dark:#211b4b;--muted:#77708e;--line:#e9e3f6;--bg:#f8f7ff}
+html,body{width:100%;margin:0;overflow-x:hidden}
+body{font-family:'Be Vietnam Pro',sans-serif;color:var(--dark)}
+.app.planner-app{display:block;min-height:0;width:100%;background:transparent}
+.planner-app .main{display:block!important;margin:0!important;width:100%!important;max-width:none!important;min-width:0!important}
+.planner-app .content{padding:30px clamp(18px,2.8vw,48px) 52px!important;max-width:1560px!important;margin:0 auto!important;width:100%!important}
+.hero{min-height:224px!important;border-radius:27px!important;position:relative;overflow:hidden;
+background:linear-gradient(115deg,#eee6ff 0%,#e8e5ff 39%,#c8d7ff 72%,#8c73ff 100%)!important;
+border:1px solid #e5dbff!important;box-shadow:0 14px 40px rgba(102,79,193,.11)!important;
+padding:40px 44px!important;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.hero:before{content:"";position:absolute;right:12%;top:-125px;width:380px;height:380px;border:65px solid rgba(255,255,255,.21);border-radius:50%;pointer-events:none}
+.hero:after{content:"✦";position:absolute;right:24%;top:18px;font-size:26px;color:#fff;opacity:.85}
+.hero h1{font-size:clamp(27px,3vw,43px)!important;line-height:1.25!important;letter-spacing:-1.3px;color:#251b65!important;margin:0 0 12px!important}
+.hero p{color:#5e5388!important;max-width:620px;line-height:1.8!important;font-size:14px!important}
+.hero-graphic{flex-shrink:0;filter:drop-shadow(0 16px 20px rgba(72,44,156,.17));transform:scale(1.1)}
+.stats{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:17px!important;margin:23px 0 24px!important}
+.stat{min-width:0!important;min-height:112px!important;background:white!important;border:1px solid #eee8fa!important;border-radius:20px!important;box-shadow:0 7px 25px rgba(56,39,115,.045)!important;padding:21px!important;transition:transform .2s,box-shadow .2s}
+.stat:hover,.panel:hover{box-shadow:0 12px 34px rgba(76,48,142,.085)!important}
+.stat:hover{transform:translateY(-2px)}
+.stat strong{font-size:28px!important;letter-spacing:-.6px;color:#2c215d!important}
+.stat .ico{border-radius:15px!important;min-width:50px!important;min-height:50px!important}
+.columns{display:grid!important;grid-template-columns:minmax(0,1.75fr) minmax(300px,.87fr)!important;gap:21px!important;align-items:start!important}
+.stack{display:flex!important;flex-direction:column!important;gap:21px!important;min-width:0!important}
+.panel{background:#fff!important;border:1px solid #ebe5f9!important;border-radius:23px!important;box-shadow:0 8px 28px rgba(57,39,112,.05)!important;padding:24px!important;min-width:0!important}
+.panel-head{gap:12px!important;align-items:center!important;margin-bottom:18px!important}
+.panel h2,.panel-head h2{font-size:19px!important;letter-spacing:-.5px!important;color:#251d57!important}
+.panel .section-note{color:#968baa!important;font-size:12px!important;line-height:1.7}
+.btn{border-radius:12px!important;min-height:39px!important;padding:10px 15px!important;font-family:inherit!important;font-weight:700!important;transition:filter .2s,transform .2s!important}
+.btn:hover{filter:brightness(1.04);transform:translateY(-1px)}
+.btn.primary{background:linear-gradient(120deg,#8353f7,#6439e9)!important;color:white!important;box-shadow:0 6px 14px rgba(110,65,227,.17)!important}
+.calendar-wrap{border-radius:16px!important;border:1px solid #ece7f8!important;overflow:auto!important;background:#fff}
+.calendar{min-width:610px!important}
+.weeklabel{font-weight:700!important;color:#6553a7!important}
+.tabs{gap:6px!important;flex-wrap:wrap!important}
+.tabs button{border-radius:11px!important}
+.task-table{overflow:auto!important}
+.task-table table{min-width:540px}
+.task-table th{background:#f6f2ff!important;color:#7464a6!important;font-size:11px!important}
+.task-table td{border-color:#f1ecfa!important}
+.ai{background:linear-gradient(155deg,#f5efff,#f9f5ff 58%,#eff1ff)!important;border-color:#e6d9ff!important}
+.ai-banner{background:linear-gradient(125deg,#7140ed,#9b67ff)!important;color:white!important;border-radius:18px!important;box-shadow:0 10px 22px rgba(99,58,199,.18)!important}
+.ai-banner *{color:inherit}
+.compare{gap:10px!important}
+.compare .item{border-radius:14px!important}
+.modal{z-index:9999!important}
+.dialog{border-radius:23px!important;box-shadow:0 28px 90px rgba(30,19,79,.23)!important}
+.fields input,.fields select,.fields textarea{border-radius:11px!important;border:1px solid #e5dcf4!important;font-family:inherit!important}
+.fields input:focus,.fields select:focus,.fields textarea:focus{outline:2px solid #d3bfff!important;outline-offset:1px}
+@media(max-width:1180px){.columns{grid-template-columns:minmax(0,1.45fr) minmax(270px,1fr)!important}.stats{grid-template-columns:repeat(2,minmax(0,1fr))!important}.hero{padding:30px!important}}
+@media(max-width:850px){.columns{grid-template-columns:1fr!important}.hero{min-height:180px!important}.hero-graphic{opacity:.45;position:absolute;right:15px;bottom:0;pointer-events:none}.hero>div:first-child{z-index:1;position:relative}.panel{padding:19px!important}}
+@media(max-width:540px){.planner-app .content{padding:14px 12px 35px!important}.hero{padding:24px!important;border-radius:19px!important}.hero h1{font-size:26px!important}.hero p{font-size:12px!important}.stats{gap:9px!important}.stat{padding:13px!important;min-height:96px!important;border-radius:15px!important}.stat strong{font-size:23px!important}.stat .ico{min-width:39px!important;min-height:39px!important}.panel{border-radius:18px!important}.panel-head{flex-wrap:wrap}}
+
+
+/* Qurio Deep Lavender premium refinements */
+:root{--purple:#6533e6;--violet:#8149f4;--dark:#1b1644;--muted:#665e82;--line:#ddd4f3;--bg:#f7f5ff;--shadow:0 9px 30px rgba(62,36,126,.085)}
+body{color:#211946;background:#f8f6ff}
+.planner-app .content{background:linear-gradient(180deg,#faf8ff 0%,#f6f4ff 100%)}
+.hero{background:linear-gradient(113deg,#4822bb 0%,#6738de 39%,#8159f1 72%,#5b7ef1 100%)!important;border:1px solid #7950ed!important;box-shadow:0 16px 40px rgba(86,52,194,.23)!important}
+.hero:before{border-color:rgba(255,255,255,.13)!important}
+.hero:after{color:#ffe6a0!important;opacity:1!important}
+.hero h1{color:#fff!important;text-shadow:0 2px 10px rgba(31,14,91,.15)!important}
+.hero p{color:#f1eaff!important;font-weight:500!important}
+.hero-graphic{filter:drop-shadow(0 12px 22px rgba(29,13,106,.32))!important}
+.stat{border-color:#e2d8fa!important;box-shadow:0 8px 25px rgba(61,38,132,.08)!important;border-top:3px solid #8b5cf6!important}
+.stat:nth-child(2){border-top-color:#338cf1!important}.stat:nth-child(3){border-top-color:#16aa8c!important}.stat:nth-child(4){border-top-color:#ef9e2f!important}
+.stat .ico{background:#e9ddff!important;color:#6533e6!important}
+.stat:nth-child(2) .ico{background:#e0efff!important;color:#216dd5!important}
+.stat:nth-child(3) .ico{background:#dff8ee!important;color:#078d6e!important}
+.stat:nth-child(4) .ico{background:#fff0d9!important;color:#c88013!important}
+.stat strong{color:#23164e!important;font-weight:800!important}
+.stat small{color:#635a83!important}
+.panel{border-color:#e4dcf5!important;box-shadow:0 9px 29px rgba(62,36,126,.07)!important}
+.panel h2,.panel-head h2{color:#24184d!important;font-weight:800!important}
+.panel h2 i{color:#7135eb!important}
+.btn{background:#eee5ff!important;border-color:#d8c7ff!important;color:#5d2fce!important}
+.btn.primary{background:linear-gradient(110deg,#7135ed,#8b4cf6)!important;border-color:transparent!important;color:#fff!important;box-shadow:0 7px 19px rgba(103,48,220,.24)!important}
+.tabs button.on{background:#7135e8!important;border-color:#7135e8!important;color:white!important}
+.calendar th,.task-table th{background:#eee8ff!important;color:#4e2c9c!important}
+.calendar td:first-child{background:#f5f0ff!important;color:#574187!important}
+.event{background:#e5d8ff!important;color:#5023a9!important}
+.goal{background:linear-gradient(110deg,#eae0ff,#f7f1ff)!important;border:1px solid #e1d4fa!important}
+.progress span{background:linear-gradient(90deg,#6931e5,#995aff)!important}
+.ai{background:linear-gradient(145deg,#f1eaff,#faf7ff 65%,#eceeff)!important;border-color:#d9c8fc!important}
+.ai-banner{background:linear-gradient(115deg,#6130d6,#8b4ef3)!important;color:#fff!important}
+.ai-banner p{color:#f6efff!important}
+.ai-face{background:rgba(255,255,255,.18)!important;color:white!important}
+.suggestion{border-color:#ded1f6!important;background:rgba(255,255,255,.92)!important}
+.suggestion b{color:#342063!important}.suggestion p{color:#65577e!important}
+.compare .item:last-child{background:#ede3ff!important;border-color:#ad88ff!important}
+.compare .item strong{color:#5c2cce!important}
+.exam .days{background:#e9dbff!important;color:#6530ca!important}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:#8e5df1!important}
+
+
+}
+
+/* Footer chính thức lấy trực tiếp từ Trang Chủ của file người dùng */
+body { margin:0; overflow-x:hidden; }
+body > .qurio-footer {
+  position:relative!important; z-index:1000!important;
+  width:100%!important; max-width:none!important;
+  left:auto!important; right:auto!important;
+  margin:0!important; transform:none!important; clear:both;
+}
+body > .workspace { min-height:0!important; }
+body .planner-root .content { padding-bottom:24px!important; }
+
+/* Kế hoạch: không dùng layout app/main lồng nhau để tránh chừa 228–300px bên trái */
+body .workspace{margin-left:228px!important;width:calc(100% - 228px)!important;min-width:0!important}
+body .workspace .page-content.planner-host{width:100%!important;max-width:none!important;padding:0!important;margin:0!important}
+body .planner-root,body .planner-root .planner-app,body .planner-root .planner-main{
+ display:block!important;position:relative!important;width:100%!important;max-width:none!important;
+ min-width:0!important;margin:0!important;padding:0!important;min-height:0!important;
+}
+body .planner-root .planner-content{
+ display:block!important;width:100%!important;max-width:none!important;min-width:0!important;
+ margin:0!important;padding:28px clamp(16px,2.5vw,40px) 32px!important;
+ box-sizing:border-box!important;
+}
+body .qurio-footer{position:relative!important;z-index:70!important;width:100%!important;margin:0!important;clear:both}
+body .sidebar{bottom:auto!important;height:var(--qurio-sidebar-height,100dvh)!important;max-height:100dvh!important;overflow-y:auto}
+@media(max-width:900px){body .workspace{margin-left:0!important;width:100%!important}}
+
+/* Đồng bộ đúng DOM Trang chủ: .app > aside.sidebar + .main, footer là sibling của .app */
+body{margin:0!important;display:block!important;overflow-x:hidden}
+body>.app.qurio-page-shell{display:grid!important;grid-template-columns:228px minmax(0,1fr)!important;
+ width:100%!important;min-height:0!important;align-items:stretch!important;margin:0!important}
+body>.app.qurio-page-shell>.sidebar{grid-column:1!important;position:sticky!important;top:0!important;
+ height:100dvh!important;max-height:100dvh!important;align-self:start!important;
+ z-index:10!important;overflow-y:auto!important;transform:none!important}
+body>.app.qurio-page-shell>.workspace{grid-column:2!important;margin:0!important;
+ width:100%!important;min-width:0!important;max-width:none!important;display:block!important}
+body>.qurio-footer{position:relative!important;z-index:20!important;width:100%!important;
+ margin:0!important;left:auto!important;right:auto!important;transform:none!important;clear:both!important}
+body>.app.qurio-page-shell .planner-root{width:100%!important}
+@media(max-width:1100px){
+ body>.app.qurio-page-shell{display:block!important}
+ body>.app.qurio-page-shell>.sidebar{position:fixed!important;top:0!important;left:0!important;
+ transform:translateX(-110%)!important;z-index:80!important}
+ body>.app.qurio-page-shell>.sidebar.is-open{transform:translateX(0)!important}
+ body>.app.qurio-page-shell>.workspace{width:100%!important;margin:0!important}
+}
+</style><link rel="stylesheet" href="../../Chung/qurio-accent.css"><link rel="stylesheet" href="../../Chung/qurio-global.css">
+<script defer src="../../Chung/qurio-global.js"></script>
+</head><body><a class="skip-link" href="#mainContent">Đến nội dung chính</a>
+<svg aria-hidden="true" class="svg-defs" xmlns="http://www.w3.org/2000/svg">
+<symbol id="i-home" viewbox="0 0 24 24">
+<path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1Z"></path>
+</symbol>
+<symbol id="i-book" viewbox="0 0 24 24">
+<path d="M12 5v16M3 4c4-1 7 0 9 2 2-2 5-3 9-2v15c-4-1-7 0-9 2-2-2-5-3-9-2Z"></path>
+</symbol>
+<symbol id="i-route" viewbox="0 0 24 24">
+<circle cx="6" cy="5" r="2"></circle>
+<circle cx="18" cy="19" r="2"></circle>
+<path d="M8 5h7a4 4 0 0 1 0 8H9a3 3 0 0 0 0 6h7"></path>
+</symbol>
+<symbol id="i-chart" viewbox="0 0 24 24">
+<path d="M4 3v17h17M9 16v-5m5 5V6m5 10V9"></path>
+</symbol>
+<symbol id="i-teacher" viewbox="0 0 24 24">
+<rect height="12" rx="2" width="14" x="7" y="3"></rect>
+<path d="M12 21h7m-3-6v6M3 20v-5a3 3 0 0 1 3-3h3"></path>
+<circle cx="4.5" cy="7" r="2.5"></circle>
+</symbol>
+<symbol id="i-chat" viewbox="0 0 24 24">
+<path d="M21 11a8 8 0 0 1-8 8H8l-5 3V6a3 3 0 0 1 3-3h7a8 8 0 0 1 8 8Z"></path>
+<path d="M7 8h9M7 12h6"></path>
+</symbol>
+<symbol id="i-spark" viewbox="0 0 24 24">
+<path d="m12 3 2.5 6.5L21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5Z"></path>
+</symbol>
+<symbol id="i-calendar" viewbox="0 0 24 24">
+<rect height="16" rx="3" width="18" x="3" y="5"></rect>
+<path d="M7 3v4m10-4v4M3 10h18M7 14h2m4 0h2m-8 3h2"></path>
+</symbol>
+<symbol id="i-trophy" viewbox="0 0 24 24">
+<path d="M8 3h8v7a4 4 0 0 1-8 0Zm8 2h4v3a4 4 0 0 1-4 4M8 5H4v3a4 4 0 0 0 4 4m4 2v6m-5 1h10"></path>
+</symbol>
+<symbol id="i-lab" viewbox="0 0 24 24">
+<path d="M9 3h6m-5 0v6L4 19a1 1 0 0 0 1 2h14a1 1 0 0 0 1-2L14 9V3M7 15h10"></path>
+</symbol>
+<symbol id="i-exit" viewbox="0 0 24 24">
+<path d="M10 4H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h5m5-13 5 5-5 5M8 12h12"></path>
+</symbol>
+<symbol id="i-search" viewbox="0 0 24 24">
+<circle cx="10.5" cy="10.5" r="6.5"></circle>
+<path d="m16 16 5 5"></path>
+</symbol>
+<symbol id="i-bell" viewbox="0 0 24 24">
+<path d="M18 8a6 6 0 0 0-12 0c0 8-3 8-3 10h18c0-2-3-2-3-10m-11 14h4"></path>
+</symbol>
+<symbol id="i-chevron" viewbox="0 0 24 24">
+<path d="m8 10 4 4 4-4"></path>
+</symbol>
+<symbol id="i-arrow" viewbox="0 0 24 24">
+<path d="M4 12h15m-6-6 6 6-6 6"></path>
+</symbol>
+<symbol id="i-menu" viewbox="0 0 24 24">
+<path d="M4 6h16M4 12h16M4 18h16"></path>
+</symbol>
+<symbol id="i-check" viewbox="0 0 24 24">
+<path d="m5 12 4 4L19 6"></path>
+</symbol>
+<symbol id="i-target" viewbox="0 0 24 24">
+<circle cx="12" cy="12" r="9"></circle>
+<circle cx="12" cy="12" r="5"></circle>
+<circle cx="12" cy="12" r="1"></circle>
+</symbol>
+<symbol id="i-clock" viewbox="0 0 24 24">
+<circle cx="12" cy="12" r="9"></circle>
+<path d="M12 7v5l3 2"></path>
+</symbol>
+<symbol id="i-plus" viewbox="0 0 24 24">
+<path d="M12 4v16M4 12h16"></path>
+</symbol>
+<symbol id="i-math" viewbox="0 0 24 24">
+<path d="M4 7h7M7.5 3.5v7M15 5l5 5m0-5-5 5M4 16h7m4-2h6m-6 4h6"></path>
+</symbol>
+<symbol id="i-history" viewbox="0 0 24 24">
+<path d="m3 8 9-5 9 5M4 9h16M5 20h14M4 22h16M6 10v8m6-8v8m6-8v8"></path>
+</symbol>
+<symbol id="i-globe" viewbox="0 0 24 24">
+<circle cx="12" cy="12" r="9"></circle>
+<path d="M3 12h18M12 3c5 5 5 13 0 18-5-5-5-13 0-18Z"></path>
+</symbol>
+<symbol id="i-code" viewbox="0 0 24 24">
+<path d="m8 6-6 6 6 6m8-12 6 6-6 6m-3-14-2 16"></path>
+</symbol>
+<symbol id="i-close" viewbox="0 0 24 24">
+<path d="m6 6 12 12M6 18 18 6"></path>
+</symbol>
+</svg>
+<button aria-label="Đóng menu" class="sidebar-backdrop" hidden id="sidebarBackdrop"></button>
+<div class="app qurio-page-shell"><div id="qurio-sidebar-mount"></div>
+<div class="workspace" id="workspace"><div id="qurio-header-mount"></div><main class="page-content planner-host" id="mainContent"><div class="planner-root">
+<div class="planner-app"><div class="planner-main"><div class="planner-content"><section class="hero"><div><h1>Kế hoạch học tập ✨</h1><p>Lên lịch học, quản lý mục tiêu và theo dõi tiến độ của bạn.</p></div><div class="hero-graphic"><span>🗓️</span><span>🤖</span></div></section><section class="stats"><div class="stat"><div class="ico"><i data-lucide="clipboard-list"></i></div><div><small>Nhiệm vụ hôm nay</small><strong id="statToday">0</strong></div></div><div class="stat"><div class="ico"><i data-lucide="clock-4"></i></div><div><small>Giờ học đã lên lịch / tuần</small><strong id="statHours">0 giờ</strong></div></div><div class="stat"><div class="ico"><i data-lucide="circle-check-big"></i></div><div><small>Mức hoàn thành</small><strong id="statRate">0%</strong></div></div><div class="stat"><div class="ico"><i data-lucide="flag"></i></div><div><small>Mục tiêu đang thực hiện</small><strong id="statGoals">0</strong></div></div></section><div class="columns"><div class="stack"><section class="panel"><div class="panel-head"><h2><i data-lucide="calendar-days"></i>Lịch học tuần này</h2><div class="controls"><button class="btn sm" id="prevWeek" title="Tuần trước"><i data-lucide="chevron-left"></i></button><span class="weeklabel" id="weekTitle"></span><button class="btn sm" id="nextWeek" title="Tuần sau"><i data-lucide="chevron-right"></i></button><button class="btn sm primary" data-open="schedule"><i data-lucide="plus"></i>Thêm lịch học</button></div></div><div class="calendar-wrap"><table class="calendar" id="calendar"></table></div></section><section class="panel"><div class="panel-head"><h2><i data-lucide="list-todo"></i>Danh sách nhiệm vụ</h2><div class="controls"><div class="tabs" id="taskTabs"><button class="on" data-filter="all">Tất cả</button><button data-filter="todo">Chưa hoàn thành</button><button data-filter="done">Đã hoàn thành</button></div><button class="btn sm primary" data-open="task"><i data-lucide="plus"></i>Thêm nhiệm vụ</button></div></div><div style="overflow-x:auto"><table class="task-table"><thead><tr><th>✓</th><th>Nhiệm vụ</th><th>Môn học</th><th>Hạn chót</th><th>Ưu tiên</th><th></th></tr></thead><tbody id="taskRows"></tbody></table></div></section><section class="panel"><div class="panel-head"><h2><i data-lucide="target"></i>Mục tiêu học tập</h2><button class="btn sm primary" data-open="goal"><i data-lucide="plus"></i>Thêm mục tiêu</button></div><div id="goals"></div></section></div><div class="stack"><section class="panel ai"><div class="panel-head"><h2><i data-lucide="sparkles"></i>Qurio AI gợi ý</h2><span class="pill">Tối ưu kế hoạch</span></div><div class="ai-banner"><div class="ai-face">🤖</div><p>Phân tích lịch học, nhiệm vụ và thời hạn để đề xuất điều chỉnh phù hợp.</p></div><div id="aiSuggestions"></div><button class="btn primary" id="analyze" style="width:100%;margin-top:12px"><i data-lucide="sparkles"></i>Phân tích kế hoạch của tôi</button></section><section class="panel"><div class="panel-head"><h2><i data-lucide="calendar-clock"></i>Kỳ thi và hạn chót</h2><button class="btn sm primary" data-open="exam"><i data-lucide="plus"></i>Thêm</button></div><div id="exams"></div></section><section class="panel"><div class="panel-head"><h2><i data-lucide="git-compare-arrows"></i>So sánh kế hoạch</h2></div><div class="compare"><div class="item"><b>📄 Kế hoạch hiện tại</b><p>Số buổi học trong tuần</p><strong id="compareCurrent">0</strong><p id="compareCurrentDesc"></p></div><div class="item"><b>✨ Phương án đề xuất</b><p>Số lịch trùng được phát hiện</p><strong id="compareSuggested">0</strong><p id="compareSuggestedDesc"></p></div></div></section></div></div></div></div></div>
+<div class="modal" id="modal"><div class="dialog"><h2 id="modalTitle">Thêm</h2><form id="form"><div class="fields" id="fields"></div><div class="dialog-actions"><button class="btn" id="cancel" type="button">Hủy</button><button class="btn hidden" id="deleteItem" style="color:#cf385b" type="button">Xóa</button><button class="btn primary" type="submit">Lưu thông tin</button></div></form></div></div>
+<div class="toast" id="toast"></div>
+</div></main></div></div>
+<div id="qurio-footer-mount"></div>
+<script src="../../Chung/qurio-layout.js"></script><script>window.QurioLayout.mountHome();document.querySelectorAll('[data-nav]').forEach(a=>{const active=a.dataset.nav==='planner';a.classList.toggle('active',active);if(active)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')});</script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<script>
+const KEY='qurio_study_plan_v3';let db;try{db=JSON.parse(localStorage.getItem(KEY))||{schedules:[],tasks:[],goals:[],exams:[]}}catch{db={schedules:[],tasks:[],goals:[],exams:[]}};for(const k of ['schedules','tasks','goals','exams'])if(!Array.isArray(db[k]))db[k]=[];const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)],save=()=>{localStorage.setItem(KEY,JSON.stringify(db));render()},uid=()=>crypto.randomUUID?crypto.randomUUID():String(Date.now()+Math.random()),pad=n=>String(n).padStart(2,'0'),iso=d=>`${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`,dateFrom=s=>new Date(s+'T12:00:00'),fmt=s=>s?dateFrom(s).toLocaleDateString('vi-VN'):'—',today=()=>iso(new Date()),esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));let week=new Date();function monday(d){let x=new Date(d);x.setHours(12,0,0,0);x.setDate(x.getDate()-((x.getDay()+6)%7));return x}week=monday(week);let filter='all',currentType='',currentId=null,analysis=false;const hours=['07:00–10:00','10:00–13:00','13:00–16:00','16:00–19:00','19:00–22:00'];function minutes(s){let [h,m]=s.split(':').map(Number);return h*60+m}function getScheduleDate(s,d){return s.repeat?s.day===((d.getDay()+6)%7):s.date===iso(d)}function renderCalendar(){let days=Array.from({length:7},(_,i)=>{let d=new Date(week);d.setDate(d.getDate()+i);return d});$('#weekTitle').textContent=`${fmt(iso(days[0]))} – ${fmt(iso(days[6]))}`;let out='<thead><tr><th>Giờ học</th>'+days.map((d,i)=>`<th>${['Thứ 2','Thứ 3','Thứ 4','Thứ 5','Thứ 6','Thứ 7','Chủ nhật'][i]}<small>${pad(d.getDate())}/${pad(d.getMonth()+1)}</small></th>`).join('')+'</tr></thead><tbody>';for(let [idx,label] of hours.entries()){let start=idx===0?420:idx===1?600:idx===2?780:idx===3?960:1140,end=idx===0?600:idx===1?780:idx===2?960:idx===3?1140:1320;out+=`<tr><td>${label}</td>`+days.map(d=>{let list=db.schedules.filter(s=>getScheduleDate(s,d)&&minutes(s.start)>=start&&minutes(s.start)<end);return `<td>${list.map(s=>`<button class="event ${['','blue','pink','green'][Math.abs((s.subject||'').length)%4]}" data-edit="schedule" data-id="${s.id}">${esc(s.subject||'Học tập')}<small>${esc(s.start)}–${esc(s.end)}</small></button>`).join('')}</td>`}).join('')+'</tr>'}$('#calendar').innerHTML=out+'</tbody>'}function renderTasks(){let list=db.tasks.filter(t=>filter==='all'||(filter==='done'?t.done:!t.done));let q=($('#globalSearch')?.value||'').trim().toLowerCase();if(q)list=list.filter(t=>(t.name+' '+t.subject).toLowerCase().includes(q));list.sort((a,b)=>(a.done-b.done)||(a.due||'9999').localeCompare(b.due||'9999'));$('#taskRows').innerHTML=list.length?list.map(t=>`<tr><td><input type="checkbox" data-check="${t.id}" ${t.done?'checked':''} aria-label="Hoàn thành nhiệm vụ"></td><td class="${t.done?'taskdone':''}">${esc(t.name)}</td><td><span class="pill">${esc(t.subject||'Khác')}</span></td><td>${fmt(t.due)}</td><td><span class="pill ${t.priority}">${({high:'Cao',medium:'Trung bình',low:'Thấp'})[t.priority]||'Trung bình'}</span></td><td><button class="link" data-edit="task" data-id="${t.id}" title="Sửa">•••</button></td></tr>`).join(''):'<tr><td colspan="6" class="empty"></td></tr>'}function renderGoals(){$('#goals').innerHTML=db.goals.length?db.goals.map(g=>`<div class="goal"><div style="display:flex;justify-content:space-between;gap:8px"><strong>⚑ ${esc(g.name)}</strong><button class="link" data-edit="goal" data-id="${g.id}">Chỉnh sửa</button></div><small>${esc(g.note||'')} ${g.due?' · Hạn: '+fmt(g.due):''}</small><div class="progress"><span style="width:${Math.min(100,Math.max(0,+g.progress||0))}%"></span></div><small>${Math.min(100,Math.max(0,+g.progress||0))}% hoàn thành</small></div>`).join(''):'<div class="empty"></div>'}function renderExams(){let list=[...db.exams].sort((a,b)=>a.date.localeCompare(b.date));$('#exams').innerHTML=list.length?list.map(e=>{let days=Math.ceil((dateFrom(e.date)-dateFrom(today()))/86400000);return `<div class="exam"><div class="ico"><i data-lucide="calendar-check"></i></div><div class="meta"><b>${esc(e.name)}</b><small>${fmt(e.date)} ${e.subject?'· '+esc(e.subject):''}</small></div><span class="days">${days<0?'Đã qua':days===0?'Hôm nay':'Còn '+days+' ngày'}</span><button class="link" data-edit="exam" data-id="${e.id}">•••</button></div>`}).join(''):'<div class="empty"></div>'}function overlaps(){let found=[];for(let i=0;i<db.schedules.length;i++)for(let j=i+1;j<db.schedules.length;j++){let a=db.schedules[i],b=db.schedules[j];let same=a.repeat&&b.repeat?a.day===b.day:a.repeat&&!b.repeat?a.day===((dateFrom(b.date).getDay()+6)%7):b.repeat&&!a.repeat?b.day===((dateFrom(a.date).getDay()+6)%7):a.date===b.date;if(same&&minutes(a.start)<minutes(b.end)&&minutes(b.start)<minutes(a.end))found.push([a,b])}return found}function analyze(){analysis=true;renderAI()}function renderAI(){let box=$('#aiSuggestions');if(!analysis){box.innerHTML='<div class="suggestion"><i data-lucide="info"></i><div><b>Phân tích kế hoạch</b><p></p></div></div>';$('#compareSuggestedDesc').textContent='';$('#compareSuggested').textContent='—';return}let notes=[],conflicts=overlaps();if(conflicts.length)notes.push(['alert-triangle','Phát hiện lịch học trùng',`${conflicts.length} cặp buổi học bị trùng thời gian. Hãy mở lịch học để điều chỉnh.`]);let late=db.tasks.filter(t=>!t.done&&t.due&&t.due<today());if(late.length)notes.push(['clock','Nhiệm vụ quá hạn',`${late.length} nhiệm vụ chưa hoàn thành và đã quá hạn. Hãy ưu tiên xem lại hạn chót.`]);let upcoming=db.exams.filter(e=>{let diff=(dateFrom(e.date)-dateFrom(today()))/86400000;return diff>=0&&diff<=7});if(upcoming.length)notes.push(['calendar-clock','Kỳ thi sắp đến',`${upcoming.length} kỳ thi hoặc hạn chót trong 7 ngày tới. Nên dành thời gian chuẩn bị.`]);let noTime=db.tasks.filter(t=>!t.done).length>db.schedules.length*3&&db.tasks.length>3;if(noTime)notes.push(['list-checks','Kiểm tra khối lượng nhiệm vụ','Số nhiệm vụ đang chờ khá nhiều so với các buổi học đã lên lịch. Hãy phân bổ lại theo mức ưu tiên.']);if(!notes.length)notes.push(['check-circle','Chưa phát hiện xung đột','Các dữ liệu hiện có chưa cho thấy lịch trùng hoặc hạn chót khẩn cấp. Đây chưa phải đánh giá hiệu quả học tập.']);box.innerHTML=notes.map(([icon,title,desc])=>`<div class="suggestion"><i data-lucide="${icon}"></i><div><b>${title}</b><p>${desc}</p></div></div>`).join('');$('#compareSuggested').textContent=conflicts.length;$('#compareSuggestedDesc').textContent=conflicts.length?'Nên xem xét điều chỉnh các buổi trùng':'Không phát hiện lịch trùng'}function render(){let now=today();$('#statToday').textContent=db.tasks.filter(t=>t.due===now&&!t.done).length;let total=db.tasks.length,done=db.tasks.filter(t=>t.done).length;$('#statRate').textContent=total?Math.round(done/total*100)+'%':'0%';$('#statGoals').textContent=db.goals.filter(g=>(+g.progress||0)<100).length;let weekMinutes=0;for(let i=0;i<7;i++){let d=new Date(week);d.setDate(d.getDate()+i);for(let s of db.schedules)if(getScheduleDate(s,d))weekMinutes+=Math.max(0,minutes(s.end)-minutes(s.start))}$('#statHours').textContent=(Math.round(weekMinutes/60*10)/10).toLocaleString('vi-VN')+' giờ';$('#compareCurrent').textContent=db.schedules.length;$('#compareCurrentDesc').textContent='';renderCalendar();renderTasks();renderGoals();renderExams();renderAI();if(window.lucide)lucide.createIcons()};const schemas={task:{title:'nhiệm vụ',fields:[['name','Tên nhiệm vụ','text',true],['subject','Môn học','text'],['due','Hạn chót','date'],['priority','Mức ưu tiên','select:high|Cao,medium|Trung bình,low|Thấp'],['note','Ghi chú','textarea']]},schedule:{title:'lịch học',fields:[['subject','Môn học / hoạt động','text',true],['start','Bắt đầu','time',true],['end','Kết thúc','time',true],['repeat','Lặp lại hằng tuần','select:no|Không,yes|Có'],['date','Ngày học (nếu không lặp)','date'],['day','Thứ trong tuần (nếu lặp)','select:0|Thứ 2,1|Thứ 3,2|Thứ 4,3|Thứ 5,4|Thứ 6,5|Thứ 7,6|Chủ nhật']]},goal:{title:'mục tiêu',fields:[['name','Tên mục tiêu','text',true],['note','Mô tả','textarea'],['due','Hạn chót','date'],['progress','Tiến độ (%)','number']]},exam:{title:'kỳ thi / hạn chót',fields:[['name','Tên kỳ thi hoặc hạn chót','text',true],['subject','Môn học','text'],['date','Ngày diễn ra','date',true]]}};const collection={task:'tasks',schedule:'schedules',goal:'goals',exam:'exams'};function openModal(type,id=null){currentType=type;currentId=id;let data=id?db[collection[type]].find(x=>x.id===id):null;$('#modalTitle').textContent=(id?'Chỉnh sửa ':'Thêm ')+schemas[type].title;$('#fields').innerHTML=schemas[type].fields.map(([name,label,kind,required])=>{let val=data?.[name]??(name==='repeat'?'no':name==='priority'?'medium':name==='progress'?0:name==='date'&&type==='schedule'?today():'');let input=kind.startsWith('select:')?`<select name="${name}">${kind.slice(7).split(',').map(p=>{let [v,l]=p.split('|');return `<option value="${v}" ${String(val)===v?'selected':''}>${l}</option>`}).join('')}</select>`:kind==='textarea'?`<textarea name="${name}">${esc(val)}</textarea>`:`<input type="${kind}" name="${name}" value="${esc(val)}" ${required?'required':''} ${kind==='number'?'min="0" max="100"':''}>`;return `<label class="field ${name==='note'||name==='name'?'full':''}">${label}${input}</label>`}).join('');$('#deleteItem').classList.toggle('hidden',!id);$('#modal').classList.add('open');$('#fields input')?.focus()}function closeModal(){$('#modal').classList.remove('open')}function toast(t){let el=$('#toast');el.textContent=t;el.style.display='block';clearTimeout(window._toast);window._toast=setTimeout(()=>el.style.display='none',3500)}$('#form').addEventListener('submit',e=>{e.preventDefault();let x=Object.fromEntries(new FormData(e.currentTarget));if(currentType==='schedule'){if(minutes(x.end)<=minutes(x.start))return toast('Giờ kết thúc phải sau giờ bắt đầu.');x.repeat=x.repeat==='yes';x.day=+x.day;if(!x.repeat&&!x.date)return toast('Vui lòng chọn ngày học.')}if(currentType==='goal')x.progress=Math.max(0,Math.min(100,Number(x.progress)||0));let arr=db[collection[currentType]];if(currentId){let idx=arr.findIndex(t=>t.id===currentId);if(idx>=0)arr[idx]={...arr[idx],...x}}else arr.push({id:uid(),...x,...(currentType==='task'?{done:false}:{})});analysis=false;save();closeModal();toast('Đã lưu thành công trên trình duyệt này.')});$('#deleteItem').addEventListener('click',()=>{if(!currentId||!confirm('Bạn chắc chắn muốn xóa mục này?'))return;db[collection[currentType]]=db[collection[currentType]].filter(x=>x.id!==currentId);analysis=false;save();closeModal();toast('Đã xóa.')});$('#cancel').onclick=closeModal;$('#modal').addEventListener('click',e=>{if(e.target===$('#modal'))closeModal()});document.addEventListener('click',e=>{let open=e.target.closest('[data-open]');if(open)openModal(open.dataset.open);let edit=e.target.closest('[data-edit]');if(edit)openModal(edit.dataset.edit,edit.dataset.id);let tab=e.target.closest('[data-filter]');if(tab){filter=tab.dataset.filter;$$('[data-filter]').forEach(b=>b.classList.toggle('on',b===tab));renderTasks()}});document.addEventListener('change',e=>{if(e.target.matches('[data-check]')){let t=db.tasks.find(x=>x.id===e.target.dataset.check);if(t){t.done=e.target.checked;analysis=false;save()}}});$('#prevWeek').onclick=()=>{week.setDate(week.getDate()-7);render()};$('#nextWeek').onclick=()=>{week.setDate(week.getDate()+7);render()};$('#analyze').onclick=()=>{analyze();if(window.lucide)lucide.createIcons();toast('Đã phân tích dữ liệu hiện có.')};$('#globalSearch')?.addEventListener('input',renderTasks);$$('[data-link]').forEach(a=>a.onclick=e=>{e.preventDefault();void 0});render();
+</script>
+
+<script src="../../Chung/chung.js"></script>
+<script defer src="../../Chung/qurio-connect.js"></script></body></html>

@@ -1,0 +1,1703 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Khám phá học tập | Qurio</title>
+<link rel="icon" href="../../img/Qurio-transparent.png">
+
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../Trang Chủ/trang-chu.css">
+<link rel="stylesheet" href="../../Chung/qurio-layout.css">
+<link rel="stylesheet" href="../../Chung/qurio-accent.css">
+
+<style>
+.explore-main {
+  padding: 28px 32px 65px !important;
+  min-height: 75vh;
+  background: #faf9fe;
+}
+.explore-main * { box-sizing: border-box; }
+.explore-main [hidden], [hidden] { display: none !important; }
+
+.ex-hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 35px 39px;
+  border: 1px solid #e3d8ff;
+  border-radius: 22px;
+  background: linear-gradient(110deg,#eee6ff,#f8edff 55%,#e8f3ff);
+}
+.ex-eyebrow {
+  color: #7754db;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+.ex-hero h1 {
+  margin: 13px 0;
+  color: #29204e;
+  font-size: clamp(25px,3vw,35px);
+}
+.ex-hero p {
+  max-width: 680px;
+  color: #776c91;
+  font-size: 12px;
+  line-height: 1.9;
+}
+.ex-hero-icon { font-size: 72px; }
+
+.ex-section { margin-top: 29px; }
+.ex-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+.ex-title-row h2 {
+  margin: 0 0 7px;
+  color: #292346;
+  font-size: 21px;
+}
+.ex-title-row p {
+  margin: 0;
+  color: #8b819d;
+  font-size: 12px;
+  line-height: 1.7;
+}
+.ex-panel,.ex-card,.ex-exam {
+  background: #fff;
+  border: 1px solid #e8e3f5;
+  border-radius: 18px;
+  padding: 23px;
+  box-shadow: 0 7px 25px #32245e09;
+}
+.ex-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 12px 18px;
+  border: 0;
+  border-radius: 11px;
+  background: #7047df;
+  color: white;
+  font: 700 12px "Be Vietnam Pro",sans-serif;
+  cursor: pointer;
+  text-decoration: none;
+}
+.ex-btn:hover { background: #5c37c7; }
+.ex-btn:disabled { opacity: .55; cursor: not-allowed; }
+.ex-btn-light {
+  background: #f0eaff;
+  color: #6944d5;
+  border: 1px solid #e4d9ff;
+}
+.ex-btn-light:hover { background: #e6ddff; }
+.ex-notice {
+  margin: 14px 0;
+  padding: 15px 18px;
+  background: #f7f3ff;
+  border: 1px solid #e4d9ff;
+  border-radius: 12px;
+  color: #65508f;
+  font-size: 12px;
+  line-height: 1.8;
+}
+.ex-notice.error {
+  background: #fff4f4;
+  border-color: #f1d1d5;
+  color: #af3b50;
+}
+.ex-notice.success {
+  background: #effaf5;
+  border-color: #c7ead8;
+  color: #247754;
+}
+.ex-join {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 11px;
+}
+.ex-input {
+  min-height: 44px;
+  padding: 11px 14px;
+  border: 1px solid #e0d7f6;
+  border-radius: 11px;
+  background: white;
+  font: inherit;
+  font-size: 12px;
+}
+.ex-join .ex-input { flex: 1; min-width: 180px; }
+.ex-input:focus { outline: 1px solid #8b6ae6; }
+.ex-classes,.ex-subjects {
+  display: grid;
+  grid-template-columns: repeat(3,minmax(0,1fr));
+  gap: 14px;
+  margin-top: 16px;
+}
+.ex-class {
+  padding: 17px;
+  background: #fbfaff;
+  border: 1px solid #e9e3f6;
+  border-radius: 13px;
+}
+.ex-class h3 {
+  color: #332655;
+  font-size: 14px;
+}
+.ex-class p {
+  color: #8b81a1;
+  font-size: 11px;
+}
+.ex-tag {
+  display: inline-block;
+  padding: 7px 10px;
+  border-radius: 999px;
+  background: #f0e9ff;
+  color: #7049d6;
+  font-size: 10px;
+  font-weight: 800;
+}
+.ex-tag.done { background: #e5f7ee; color: #18845c; }
+.ex-tag.late { background: #fff0e8; color: #b66637; }
+
+.ex-stats {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 13px;
+  margin: 16px 0;
+}
+.ex-stat {
+  padding: 19px;
+  background: #fff;
+  border: 1px solid #e9e4f5;
+  border-radius: 15px;
+}
+.ex-stat strong {
+  display: block;
+  font-size: 25px;
+  color: #5d3cc2;
+}
+.ex-stat span {
+  font-size: 11px;
+  color: #8b819e;
+}
+.ex-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 13px;
+  margin-bottom: 16px;
+  background: #fff;
+  border: 1px solid #e9e3f5;
+  border-radius: 14px;
+}
+.ex-filters { display: flex; flex-wrap: wrap; gap: 7px; }
+.ex-filter {
+  padding: 10px 14px;
+  border: none;
+  border-radius: 9px;
+  background: transparent;
+  color: #817794;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.ex-filter.active {
+  background: #efeaff;
+  color: #6745d5;
+}
+.ex-search { max-width: 260px; }
+.ex-assignments {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: 15px;
+}
+.ex-assignment h3 {
+  color: #302750;
+  font-size: 16px;
+  line-height: 1.6;
+}
+.ex-assignment-top,.ex-assignment-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.ex-assignment-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 14px 0;
+  color: #817996;
+  font-size: 11px;
+}
+.ex-assignment-footer {
+  margin-top: 17px;
+  padding-top: 16px;
+  border-top: 1px solid #eeeaf6;
+}
+.ex-assignment-footer small {
+  color: #8a809c;
+}
+.ex-empty {
+  grid-column: 1/-1;
+  padding: 30px 20px;
+  background: white;
+  border: 1px dashed #dcd3ee;
+  border-radius: 16px;
+  text-align: center;
+  color: #8a809a;
+  font-size: 12px;
+  line-height: 1.8;
+}
+.ex-subject {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  min-height: 108px;
+  padding: 18px;
+  background: #fff;
+  border: 1px solid #e9e3f6;
+  border-radius: 16px;
+  text-decoration: none;
+  transition: .2s;
+}
+.ex-subject:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px #55418f15;
+}
+.ex-subject-icon {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 57px;
+  height: 57px;
+  background: var(--subject-bg,#f0eaff);
+  border-radius: 15px;
+  font-size: 27px;
+}
+.ex-subject h3 {
+  margin: 0 0 7px;
+  color: #362a57;
+  font-size: 13px;
+}
+.ex-subject p {
+  margin: 0;
+  color: #8e849e;
+  font-size: 10px;
+  line-height: 1.7;
+}
+.ex-exam {
+  margin-top: 20px;
+  padding: 27px;
+}
+.ex-exam-header {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eee9f6;
+}
+.ex-exam-header h2 { color: #332653; }
+.ex-exam-header p {
+  color: #8c829a;
+  font-size: 11px;
+}
+.ex-clock {
+  padding: 12px 16px;
+  background: #f0eaff;
+  color: #6744d3;
+  border-radius: 11px;
+  font-weight: 800;
+}
+.ex-question {
+  padding: 23px 0;
+  border-bottom: 1px solid #f1edf8;
+}
+.ex-question h3 {
+  color: #3c315a;
+  font-size: 13px;
+  line-height: 1.9;
+}
+.ex-option {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 13px;
+  margin: 9px 0;
+  border: 1px solid #e8e1f5;
+  border-radius: 11px;
+  color: #675d79;
+  cursor: pointer;
+  font-size: 12px;
+}
+.ex-option:has(input:checked) {
+  background: #f6f2ff;
+  border-color: #bca6f4;
+}
+.ex-option input { accent-color: #7149df; }
+.ex-textarea {
+  width: 100%;
+  min-height: 115px;
+  padding: 14px;
+  border: 1px solid #e2d9f3;
+  border-radius: 11px;
+  font: inherit;
+  font-size: 12px;
+}
+.ex-exam-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding-top: 23px;
+}
+.ex-back {
+  border: 0;
+  background: transparent;
+  color: #7049d8;
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+}
+.ex-result {
+  margin-top: 20px;
+  padding: 25px;
+  background: #f5f0ff;
+  border-radius: 16px;
+  color: #4a346f;
+  line-height: 1.9;
+}
+
+/* CAMERA */
+.qurio-camera-panel {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 9999;
+  width: 210px;
+  overflow: hidden;
+  border: 1px solid #ddd2fa;
+  border-radius: 14px;
+  background: white;
+  box-shadow: 0 12px 35px #27184b35;
+}
+.qurio-camera-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 11px;
+  background: #eee8ff;
+  color: #49318c;
+  font-size: 11px;
+}
+.qurio-camera-head button {
+  border: none;
+  background: #fff;
+  color: #7b3fcb;
+  border-radius: 7px;
+  cursor: pointer;
+  padding: 5px 9px;
+}
+#qurioCameraVideo {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  background: #1b1431;
+  transform: scaleX(-1);
+}
+.qurio-camera-status {
+  padding: 8px 10px;
+  font-size: 10px;
+  color: #6d6280;
+}
+
+@media(max-width:1000px) {
+  .ex-classes,.ex-subjects {
+    grid-template-columns: repeat(2,minmax(0,1fr));
+  }
+}
+@media(max-width:800px) {
+  .ex-assignments { grid-template-columns: 1fr; }
+}
+@media(max-width:580px) {
+  .explore-main { padding: 18px 14px 45px !important; }
+  .ex-hero { padding: 26px 21px; }
+  .ex-hero-icon { display: none; }
+  .ex-classes,.ex-subjects { grid-template-columns: 1fr; }
+  .ex-search { max-width: 100%; width: 100%; }
+  .qurio-camera-panel { width: 150px; right: 8px; bottom: 8px; }
+}
+</style>
+<link rel="stylesheet" href="../../Chung/qurio-global.css">
+<script defer src="../../Chung/qurio-global.js"></script>
+</head>
+
+<body>
+<button id="sidebarBackdrop" class="sidebar-backdrop"
+        aria-label="Đóng menu" hidden></button>
+
+<div class="app">
+  <div id="qurio-sidebar-mount"></div>
+  <div class="main">
+    <div id="qurio-header-mount"></div>
+
+    <main id="mainContent" class="explore-main">
+
+      <section class="ex-hero">
+        <div>
+          <span class="ex-eyebrow">✦ QURIO · KHÁM PHÁ HỌC TẬP</span>
+          <h1>Khám phá kiến thức theo cách của bạn</h1>
+          <p>Tham gia lớp học, hoàn thành bài tập giáo viên giao
+             và khám phá những kiến thức mới.</p>
+        </div>
+        <div class="ex-hero-icon">📚</div>
+      </section>
+
+      <section class="ex-section" id="myClassesSection">
+        <div class="ex-title-row">
+          <div>
+            <h2>🏫 Lớp học của tôi</h2>
+            <p>Nhập mã tham gia do giáo viên cung cấp.</p>
+          </div>
+          <button class="ex-btn ex-btn-light"
+                  id="refreshClasses" type="button">
+            ↻ Làm mới
+          </button>
+        </div>
+
+        <div class="ex-panel">
+          <form id="joinClassForm" class="ex-join">
+            <input id="classCode" class="ex-input"
+                   placeholder="Nhập mã lớp gồm 10 ký tự"
+                   maxlength="10"
+                   pattern="[A-Za-z0-9]{10}"
+                   autocomplete="off" required>
+            <button id="joinClassButton"
+                    class="ex-btn" type="submit">
+              + Tham gia lớp
+            </button>
+          </form>
+
+          <div id="classMessage" class="ex-notice"
+               role="status" hidden></div>
+          <div id="myClasses" class="ex-classes">
+            <div class="ex-empty">Đang tải danh sách lớp…</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="ex-section" id="assignmentSection">
+        <div class="ex-title-row">
+          <div>
+            <h2>📋 Bài tập được giao</h2>
+            <p>Làm bài kiểm tra giáo viên giao và theo dõi kết quả.</p>
+          </div>
+          <button class="ex-btn ex-btn-light"
+                  id="refreshAssignments" type="button">
+            ↻ Làm mới bài tập
+          </button>
+        </div>
+
+        <div id="assignmentMessage" class="ex-notice"
+             role="status">Đang tải bài tập…</div>
+
+        <div id="assignmentWorkspace" hidden>
+          <div class="ex-stats">
+            <div class="ex-stat">
+              <strong id="statTodo">0</strong>
+              <span>Chưa làm</span>
+            </div>
+            <div class="ex-stat">
+              <strong id="statDone">0</strong>
+              <span>Đã nộp</span>
+            </div>
+            <div class="ex-stat">
+              <strong id="statLate">0</strong>
+              <span>Quá hạn</span>
+            </div>
+          </div>
+
+          <div class="ex-toolbar">
+            <div class="ex-filters">
+              <button class="ex-filter active" type="button"
+                      data-filter="all">Tất cả</button>
+              <button class="ex-filter" type="button"
+                      data-filter="todo">Chưa làm</button>
+              <button class="ex-filter" type="button"
+                      data-filter="submitted">Đã nộp</button>
+              <button class="ex-filter" type="button"
+                      data-filter="late">Quá hạn</button>
+            </div>
+            <input class="ex-input ex-search"
+                   id="assignmentSearch" type="search"
+                   placeholder="Tìm tên bài, môn học…">
+          </div>
+
+          <div id="assignmentList" class="ex-assignments"></div>
+        </div>
+
+        <div id="examWorkspace" hidden></div>
+      </section>
+
+      <section class="ex-section" id="subjectsSection">
+        <div class="ex-title-row">
+          <div>
+            <h2>✨ Khám phá môn học</h2>
+            <p>Lựa chọn môn học để luyện tập và khám phá.</p>
+          </div>
+        </div>
+
+        <div class="ex-subjects">
+          <a class="ex-subject"
+             href="../Lộ Trình Học Tập/lo-trinh-hoc-tap.html"
+             style="--subject-bg:#eee7ff">
+            <span class="ex-subject-icon">📐</span>
+            <div><h3>Toán học</h3><p>Luyện tư duy và giải bài tập</p></div>
+          </a>
+
+          <a class="ex-subject"
+             href="../Phòng Lab/phong-lab.html"
+             style="--subject-bg:#e6f2ff">
+            <span class="ex-subject-icon">⚛️</span>
+            <div><h3>Vật lý</h3><p>Mô phỏng thí nghiệm</p></div>
+          </a>
+
+          <a class="ex-subject"
+             href="../Phòng Lab/phong-lab.html"
+             style="--subject-bg:#fff0e5">
+            <span class="ex-subject-icon">🧪</span>
+            <div><h3>Hóa học</h3><p>Tìm hiểu các phản ứng</p></div>
+          </a>
+
+          <a class="ex-subject"
+             href="../Phòng Lab/phong-lab.html"
+             style="--subject-bg:#e5f8ed">
+            <span class="ex-subject-icon">🌱</span>
+            <div><h3>Sinh học</h3><p>Khám phá sự sống</p></div>
+          </a>
+
+          <a class="ex-subject"
+             href="../Gia Sư AI/gia-su.html"
+             style="--subject-bg:#ffedf6">
+            <span class="ex-subject-icon">🇬🇧</span>
+            <div><h3>Tiếng Anh</h3><p>Luyện tập cùng AI</p></div>
+          </a>
+
+          <a class="ex-subject"
+             href="../Phòng Lab/phong-lab.html"
+             style="--subject-bg:#e6f4fa">
+            <span class="ex-subject-icon">💻</span>
+            <div><h3>Tin học</h3><p>Khám phá công cụ thực hành</p></div>
+          </a>
+        </div>
+      </section>
+    </main>
+  </div>
+</div>
+
+<div id="qurio-footer-mount"></div>
+
+<div id="qurioCameraPanel" class="qurio-camera-panel" hidden>
+  <div class="qurio-camera-head">
+    <strong>📷 Camera kiểm tra</strong>
+    <button type="button" id="qurioStopCamera">Tắt</button>
+  </div>
+  <video id="qurioCameraVideo" autoplay muted playsinline></video>
+  <div id="qurioCameraStatus" class="qurio-camera-status">
+    Camera chưa bật
+  </div>
+</div>
+
+<script src="../../Chung/qurio-layout.js"></script>
+<script>
+  if (window.QurioLayout?.mountHome) {
+    window.QurioLayout.mountHome();
+  }
+
+  document.querySelector(
+    '.sidebar [data-nav="home"]'
+  )?.classList.remove("active");
+
+  const exploreLink = document.querySelector(
+    '.sidebar [data-nav="explore"]'
+  );
+
+  exploreLink?.classList.add("active");
+  exploreLink?.setAttribute("aria-current","page");
+</script>
+
+<script src="../../Chung/chung.js"></script>
+<script src="../../Chung/qurio-account-ui.js"></script>
+<script src="../../Chung/site-config.js"></script>
+
+<script>
+(() => {
+  "use strict";
+
+  const $ = id => document.getElementById(id);
+
+  const state = {
+    user: null,
+    classes: [],
+    assignments: [],
+    filter: "all",
+    busy: false,
+    exam: null,
+    assignment: null,
+    startedAt: 0,
+    examEndAt: 0,
+    timer: null,
+    monitorStop: null,
+    cameraStream: null,
+    cameraAssignmentId: "",
+    stoppingCamera: false,
+    monitorGuard: {}
+  };
+
+  function escapeHTML(value) {
+    return String(value ?? "").replace(
+      /[&<>"']/g,
+      c => ({
+        "&":"&amp;",
+        "<":"&lt;",
+        ">":"&gt;",
+        '"':"&quot;",
+        "'":"&#39;"
+      }[c])
+    );
+  }
+
+  function notice(id, message, kind = "") {
+    const el = $(id);
+    if (!el) return;
+    el.textContent = message;
+    el.className = "ex-notice" + (kind ? " " + kind : "");
+    el.hidden = false;
+  }
+
+  function hideNotice(id) {
+    if ($(id)) $(id).hidden = true;
+  }
+
+  function dateText(value) {
+    const d = new Date(value);
+    return Number.isFinite(d.getTime())
+      ? d.toLocaleString("vi-VN")
+      : "Không rõ";
+  }
+
+  async function api(action, data = {}) {
+    if (!window.QurioAuth?.request) {
+      throw new Error("Chưa kết nối đăng nhập Qurio.");
+    }
+    return window.QurioAuth.request(action, data);
+  }
+
+  async function verifyStudent() {
+    if (!window.QurioAuth?.me) {
+      throw new Error("Không tìm thấy phiên đăng nhập.");
+    }
+
+    const user = await window.QurioAuth.me();
+    const role = String(
+      user?.role || user?.vaiTro || ""
+    ).trim().toLowerCase();
+
+    if (!["student","hs","học sinh"].includes(role)) {
+      throw new Error(
+        "Chức năng này chỉ dành cho học sinh."
+      );
+    }
+
+    state.user = user;
+    return user;
+  }
+
+  // =====================================
+  // CAMERA
+  // =====================================
+
+  function cameraActive() {
+    return !!state.cameraStream &&
+      state.cameraStream.getVideoTracks().some(
+        track => track.readyState === "live"
+      );
+  }
+
+  function cameraStatus(message) {
+    $("qurioCameraStatus").textContent = message;
+  }
+
+  function sendEvent(type, assignmentId) {
+    const id = String(
+      assignmentId || state.assignment?.id || ""
+    );
+
+    if (!id) return Promise.resolve(null);
+
+    return api("monitorEvent", {
+      assignmentId: id,
+      eventType: type
+    }).catch(error => {
+      console.warn("Qurio monitor:", error);
+      return null;
+    });
+  }
+
+  async function reportCameraDenied(id) {
+    try {
+      await api("monitorCameraPreflight", {
+        assignmentId: id
+      });
+    } catch (error) {
+      console.warn(
+        "Chưa ghi nhận được từ chối camera:",
+        error
+      );
+    }
+  }
+
+  async function startCamera() {
+    if (
+      !window.isSecureContext ||
+      !navigator.mediaDevices?.getUserMedia
+    ) {
+      throw new Error(
+        "Camera chỉ hoạt động trên HTTPS hoặc localhost."
+      );
+    }
+
+    if (cameraActive()) return;
+
+    const stream = await navigator.mediaDevices
+      .getUserMedia({
+        video: {
+          facingMode: "user",
+          width: { ideal: 640 },
+          height: { ideal: 480 }
+        },
+        audio: false
+      });
+
+    state.cameraStream = stream;
+    state.stoppingCamera = false;
+
+    const video = $("qurioCameraVideo");
+
+    video.srcObject = stream;
+    $("qurioCameraPanel").hidden = false;
+
+    try {
+      await video.play();
+    } catch (error) {
+      stopCamera(false);
+      throw error;
+    }
+
+    cameraStatus(
+      "Camera đang bật. Video không được gửi lên máy chủ."
+    );
+
+    stream.getVideoTracks().forEach(track => {
+      track.addEventListener("ended", () => {
+        if (state.cameraStream !== stream) return;
+
+        if (!state.stoppingCamera) {
+          sendEvent(
+            "camera_stopped",
+            state.cameraAssignmentId
+          );
+        }
+
+        state.cameraStream = null;
+        video.srcObject = null;
+        cameraStatus("Camera đã tắt");
+        $("qurioCameraPanel").hidden = true;
+      });
+    });
+  }
+
+  function stopCamera(report = false) {
+    const wasActive = cameraActive();
+    const id = state.cameraAssignmentId;
+
+    state.stoppingCamera = true;
+
+    if (report && wasActive) {
+      sendEvent("camera_stopped", id);
+    }
+
+    if (state.cameraStream) {
+      state.cameraStream.getTracks().forEach(
+        track => track.stop()
+      );
+    }
+
+    state.cameraStream = null;
+    state.cameraAssignmentId = "";
+
+    $("qurioCameraVideo").srcObject = null;
+    $("qurioCameraPanel").hidden = true;
+    cameraStatus("Camera đã tắt");
+  }
+
+  $("qurioStopCamera").addEventListener(
+    "click",
+    () => stopCamera(true)
+  );
+
+  // =====================================
+  // GIÁM SÁT CHUYỂN TAB
+  // =====================================
+
+  function stopMonitoring() {
+    if (typeof state.monitorStop === "function") {
+      state.monitorStop();
+    }
+
+    state.monitorStop = null;
+    state.monitorGuard = {};
+  }
+
+  function startMonitoring(result) {
+    stopMonitoring();
+
+    const guard = result.guard || {};
+    state.monitorGuard = guard;
+
+    if (!guard.trackTab) return;
+
+    const id = String(
+      result.assignmentId || state.assignment?.id || ""
+    );
+
+    if (!id) return;
+
+    let lastHidden = false;
+
+    const onVisibility = () => {
+      if (document.hidden && !lastHidden) {
+        lastHidden = true;
+        sendEvent("tab_hidden", id);
+      }
+
+      if (!document.hidden) {
+        lastHidden = false;
+      }
+    };
+
+    document.addEventListener(
+      "visibilitychange",
+      onVisibility
+    );
+
+    state.monitorStop = () => {
+      document.removeEventListener(
+        "visibilitychange",
+        onVisibility
+      );
+    };
+  }
+
+  // =====================================
+  // LỚP HỌC
+  // =====================================
+
+  async function loadClasses() {
+    try {
+      await verifyStudent();
+
+      const result = await api("classMyClasses");
+
+      if (!Array.isArray(result.classes)) {
+        throw new Error("Danh sách lớp không hợp lệ.");
+      }
+
+      state.classes = result.classes;
+
+      $("myClasses").innerHTML = result.classes.length
+        ? result.classes.map(cls => {
+            const approved = cls.status === "approved";
+            return `
+              <article class="ex-class">
+                <h3>${escapeHTML(cls.name)}</h3>
+                <p>${escapeHTML(cls.subject || "Môn học")}</p>
+                <span class="ex-tag ${approved ? "done" : ""}">
+                  ${approved
+                    ? "✓ Đã tham gia"
+                    : "⏳ Chờ giáo viên duyệt"}
+                </span>
+              </article>
+            `;
+          }).join("")
+        : `<div class="ex-empty">
+             Bạn chưa tham gia lớp học nào.
+           </div>`;
+
+      hideNotice("classMessage");
+    } catch (error) {
+      notice(
+        "classMessage",
+        "Không tải được lớp: " + error.message,
+        "error"
+      );
+    }
+  }
+
+  $("joinClassForm").addEventListener(
+    "submit",
+    async event => {
+      event.preventDefault();
+
+      const code = $("classCode")
+        .value.trim().toUpperCase();
+
+      if (!/^[A-Z0-9]{10}$/.test(code)) {
+        notice(
+          "classMessage",
+          "Mã lớp phải gồm 10 ký tự chữ hoặc số.",
+          "error"
+        );
+        return;
+      }
+
+      const btn = $("joinClassButton");
+      btn.disabled = true;
+
+      try {
+        await verifyStudent();
+
+        const result = await api(
+          "classJoinRequest",
+          { code }
+        );
+
+        $("classCode").value = "";
+
+        await loadClasses();
+
+        notice(
+          "classMessage",
+          result.message || "Đã gửi yêu cầu.",
+          "success"
+        );
+
+        await loadAssignments();
+      } catch (error) {
+        notice("classMessage",error.message,"error");
+      } finally {
+        btn.disabled = false;
+      }
+    }
+  );
+
+  $("refreshClasses").addEventListener(
+    "click",loadClasses
+  );
+
+  // =====================================
+  // DANH SÁCH BÀI TẬP
+  // =====================================
+
+  function assignmentStatus(a) {
+    if (a.submission || a.submittedAt) {
+      return "submitted";
+    }
+
+    const due = new Date(a.dueAt).getTime();
+
+    if (
+      a.attemptExpired ||
+      (Number.isFinite(due) && Date.now() > due)
+    ) {
+      return "late";
+    }
+
+    return "todo";
+  }
+
+  function renderAssignments() {
+    const statuses = state.assignments.map(
+      assignmentStatus
+    );
+
+    $("statTodo").textContent =
+      statuses.filter(x => x === "todo").length;
+
+    $("statDone").textContent =
+      statuses.filter(x => x === "submitted").length;
+
+    $("statLate").textContent =
+      statuses.filter(x => x === "late").length;
+
+    const keyword = $("assignmentSearch")
+      .value.trim().toLowerCase();
+
+    const list = state.assignments.filter(a => {
+      const status = assignmentStatus(a);
+
+      const matchesFilter =
+        state.filter === "all" ||
+        state.filter === status;
+
+      const searchable = (
+        (a.title || "") + " " +
+        (a.subject || "") + " " +
+        (a.className || "")
+      ).toLowerCase();
+
+      return matchesFilter &&
+        searchable.includes(keyword);
+    });
+
+    $("assignmentList").innerHTML = list.length
+      ? list.map(a => {
+          const status = assignmentStatus(a);
+
+          const label =
+            status === "submitted" ? "Đã nộp" :
+            status === "late" ? "Quá hạn" :
+            "Chờ làm";
+
+          const buttonText =
+            status === "submitted" ? "Xem kết quả" :
+            status === "late" ? "Hết hạn" :
+            "Bắt đầu làm bài";
+
+          return `
+            <article class="ex-card ex-assignment">
+              <div class="ex-assignment-top">
+                <strong style="color:#7950d6;font-size:11px">
+                  ${escapeHTML(a.subject || "Bài tập")}
+                </strong>
+                <span class="ex-tag ${
+                  status === "submitted" ? "done" :
+                  status === "late" ? "late" : ""
+                }">${label}</span>
+              </div>
+
+              <h3>${escapeHTML(a.title || "Đề kiểm tra")}</h3>
+
+              <div class="ex-assignment-meta">
+                <span>🏫 ${escapeHTML(a.className || "Lớp học")}</span>
+                <span>⏱ ${Number(a.minutes) || 45} phút</span>
+                <span>❓ ${Number(a.questionCount) || 0} câu</span>
+              </div>
+
+              ${a.instructions
+                ? `<p style="font-size:11px;color:#817594">
+                     ${escapeHTML(a.instructions)}
+                   </p>`
+                : ""}
+
+              <div class="ex-assignment-footer">
+                <small>Hạn: ${escapeHTML(dateText(a.dueAt))}</small>
+                <button class="ex-btn" type="button"
+                  data-assignment="${escapeHTML(a.id)}"
+                  ${status === "late" ? "disabled" : ""}>
+                  ${buttonText} →
+                </button>
+              </div>
+            </article>
+          `;
+        }).join("")
+      : `<div class="ex-empty">
+           Chưa có bài tập trong nhóm này.
+         </div>`;
+  }
+
+  async function loadAssignments() {
+    if (state.busy) return;
+
+    $("refreshAssignments").disabled = true;
+
+    notice(
+      "assignmentMessage",
+      "Đang tải danh sách bài được giao…"
+    );
+
+    try {
+      await verifyStudent();
+
+      const result = await api(
+        "studentAssignmentList"
+      );
+
+      if (!Array.isArray(result.assignments)) {
+        throw new Error("Danh sách bài tập không hợp lệ.");
+      }
+
+      state.assignments = result.assignments;
+
+      $("assignmentWorkspace").hidden = false;
+      hideNotice("assignmentMessage");
+      renderAssignments();
+    } catch (error) {
+      notice(
+        "assignmentMessage",
+        "Chưa tải được bài tập: " + error.message,
+        "error"
+      );
+    } finally {
+      $("refreshAssignments").disabled = false;
+    }
+  }
+
+  $("refreshAssignments").addEventListener(
+    "click",loadAssignments
+  );
+
+  $("assignmentSearch").addEventListener(
+    "input",renderAssignments
+  );
+
+  document.querySelectorAll("[data-filter]").forEach(
+    button => {
+      button.addEventListener("click",() => {
+        state.filter = button.dataset.filter;
+
+        document.querySelectorAll("[data-filter]")
+          .forEach(item => {
+            item.classList.toggle(
+              "active",item === button
+            );
+          });
+
+        renderAssignments();
+      });
+    }
+  );
+
+  // =====================================
+  // HIỂN THỊ CÂU HỎI
+  // =====================================
+
+  function renderQuestion(q,index) {
+    const type = String(q.type || "single");
+    const options = Array.isArray(q.options)
+      ? q.options : [];
+
+    const isChoice = [
+      "single","multiple","dropdown","truefalse"
+    ].includes(type);
+
+    const answerHTML = isChoice
+      ? options.length
+        ? options.map((option,i) => `
+            <label class="ex-option">
+              <input
+                type="${type === "multiple" ? "checkbox" : "radio"}"
+                name="question-${index}"
+                data-option="${index}"
+                value="${i}">
+              <span>${escapeHTML(option)}</span>
+            </label>
+          `).join("")
+        : `<p class="ex-notice error">
+             Câu hỏi chưa có đáp án lựa chọn.
+           </p>`
+      : `<textarea class="ex-textarea"
+           data-written="${index}"
+           maxlength="5000"
+           placeholder="Nhập câu trả lời…"></textarea>`;
+
+    return `
+      <section class="ex-question">
+        <h3>Câu ${index + 1}.
+          ${escapeHTML(q.text || "Chưa có nội dung")}
+        </h3>
+        ${answerHTML}
+      </section>
+    `;
+  }
+
+  function collectAnswers() {
+    if (!state.exam) return [];
+
+    return state.exam.questions.map((q,index) => {
+      const type = String(q.type || "single");
+      let value;
+
+      if ([
+        "single","multiple","dropdown","truefalse"
+      ].includes(type)) {
+        const checked = [
+          ...$("examWorkspace").querySelectorAll(
+            `input[data-option="${index}"]:checked`
+          )
+        ].map(input => Number(input.value));
+
+        value = type === "multiple"
+          ? checked
+          : (checked.length ? checked[0] : null);
+      } else {
+        value = $("examWorkspace")
+          .querySelector(
+            `textarea[data-written="${index}"]`
+          )?.value.trim() || "";
+      }
+
+      return {
+        questionId: String(q.id || "q" + index),
+        value
+      };
+    });
+  }
+
+  function answeredCount() {
+    return collectAnswers().filter(a =>
+      Array.isArray(a.value)
+        ? a.value.length > 0
+        : a.value !== null && a.value !== ""
+    ).length;
+  }
+
+  function updateProgress() {
+    if (!state.exam || !$("answeredCount")) return;
+
+    $("answeredCount").textContent =
+      answeredCount() + "/" +
+      state.exam.questions.length +
+      " câu đã trả lời";
+  }
+
+  // =====================================
+  // ĐỒNG HỒ
+  // =====================================
+
+  function clearExamTimer() {
+    if (state.timer) {
+      clearInterval(state.timer);
+      state.timer = null;
+    }
+  }
+
+  function updateClock() {
+    if (!state.exam) return;
+
+    const endTime = state.examEndAt ||
+      state.startedAt +
+      Number(state.exam.minutes || 45) * 60000;
+
+    const remaining = Math.max(
+      0,
+      Math.ceil((endTime - Date.now()) / 1000)
+    );
+
+    const mm = String(
+      Math.floor(remaining / 60)
+    ).padStart(2,"0");
+
+    const ss = String(
+      remaining % 60
+    ).padStart(2,"0");
+
+    if ($("examClock")) {
+      $("examClock").textContent =
+        "⏱ " + mm + ":" + ss;
+    }
+
+    if (remaining === 0) {
+      clearExamTimer();
+
+      if ($("submitExam")) {
+        $("submitExam").disabled = true;
+      }
+
+      notice(
+        "assignmentMessage",
+        "Đã hết thời gian làm bài. Máy chủ có thể từ chối bài nộp quá giờ.",
+        "error"
+      );
+    }
+  }
+
+  // =====================================
+  // MỞ ĐỀ
+  // =====================================
+
+  async function openAssignment(id) {
+    if (state.busy) return;
+
+    const assignment = state.assignments.find(
+      a => String(a.id) === String(id)
+    );
+
+    if (!assignment) return;
+
+    if (assignmentStatus(assignment) === "submitted") {
+      showResult(assignment.submission,assignment);
+      return;
+    }
+
+    if (assignmentStatus(assignment) === "late") return;
+
+    if (!confirm(
+      "Thời gian làm bài được tính từ lần mở đề đầu tiên. Bạn muốn bắt đầu?"
+    )) return;
+
+    state.busy = true;
+
+    $("assignmentWorkspace").hidden = true;
+    $("subjectsSection").hidden = true;
+    $("myClassesSection").hidden = true;
+    $("examWorkspace").hidden = false;
+    $("examWorkspace").innerHTML =
+      `<div class="ex-exam">Đang mở đề kiểm tra…</div>`;
+
+    try {
+      const guard = assignment.guard || {};
+
+      if (guard.requireCamera) {
+        const consent = confirm(
+          "Bài kiểm tra yêu cầu camera giám sát. " +
+          "Qurio chỉ xem trước hình ảnh trên thiết bị, " +
+          "không gửi video cho giáo viên. " +
+          "Bạn có đồng ý bật camera không?"
+        );
+
+        if (!consent) {
+          await reportCameraDenied(id);
+          backToAssignments(false);
+          return;
+        }
+
+        try {
+          await startCamera();
+        } catch (error) {
+          await reportCameraDenied(id);
+          throw new Error(
+            "Không thể bật camera: " + error.message
+          );
+        }
+      }
+
+      const result = await api(
+        "studentAssignmentOpen",
+        { assignmentId: id }
+      );
+
+      if (!Array.isArray(result.exam?.questions)) {
+        throw new Error(
+          "Máy chủ chưa trả về nội dung đề hợp lệ."
+        );
+      }
+
+      state.exam = result.exam;
+      state.assignment = assignment;
+      state.cameraAssignmentId = String(
+        result.assignmentId || assignment.id
+      );
+
+      state.startedAt =
+        new Date(result.startedAt).getTime();
+
+      if (!Number.isFinite(state.startedAt)) {
+        throw new Error(
+          "Thời gian bắt đầu không hợp lệ."
+        );
+      }
+
+      state.examEndAt =
+        new Date(result.endAt).getTime();
+
+      if (!Number.isFinite(state.examEndAt)) {
+        state.examEndAt = 0;
+      }
+
+      $("examWorkspace").innerHTML = `
+        <div class="ex-exam">
+          <button class="ex-back" type="button"
+                  id="backToAssignments">
+            ← Quay lại danh sách
+          </button>
+
+          <div class="ex-exam-header">
+            <div>
+              <h2>${escapeHTML(result.exam.title || assignment.title)}</h2>
+              <p>
+                ${escapeHTML(result.exam.subject || "")}
+                · ${result.exam.questions.length} câu
+                · ${Number(result.exam.minutes) || 45} phút
+              </p>
+            </div>
+            <span class="ex-clock" id="examClock">⏱ --:--</span>
+          </div>
+
+          <form id="examForm">
+            ${result.exam.questions.map(renderQuestion).join("")}
+
+            <div class="ex-exam-actions">
+              <span id="answeredCount">0 câu đã trả lời</span>
+              <button class="ex-btn" type="submit"
+                      id="submitExam">
+                Nộp bài →
+              </button>
+            </div>
+          </form>
+        </div>
+      `;
+
+      $("backToAssignments").addEventListener(
+        "click",() => backToAssignments()
+      );
+
+      $("examForm").addEventListener(
+        "input",updateProgress
+      );
+
+      $("examForm").addEventListener(
+        "submit",submitExam
+      );
+
+      updateProgress();
+      updateClock();
+
+      startMonitoring(result);
+
+      if (
+        result.guard?.trackCamera &&
+        cameraActive()
+      ) {
+        sendEvent(
+          "camera_granted",
+          state.cameraAssignmentId
+        );
+      }
+
+      clearExamTimer();
+      state.timer = setInterval(updateClock,1000);
+
+    } catch (error) {
+      backToAssignments(false);
+
+      notice(
+        "assignmentMessage",
+        "Không mở được đề: " + error.message,
+        "error"
+      );
+    } finally {
+      state.busy = false;
+    }
+  }
+
+  // =====================================
+  // NỘP BÀI
+  // =====================================
+
+  async function submitExam(event) {
+    event.preventDefault();
+
+    if (
+      state.busy ||
+      !state.exam ||
+      !state.assignment
+    ) return;
+
+    const answers = collectAnswers();
+
+    if (!answeredCount()) {
+      alert("Bạn chưa trả lời câu hỏi nào.");
+      return;
+    }
+
+    if (!confirm(
+      "Bạn đã trả lời " +
+      answeredCount() + "/" +
+      answers.length +
+      " câu. Xác nhận nộp bài?"
+    )) return;
+
+    state.busy = true;
+    const button = $("submitExam");
+
+    button.disabled = true;
+    button.textContent = "Đang nộp…";
+
+    try {
+      const result = await api(
+        "studentAssignmentSubmit",
+        {
+          assignmentId: state.assignment.id,
+          answers
+        }
+      );
+
+      if (!result.ok) {
+        throw new Error(
+          "Máy chủ chưa xác nhận nộp bài."
+        );
+      }
+
+      const assignment = state.assignment;
+
+      assignment.submittedAt =
+        result.submittedAt || new Date().toISOString();
+
+      assignment.submission = result;
+
+      stopMonitoring();
+      stopCamera(false);
+      showResult(result,assignment);
+
+    } catch (error) {
+      notice(
+        "assignmentMessage",
+        "Chưa nộp được bài: " + error.message,
+        "error"
+      );
+
+      button.disabled = false;
+      button.textContent = "Nộp bài →";
+    } finally {
+      state.busy = false;
+    }
+  }
+
+  // =====================================
+  // KẾT QUẢ
+  // =====================================
+
+  function showResult(result,assignment) {
+    stopMonitoring();
+    stopCamera(false);
+    clearExamTimer();
+
+    state.exam = null;
+    state.assignment = null;
+
+    $("assignmentWorkspace").hidden = true;
+    $("subjectsSection").hidden = true;
+    $("myClassesSection").hidden = true;
+    $("examWorkspace").hidden = false;
+
+    const score = Number(result?.score || 0);
+    const graded = Number(result?.gradedMax || 0);
+    const max = Number(result?.maxScore || 0);
+    const pending =
+      result?.pendingReview === true ||
+      String(result?.pendingReview) === "true";
+
+    $("examWorkspace").innerHTML = `
+      <div class="ex-exam">
+        <button class="ex-back" type="button"
+                id="backToAssignments">
+          ← Quay lại danh sách
+        </button>
+
+        <div class="ex-result">
+          <h2>✓ Bài đã được nộp</h2>
+          <p><strong>${escapeHTML(assignment.title)}</strong></p>
+          <p>Thời gian nộp:
+            ${escapeHTML(dateText(result?.submittedAt))}
+          </p>
+
+          ${graded > 0
+            ? `<p>Điểm trắc nghiệm:
+                 <strong>${score}/${graded}</strong>
+               </p>`
+            : ""}
+
+          ${pending
+            ? "<p>Phần tự luận đang chờ giáo viên chấm.</p>"
+            : graded > 0
+              ? `<p>Điểm bài làm:
+                   <strong>${score}/${max || graded}</strong>
+                 </p>`
+              : "<p>Bài làm đã được ghi nhận.</p>"}
+        </div>
+      </div>
+    `;
+
+    $("backToAssignments").addEventListener(
+      "click",
+      async () => {
+        backToAssignments();
+        await loadAssignments();
+      }
+    );
+  }
+
+  // =====================================
+  // QUAY LẠI
+  // =====================================
+
+  function backToAssignments(refresh = true) {
+    stopMonitoring();
+    stopCamera(false);
+    clearExamTimer();
+
+    state.exam = null;
+    state.assignment = null;
+    state.examEndAt = 0;
+    state.startedAt = 0;
+
+    $("examWorkspace").hidden = true;
+    $("examWorkspace").innerHTML = "";
+
+    $("assignmentWorkspace").hidden = false;
+    $("subjectsSection").hidden = false;
+    $("myClassesSection").hidden = false;
+
+    if (refresh) {
+      hideNotice("assignmentMessage");
+    }
+
+    renderAssignments();
+  }
+
+  // =====================================
+  // SỰ KIỆN GIAO DIỆN
+  // =====================================
+
+  $("assignmentList").addEventListener(
+    "click",
+    event => {
+      const button = event.target.closest(
+        "[data-assignment]"
+      );
+
+      if (!button) return;
+
+      openAssignment(
+        button.dataset.assignment
+      );
+    }
+  );
+
+  window.addEventListener("pagehide",() => {
+    stopMonitoring();
+    stopCamera(false);
+    clearExamTimer();
+  });
+
+  // =====================================
+  // KHỞI TẠO
+  // =====================================
+
+  async function initialize() {
+    await Promise.allSettled([
+      loadClasses(),
+      loadAssignments()
+    ]);
+  }
+
+  initialize();
+})();
+</script>
+</body>
+</html>

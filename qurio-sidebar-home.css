@@ -1,0 +1,655 @@
+
+/* ===========================================================
+   QURIO SIDEBAR – GIAO DIỆN TRANG CHỦ
+
+   Đồng bộ kích thước, icon, màu sắc, khoảng cách
+   với trang-chu.css.
+
+   Chỉ tác động Sidebar;
+   giữ nguyên nội dung trang Giáo viên V8.
+
+   Breakpoints:
+   - Desktop: 228px
+   - Laptop: 205px
+   - Dưới 1100px: Menu trượt giống trang chủ
+=========================================================== */
+
+
+/* ===========================================================
+   1. BIẾN MÀU SẮC
+=========================================================== */
+
+:root {
+    --qurio-home-purple: #6b5ce2;
+    --qurio-home-border: #eeedf5;
+}
+
+
+/* ===========================================================
+   2. BỐ CỤC CHUNG
+=========================================================== */
+
+.app {
+    display: grid !important;
+    grid-template-columns: 228px minmax(0, 1fr) !important;
+    align-items: stretch !important;
+    min-height: 100vh;
+}
+
+
+/* ===========================================================
+   3. SIDEBAR CHÍNH
+=========================================================== */
+
+.app > .sidebar {
+    position: sticky !important;
+    inset: auto !important;
+    top: 0 !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+
+    align-self: start !important;
+
+    width: 228px !important;
+
+    height: 100vh !important;
+    height: 100dvh !important;
+
+    padding: 30px 19px 16px !important;
+    gap: 0 !important;
+
+    margin: 0 !important;
+
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+
+    overscroll-behavior: contain;
+
+    scrollbar-width: thin !important;
+    scrollbar-color: #e6e1f0 transparent !important;
+
+    background: #fff !important;
+
+    border-right: 1px solid var(--qurio-home-border) !important;
+
+    box-shadow: none !important;
+
+    transform: none !important;
+
+    z-index: 50 !important;
+
+    font-family: 'Be Vietnam Pro', system-ui, sans-serif;
+
+    line-height: 1.6;
+}
+
+
+/* ===========================================================
+   4. LOGO QURIO
+=========================================================== */
+
+.app > .sidebar .brand {
+    display: flex;
+    align-items: center;
+
+    gap: 9px;
+
+    width: fit-content;
+
+    padding-left: 7px !important;
+
+    text-decoration: none;
+
+    color: #25264b;
+}
+
+.app > .sidebar .brand img {
+    width: 46px !important;
+    height: 46px !important;
+
+    object-fit: contain;
+}
+
+.app > .sidebar .brand > span {
+    font-size: 28px !important;
+    font-weight: 800;
+
+    letter-spacing: -1.1px;
+}
+
+.app > .sidebar .brand-dot {
+    color: var(--qurio-home-purple) !important;
+}
+
+.app > .sidebar .brand-note {
+    margin: 7px 0 30px 10px !important;
+
+    color: #9292a7;
+
+    font-size: 10px !important;
+
+    letter-spacing: 0.15px;
+}
+
+
+/* ===========================================================
+   5. DANH SÁCH MENU ĐIỀU HƯỚNG
+=========================================================== */
+
+.app > .sidebar .main-nav {
+    display: flex !important;
+    flex-direction: column !important;
+
+    gap: 3px !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+
+/* ===========================================================
+   6. TỪNG MỤC MENU
+=========================================================== */
+
+.app > .sidebar .nav-item {
+    display: flex !important;
+    align-items: center;
+
+    gap: 12px !important;
+
+    min-height: 42px !important;
+
+    padding: 10px 12px !important;
+
+    border-radius: 10px !important;
+
+    color: #7a7d94 !important;
+
+    font-size: 12px !important;
+    font-weight: 500 !important;
+
+    text-decoration: none;
+
+    background: transparent !important;
+
+    transition: background 0.2s, color 0.2s;
+
+    line-height: 1.6;
+}
+
+
+/* ===========================================================
+   7. ICON MENU
+=========================================================== */
+
+.app > .sidebar .nav-item > .icon {
+    display: block;
+
+    flex: none;
+
+    width: 18px !important;
+    height: 18px !important;
+
+    fill: none;
+
+    stroke: currentColor;
+    stroke-width: 1.65;
+
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+
+/* ===========================================================
+   8. HIỆU ỨNG KHI DI CHUỘT
+=========================================================== */
+
+.app > .sidebar .nav-item:hover {
+    background: #f8f6fe !important;
+
+    color: var(--qurio-home-purple) !important;
+}
+
+
+/* ===========================================================
+   9. MENU ĐANG ĐƯỢC CHỌN
+=========================================================== */
+
+.app > .sidebar .nav-item.active {
+    background: #efecfc !important;
+
+    color: var(--qurio-home-purple) !important;
+
+    font-weight: 600 !important;
+}
+
+
+/* Ẩn dấu chấm ở các mục không được chọn */
+
+.app > .sidebar .nav-item .active-dot {
+    display: none;
+}
+
+
+/* Hiện dấu chấm ở mục đang được chọn */
+
+.app > .sidebar .nav-item.active .active-dot {
+    display: block;
+
+    width: 5px;
+    height: 5px;
+
+    margin-left: auto;
+
+    border-radius: 50%;
+
+    background: var(--qurio-home-purple);
+}
+
+
+/* ===========================================================
+   10. TIÊU ĐỀ NHÓM MENU
+=========================================================== */
+
+.app > .sidebar .nav-heading {
+    margin: 18px 12px 6px !important;
+
+    color: #a2a3b2 !important;
+
+    font-size: 9px !important;
+    font-weight: 600 !important;
+
+    letter-spacing: 1.4px !important;
+}
+
+
+/* ===========================================================
+   11. NHÃN "SẮP CÓ"
+=========================================================== */
+
+.app > .sidebar .nav-tag {
+    margin-left: auto !important;
+
+    padding: 2px 4px !important;
+
+    border-radius: 4px;
+
+    background: #f3efff;
+
+    color: #9182bf;
+
+    font-size: 8px !important;
+
+    white-space: nowrap;
+}
+
+
+/* ===========================================================
+   12. PHẦN CUỐI SIDEBAR
+=========================================================== */
+
+.app > .sidebar .sidebar-bottom {
+    margin-top: auto !important;
+
+    padding-top: 30px !important;
+}
+
+
+/* ===========================================================
+   13. KHUNG THÔNG ĐIỆP HẰNG NGÀY
+=========================================================== */
+
+.app > .sidebar .daily-note {
+    position: relative;
+
+    padding: 20px 13px 15px !important;
+
+    border: 1px solid #efe9fc;
+
+    border-radius: 14px !important;
+
+    background: linear-gradient(
+        135deg,
+        #f2edff,
+        #faf8ff
+    );
+
+    overflow: hidden;
+}
+
+
+/* Hình tròn trang trí */
+
+.app > .sidebar .daily-note::after {
+    content: "";
+
+    position: absolute;
+
+    right: -20px;
+    bottom: -40px;
+
+    width: 90px;
+    height: 90px;
+
+    border: 1px solid #e5dcf9;
+
+    border-radius: 50%;
+}
+
+
+/* Biểu tượng ngôi sao */
+
+.app > .sidebar .note-spark {
+    display: block;
+
+    margin-bottom: 11px !important;
+
+    color: #a994e6;
+
+    font-size: 22px !important;
+
+    line-height: 1;
+}
+
+
+/* Nội dung thông điệp */
+
+.app > .sidebar .daily-note strong {
+    font-size: 12px !important;
+
+    font-weight: 600 !important;
+
+    line-height: 1.8 !important;
+}
+
+.app > .sidebar .daily-note p {
+    margin-top: 8px !important;
+
+    color: #9b91b4;
+
+    font-size: 9px !important;
+}
+
+
+/* ===========================================================
+   14. NÚT ĐĂNG NHẬP / ĐĂNG XUẤT
+=========================================================== */
+
+.app > .sidebar .logout-button {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    width: 100%;
+
+    margin-top: 13px !important;
+
+    padding: 14px 12px !important;
+
+    border: 0 !important;
+
+    border-radius: 9px !important;
+
+    background: transparent !important;
+
+    color: #868498 !important;
+
+    font-size: 12px !important;
+    font-weight: 400 !important;
+
+    text-align: left;
+}
+
+
+/* Hiệu ứng khi di chuột */
+
+.app > .sidebar .logout-button:hover {
+    background: #fff1f2 !important;
+
+    color: #b26170 !important;
+}
+
+
+/* Icon đăng xuất */
+
+.app > .sidebar .logout-button .icon {
+    width: 17px;
+    height: 17px;
+
+    fill: none;
+
+    stroke: currentColor;
+    stroke-width: 1.65;
+
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+
+/* ===========================================================
+   15. DÒNG CHỮ CUỐI SIDEBAR
+=========================================================== */
+
+.app > .sidebar .sidebar-footer {
+    margin-top: 6px !important;
+
+    color: #bbb8c6;
+
+    font-size: 9px !important;
+
+    letter-spacing: 1.1px !important;
+
+    text-align: center;
+}
+
+
+/* ===========================================================
+   16. KHU VỰC NỘI DUNG CHÍNH
+=========================================================== */
+
+.app > .main {
+    width: 100%;
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* ===========================================================
+   17. NÚT MỞ MENU TRÊN ĐIỆN THOẠI
+=========================================================== */
+
+.teacher-menu-toggle {
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    flex: none;
+
+    width: 42px;
+    height: 42px;
+
+    border: 1px solid #eeeaf5;
+
+    border-radius: 12px;
+
+    padding: 0;
+
+    background: #fff;
+
+    color: #6b5ce2;
+}
+
+.teacher-menu-toggle .ui-icon {
+    width: 23px;
+    height: 23px;
+}
+
+
+/* ===========================================================
+   18. NỀN PHỦ KHI MỞ SIDEBAR
+=========================================================== */
+
+.teacher-sidebar-backdrop {
+    display: none;
+}
+
+
+/* ===========================================================
+   19. RESPONSIVE LAPTOP
+   Từ 1101px đến 1260px
+=========================================================== */
+
+@media (min-width: 1101px) and (max-width: 1260px) {
+
+    .app {
+        grid-template-columns:
+            205px minmax(0, 1fr) !important;
+    }
+
+    .app > .sidebar {
+        width: 205px !important;
+
+        padding: 30px 14px 16px !important;
+    }
+
+}
+
+
+/* ===========================================================
+   20. RESPONSIVE TABLET / MOBILE
+   Màn hình từ 1100px trở xuống
+=========================================================== */
+
+@media (max-width: 1100px) {
+
+    /* Chuyển layout về dạng block */
+
+    .app {
+        display: block !important;
+    }
+
+
+    /* Sidebar chuyển thành menu trượt */
+
+    .app > .sidebar {
+        position: fixed !important;
+
+        inset: 0 auto 0 0 !important;
+
+        top: 0 !important;
+        left: 0 !important;
+
+        width: 228px !important;
+
+        height: 100vh !important;
+        height: 100dvh !important;
+
+        padding: 30px 19px 16px !important;
+
+        transform: translateX(-105%) !important;
+
+        transition: transform 0.25s ease !important;
+
+        box-shadow:
+            8px 0 30px #2f23561a !important;
+    }
+
+
+    /* Hiện Sidebar khi có class is-open */
+
+    .app > .sidebar.is-open {
+        transform: translateX(0) !important;
+    }
+
+
+    /* Nội dung chính chiếm toàn màn hình */
+
+    .app > .main {
+        margin-left: 0 !important;
+
+        width: 100% !important;
+    }
+
+
+    /* Hiện nút mở menu */
+
+    .teacher-menu-toggle {
+        display: flex;
+    }
+
+
+    /* Header */
+
+    .main > header {
+        justify-content: space-between;
+
+        gap: 12px;
+    }
+
+
+    /* Nền tối phía sau menu */
+
+    .teacher-sidebar-backdrop:not([hidden]) {
+        display: block;
+
+        position: fixed;
+
+        inset: 0;
+
+        z-index: 49;
+
+        background: rgba(28, 20, 59, 0.36);
+
+        border: 0;
+
+        border-radius: 0;
+    }
+
+
+    /* Khóa cuộn trang khi menu đang mở */
+
+    body.teacher-menu-open {
+        overflow: hidden;
+    }
+
+}
+
+
+/* ===========================================================
+   21. RESPONSIVE MOBILE NHỎ
+   Màn hình từ 520px trở xuống
+=========================================================== */
+
+@media (max-width: 520px) {
+
+    /* Header */
+
+    .main > header {
+        padding: 0 14px !important;
+
+        gap: 8px;
+
+        justify-content: space-between !important;
+    }
+
+
+    /* Ẩn thanh tìm kiếm */
+
+    .main > header .search {
+        display: none;
+    }
+
+
+    /* Thu nhỏ nút menu */
+
+    .teacher-menu-toggle {
+        width: 38px;
+        height: 38px;
+    }
+
+}

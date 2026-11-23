@@ -1,0 +1,2598 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Qurio | Kết quả học sinh</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --p: #7652ea;
+  --ink: #232044;
+  --muted: #8d85a2;
+  --border: #eae5f6;
+  --bg: #f8f7fd;
+  --navy: #171d32;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background: var(--bg);
+  font: 13px "Be Vietnam Pro", sans-serif;
+}
+
+button, input, select { font: inherit; }
+button { cursor: pointer; }
+a { color: inherit; text-decoration: none; }
+
+/* ===== BỐ CỤC CHUNG QURIO ===== */
+
+.app {
+  display: grid;
+  grid-template-columns: 228px minmax(0, 1fr);
+  min-height: 100vh;
+  align-items: start;
+}
+
+.app > .sidebar {
+  position: sticky;
+  top: 0;
+  align-self: start;
+  width: 228px;
+  height: 100dvh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: white;
+  border-right: 1px solid #eeedf5;
+  z-index: 40;
+  padding: 30px 19px 16px;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.6;
+  scrollbar-width: thin;
+  scrollbar-color: #e9e2f5 transparent;
+}
+
+.sidebar .brand {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding-left: 7px;
+  color: #25264b;
+}
+
+.sidebar .brand img {
+  width: 46px;
+  height: 46px;
+  object-fit: contain;
+}
+
+.sidebar .brand > span {
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -1.1px;
+}
+
+.sidebar .brand-dot { color: #6b5ce2; }
+
+.sidebar .brand-note {
+  margin: 7px 0 30px 10px;
+  color: #9292a7;
+  font-size: 10px;
+}
+
+.sidebar .main-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.sidebar .nav-heading {
+  margin: 18px 12px 6px;
+  color: #a2a3b2;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+}
+
+.sidebar .nav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 42px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  color: #7a7d94;
+  font-size: 12px;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.sidebar .nav-item:hover {
+  background: #f8f6fe;
+  color: #6b5ce2;
+}
+
+.sidebar .nav-item.active {
+  background: #efecfc;
+  color: #6b5ce2;
+  font-weight: 700;
+}
+
+.sidebar .nav-item > .icon {
+  display: block;
+  flex: none;
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.65;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.sidebar .nav-item .active-dot { display: none; }
+
+.sidebar .nav-item.active .active-dot {
+  display: block;
+  width: 5px;
+  height: 5px;
+  margin-left: auto;
+  border-radius: 50%;
+  background: #6b5ce2;
+}
+
+.sidebar .nav-tag {
+  margin-left: auto;
+  padding: 2px 4px;
+  border-radius: 4px;
+  font-size: 8px;
+  color: #9182bf;
+  background: #f3efff;
+}
+
+.sidebar .sidebar-bottom {
+  margin-top: auto;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  padding-top: 12px;
+}
+
+.sidebar .logout-button {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 13px 12px;
+  border: 0;
+  border-radius: 9px;
+  background: transparent;
+  color: #c62828;
+  font-size: 12px;
+  font-weight: 700;
+  text-align: left;
+}
+
+.sidebar .logout-button:hover {
+  background: #fff1f2;
+}
+
+.sidebar .logout-button .icon {
+  width: 17px;
+  height: 17px;
+  fill: none;
+  stroke: #c62828;
+  stroke-width: 1.7;
+}
+
+.svg-defs {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+.ui-icon {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.main {
+  min-width: 0;
+  width: 100%;
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-height: 76px;
+  padding: 0 30px;
+  background: white;
+  border-bottom: 1px solid #eeeaf5;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  height: 42px;
+  max-width: 320px;
+  width: 100%;
+  margin-left: auto;
+  padding: 0 13px;
+  border: 1px solid #ebe5f5;
+  border-radius: 13px;
+  background: #faf9ff;
+}
+
+.search input {
+  width: 100%;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  font-size: 11px;
+}
+
+.account {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.bell {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border: 0;
+  border-radius: 10px;
+  background: none;
+  color: #6d618d;
+}
+
+.account-divider {
+  height: 28px;
+  width: 1px;
+  background: #eae5f2;
+}
+
+.profile-wrap { position: relative; }
+
+.profile-trigger {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 5px 8px;
+  border: 0;
+  border-radius: 12px;
+  background: transparent;
+  color: var(--ink);
+  text-align: left;
+}
+
+.profile-trigger:hover { background: #f6f1ff; }
+
+.avatar {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #e9ddff;
+  color: #7145dc;
+  font-weight: 800;
+}
+
+.profile-trigger-label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.profile-trigger-label b { font-size: 12px; }
+
+.profile-trigger-label small {
+  color: #9990ab;
+  font-size: 10px;
+}
+
+.profile-menu {
+  position: absolute;
+  top: calc(100% + 9px);
+  right: 0;
+  z-index: 50;
+  width: 260px;
+  padding: 9px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: white;
+  box-shadow: 0 17px 40px #25194725;
+}
+
+.profile-menu[hidden] { display: none !important; }
+
+.profile-menu button {
+  display: block;
+  width: 100%;
+  padding: 11px;
+  border: 0;
+  border-radius: 9px;
+  background: none;
+  color: #5e4e80;
+  font-size: 11px;
+  text-align: left;
+}
+
+.profile-menu button:hover { background: #f6f1ff; }
+
+.teacher-menu-toggle {
+  display: none;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: white;
+  color: var(--p);
+}
+
+.teacher-sidebar-backdrop { display: none; }
+
+/* ===== NỘI DUNG TRANG ===== */
+
+.workspace {
+  max-width: 1550px;
+  margin: 0 auto;
+  padding: 27px 31px 62px;
+}
+
+.crumb {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 17px;
+  color: #958caa;
+  font-size: 12px;
+}
+
+.crumb strong { color: var(--p); }
+
+.hero {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+  min-height: 224px;
+  padding: 38px 41px;
+  overflow: hidden;
+  border: 1px solid #e7dcff;
+  border-radius: 24px;
+  background: linear-gradient(
+    112deg,
+    #eee6ff 0%,
+    #f9ecff 46%,
+    #e4f2ff 100%
+  );
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 420px;
+  height: 420px;
+  right: 7%;
+  top: -240px;
+  border: 56px solid #ffffff45;
+  border-radius: 50%;
+}
+
+.eyebrow {
+  color: #8b58e7;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.hero h1 {
+  margin: 12px 0;
+  color: #26204e;
+  font-size: clamp(26px,2.4vw,35px);
+  letter-spacing: -1px;
+}
+
+.hero p {
+  max-width: 530px;
+  margin: 0;
+  color: #716b90;
+  font-size: 12px;
+  line-height: 1.95;
+}
+
+.hero-art {
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 270px;
+  height: 162px;
+  min-width: 220px;
+}
+
+.hero-visual {
+  position: relative;
+  width: 240px;
+  height: 175px;
+}
+
+.hero-glow {
+  position: absolute;
+  inset: 12px 8px 3px 35px;
+  border-radius: 50%;
+  background: #b99bff55;
+  filter: blur(28px);
+}
+
+.visual-chart {
+  position: absolute;
+  inset: 15px 35px 5px 10px;
+  padding: 16px;
+  transform: rotate(-7deg);
+  border: 5px solid #8b67ee;
+  border-radius: 19px;
+  background: linear-gradient(160deg,#fff,#f7f3ff);
+  box-shadow: 0 15px 28px #7050b555;
+}
+
+.visual-star {
+  color: #b185fb;
+  font-size: 19px;
+}
+
+.visual-title {
+  margin-top: 3px;
+  color: #7b6ba4;
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.visual-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 9px;
+  height: 70px;
+  padding: 6px 7px 0;
+}
+
+.visual-bars i {
+  flex: 1;
+  height: 45%;
+  border-radius: 7px 7px 2px 2px;
+  background: linear-gradient(#8e6bf4,#bdabff);
+}
+
+.visual-bars i:nth-child(2) {
+  height: 73%;
+  background: linear-gradient(#48b7f8,#a0dafa);
+}
+
+.visual-bars i:nth-child(3) { height: 54%; }
+
+.visual-bars i:nth-child(4) {
+  height: 92%;
+  background: linear-gradient(#38c8a3,#8fe9cf);
+}
+
+.visual-bars i:nth-child(5) { height: 76%; }
+
+.visual-trophy {
+  position: absolute;
+  right: 0;
+  top: 4px;
+  font-size: 56px;
+}
+
+.visual-check {
+  position: absolute;
+  right: -15px;
+  bottom: -10px;
+  display: grid;
+  place-items: center;
+  width: 37px;
+  height: 37px;
+  border-radius: 50%;
+  background: #2dcf9b;
+  color: white;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.visual-float {
+  position: absolute;
+  left: -14px;
+  top: 0;
+  color: #9e66f0;
+  font-size: 34px;
+}
+
+/* ===== THỐNG KÊ ===== */
+
+.data-notice {
+  margin: 20px 0 17px;
+  padding: 13px 17px;
+  border: 1px solid #e9dffc;
+  border-radius: 12px;
+  background: #f8f4ff;
+  color: #7254aa;
+  font-size: 11px;
+}
+
+.data-notice[hidden] { display: none; }
+
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(4,minmax(0,1fr));
+  gap: 16px;
+  margin: 22px 0;
+}
+
+.metric {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 21px 18px;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: white;
+  box-shadow: 0 9px 28px #39246b09;
+}
+
+.metric .ic {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 52px;
+  height: 52px;
+  border-radius: 15px;
+  background: #eee7ff;
+  font-size: 24px;
+}
+
+.metric:nth-child(2) .ic { background: #e6f0ff; }
+.metric:nth-child(3) .ic { background: #fff2dc; }
+.metric:nth-child(4) .ic { background: #e2f9ef; }
+
+.metric strong {
+  display: block;
+  color: #28214e;
+  font-size: 26px;
+}
+
+.metric small {
+  color: var(--muted);
+  font-size: 10px;
+  line-height: 1.6;
+}
+
+.insights {
+  display: grid;
+  grid-template-columns: minmax(0,1.65fr) minmax(290px,1fr);
+  gap: 18px;
+  margin-bottom: 20px;
+}
+
+.insight-panel,
+.panel {
+  min-width: 0;
+  padding: 24px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: white;
+  box-shadow: 0 9px 28px #39246b09;
+}
+
+.panel { margin-bottom: 19px; }
+
+.insight-head,
+.panel-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.insight-head h2,
+.panel-head h2 {
+  margin: 6px 0;
+  color: #28214e;
+  font-size: 17px;
+}
+
+.insight-head p,
+.panel-head p {
+  margin: 0;
+  color: #938aa8;
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+.micro {
+  color: #9673e9;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1.3px;
+}
+
+.insight-icon {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 13px;
+  font-size: 23px;
+}
+
+.insight-icon.purple {
+  background: #f1eaff;
+  color: #8155ea;
+}
+
+.insight-icon.blue {
+  background: #e9f3ff;
+  color: #5e99f4;
+}
+
+.score-bars {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  gap: 16px;
+  height: 174px;
+  padding: 20px 5px 0;
+}
+
+.score-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  flex: 1;
+  height: 100%;
+  min-width: 0;
+}
+
+.score-bar {
+  display: block;
+  width: min(56px,70%);
+  min-height: 4px;
+  border-radius: 10px 10px 3px 3px;
+  background: linear-gradient(#8f6ef1,#d7c8ff);
+}
+
+.score-col:nth-child(2) .score-bar {
+  background: linear-gradient(#58aef5,#c5e3ff);
+}
+
+.score-col:nth-child(3) .score-bar {
+  background: linear-gradient(#34cfa6,#b3f2dc);
+}
+
+.score-col:nth-child(4) .score-bar {
+  background: linear-gradient(#f8b454,#ffe2ad);
+}
+
+.score-col small {
+  font-size: 10px;
+  color: var(--muted);
+  text-align: center;
+}
+
+.score-col b { font-size: 11px; }
+
+.insight-empty {
+  width: 100%;
+  align-self: center;
+  color: #9d94ad;
+  font-size: 11px;
+  text-align: center;
+}
+
+.highlight-list {
+  display: grid;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.highlight-item {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 11px 12px;
+  border: 1px solid #f0ecfa;
+  border-radius: 13px;
+  background: #faf9ff;
+}
+
+.highlight-ico {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 39px;
+  height: 39px;
+  border-radius: 12px;
+  font-size: 21px;
+}
+
+.highlight-ico.mint {
+  background: #def8ee;
+  color: #16a678;
+}
+
+.highlight-ico.pink {
+  background: #ffe8f0;
+  color: #e46b9b;
+}
+
+.highlight-ico.amber {
+  background: #fff1d9;
+  color: #d99524;
+}
+
+.highlight-item small {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.highlight-item strong { font-size: 17px; }
+
+/* ===== BẢNG KẾT QUẢ ===== */
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+
+.filters select,
+.filters input {
+  height: 41px;
+  min-width: 135px;
+  padding: 0 12px;
+  outline: none;
+  border: 1px solid #e8e2f2;
+  border-radius: 11px;
+  background: #fcfbff;
+  color: #615578;
+  font-size: 11px;
+}
+
+.filters input { min-width: 190px; }
+.filters :focus { border-color: #9774ed; }
+
+.btn {
+  padding: 12px 16px;
+  border: 0;
+  border-radius: 11px;
+  background: linear-gradient(125deg,#7c54e9,#9669f1);
+  color: white;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.btn:hover { background: #6236d6; }
+
+.result-count {
+  margin-top: 16px;
+  color: #978cae;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.table-wrap {
+  overflow: auto;
+  border: 1px solid #eee9f7;
+  border-radius: 13px;
+}
+
+.data-table {
+  width: 100%;
+  min-width: 700px;
+  border-collapse: collapse;
+}
+
+.data-table th {
+  padding: 15px;
+  background: #f5f1ff;
+  color: #695d90;
+  font-size: 10px;
+  text-align: left;
+}
+
+.data-table td {
+  padding: 14px 15px;
+  border-top: 1px solid #f1edf8;
+  color: #5e5377;
+  font-size: 11px;
+}
+
+.data-table tbody tr:hover { background: #fcfaff; }
+
+.data-table td strong { color: #2b2250; }
+
+.tag {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 20px;
+  background: #e0f8e9;
+  color: #159e5b;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.tag.pending {
+  background: #fff0dd;
+  color: #c4892d;
+}
+
+.tag.missing {
+  background: #f4e9ff;
+  color: #8b55d0;
+}
+
+.action {
+  padding: 8px 12px;
+  border: 0;
+  border-radius: 8px;
+  background: #f1ebff;
+  color: #6d40d6;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.action:hover { background: #e4d9ff; }
+
+.empty {
+  padding: 36px 18px;
+  color: #9d93af;
+  font-size: 12px;
+  line-height: 1.9;
+  text-align: center;
+}
+
+/* ===== PHÂN TÍCH ===== */
+
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0,1.5fr) minmax(290px,.78fr);
+  gap: 18px;
+  align-items: start;
+}
+
+.progress-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 19px 0 10px;
+  font-size: 11px;
+}
+
+.progress-header strong { font-size: 18px; }
+
+.progress-track {
+  height: 11px;
+  overflow: hidden;
+  border-radius: 30px;
+  background: #f0eafb;
+}
+
+.progress-fill {
+  width: 0;
+  height: 100%;
+  border-radius: 30px;
+  background: linear-gradient(90deg,#855cf2,#39cba8);
+}
+
+.chart-empty {
+  min-height: 120px;
+  display: grid;
+  place-items: center;
+  color: #a098b2;
+  font-size: 11px;
+}
+
+.topic {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin: 15px 0;
+  font-size: 11px;
+}
+
+.topic span {
+  flex: 0 0 105px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.topic .progress-track {
+  flex: 1;
+  height: 9px;
+}
+
+.topic b {
+  width: 34px;
+  text-align: right;
+  color: #6b4ec0;
+}
+
+/* ===== CHI TIẾT BÀI LÀM ===== */
+
+.dialog {
+  width: min(710px,calc(100% - 25px));
+  padding: 0;
+  border: 1px solid #e6dcf5;
+  border-radius: 20px;
+  box-shadow: 0 20px 70px #23163f50;
+}
+
+.dialog::backdrop { background: #2015398c; }
+
+.dialog-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 23px;
+  background: linear-gradient(100deg,#f2eaff,#eaf4ff);
+}
+
+.dialog-head h2 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.dialog-body {
+  max-height: 75vh;
+  overflow-y: auto;
+  padding: 23px;
+}
+
+.dialog-close {
+  width: 33px;
+  height: 33px;
+  border: 0;
+  border-radius: 9px;
+  background: white;
+  color: #6e43d4;
+  font-size: 18px;
+}
+
+.detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.detail-field {
+  padding: 13px;
+  border: 1px solid var(--border);
+  border-radius: 11px;
+}
+
+.detail-field small {
+  display: block;
+  margin-bottom: 7px;
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.detail-field strong { font-size: 12px; }
+
+.answer-list {
+  margin-top: 20px;
+  padding-top: 13px;
+  border-top: 1px solid var(--border);
+}
+
+.answer {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.answer b { font-size: 12px; }
+
+.answer p {
+  color: #776c91;
+  font-size: 11px;
+  line-height: 1.8;
+  white-space: pre-wrap;
+}
+
+.toast {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 100;
+  padding: 13px 17px;
+  border-radius: 12px;
+  background: #251d43;
+  color: white;
+  font-size: 11px;
+}
+
+.toast[hidden] { display: none; }
+
+/* ===== CHÂN TRANG ===== */
+
+.qurio-footer {
+  position: relative !important;
+  left: auto !important;
+  right: auto !important;
+  clear: both !important;
+  width: 100% !important;
+  z-index: 35 !important;
+  background: #171c32;
+  color: #c4cce5;
+}
+
+.qurio-footer-top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1.2fr;
+  gap: 35px;
+  max-width: 1400px;
+  margin: auto;
+}
+
+.qurio-footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  max-width: 1400px;
+  margin: 35px auto 0;
+  padding-top: 18px;
+  border-top: 1px solid #ffffff20;
+}
+
+.qurio-footer-socials {
+  display: flex;
+  gap: 9px;
+  flex-wrap: wrap;
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width:1100px) {
+  .app { display: block; }
+
+  .app > .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 70;
+    transform: translateX(-110%);
+    transition: transform .23s;
+  }
+
+  .app > .sidebar.is-open {
+    transform: translateX(0);
+  }
+
+  .teacher-menu-toggle {
+    display: grid;
+    place-items: center;
+  }
+
+  .teacher-sidebar-backdrop:not([hidden]) {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 65;
+    background: #24173e75;
+  }
+
+  .grid, .insights {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width:780px) {
+  .workspace { padding: 19px 15px 40px; }
+  .topbar { padding: 0 15px; }
+  .search, .account-divider { display: none; }
+  .metrics { grid-template-columns: repeat(2,1fr); }
+  .profile-trigger-label { display: none; }
+  .qurio-footer-top { grid-template-columns: 1fr; }
+  .qurio-footer-bottom { flex-direction: column; }
+}
+
+@media (max-width:650px) {
+  .hero {
+    min-height: auto;
+    padding: 24px;
+  }
+
+  .hero-art { display: none; }
+
+  .insight-panel, .panel { padding: 17px; }
+
+  .metric { padding: 12px; gap: 9px; }
+  .metric .ic { width: 40px; height: 40px; }
+  .metric strong { font-size: 20px; }
+
+  .filters, .filters select, .filters input {
+    width: 100%;
+  }
+
+  .detail-grid { grid-template-columns: 1fr; }
+}
+</style>
+
+<link rel="stylesheet" href="../../Chung/qurio-layout.css">
+<link rel="stylesheet" href="../../Chung/qurio-accent.css">
+<link rel="stylesheet" href="../../Chung/qurio-global.css">
+<script defer src="../../Chung/qurio-global.js"></script>
+</head>
+
+<body>
+
+<!-- ===== BỘ ICON CHUNG QURIO ===== -->
+
+<svg
+  class="svg-defs"
+  xmlns="http://www.w3.org/2000/svg"
+  aria-hidden="true"
+  focusable="false"
+  style="position:absolute;width:0;height:0;overflow:hidden"
+>
+  <symbol id="i-home" viewBox="0 0 24 24">
+    <path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1Z"/>
+  </symbol>
+
+  <symbol id="i-book" viewBox="0 0 24 24">
+    <path d="M12 5v16M3 4c4-1 7 0 9 2 2-2 5-3 9-2v15c-4-1-7 0-9 2-2-2-5-3-9-2Z"/>
+  </symbol>
+
+  <symbol id="i-route" viewBox="0 0 24 24">
+    <circle cx="6" cy="5" r="2"/>
+    <circle cx="18" cy="19" r="2"/>
+    <path d="M8 5h7a4 4 0 0 1 0 8H9a3 3 0 0 0 0 6h7"/>
+  </symbol>
+
+  <symbol id="i-chart" viewBox="0 0 24 24">
+    <path d="M4 3v17h17M9 16v-5m5 5V6m5 10V9"/>
+  </symbol>
+
+  <symbol id="i-teacher" viewBox="0 0 24 24">
+    <rect x="7" y="3" width="14" height="12" rx="2"/>
+    <path d="M12 21h7m-3-6v6M3 20v-5a3 3 0 0 1 3-3h3"/>
+    <circle cx="4.5" cy="7" r="2.5"/>
+  </symbol>
+
+  <symbol id="i-chat" viewBox="0 0 24 24">
+    <path d="M21 11a8 8 0 0 1-8 8H8l-5 3V6a3 3 0 0 1 3-3h7a8 8 0 0 1 8 8Z"/>
+    <path d="M7 8h9M7 12h6"/>
+  </symbol>
+
+  <symbol id="i-spark" viewBox="0 0 24 24">
+    <path d="m12 3 2.5 6.5L21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5Z"/>
+  </symbol>
+
+  <symbol id="i-calendar" viewBox="0 0 24 24">
+    <rect x="3" y="5" width="18" height="16" rx="3"/>
+    <path d="M7 3v4m10-4v4M3 10h18M7 14h2m4 0h2m-8 3h2"/>
+  </symbol>
+
+  <symbol id="i-trophy" viewBox="0 0 24 24">
+    <path d="M8 3h8v7a4 4 0 0 1-8 0Zm8 2h4v3a4 4 0 0 1-4 4M8 5H4v3a4 4 0 0 0 4 4m4 2v6m-5 1h10"/>
+  </symbol>
+
+  <symbol id="i-lab" viewBox="0 0 24 24">
+    <path d="M9 3h6m-5 0v6L4 19a1 1 0 0 0 1 2h14a1 1 0 0 0 1-2L14 9V3M7 15h10"/>
+  </symbol>
+
+  <symbol id="i-exit" viewBox="0 0 24 24">
+    <path d="M10 4H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h5m5-13 5 5-5 5M8 12h12"/>
+  </symbol>
+
+  <symbol id="i-search" viewBox="0 0 24 24">
+    <circle cx="10.5" cy="10.5" r="6.5"/>
+    <path d="m16 16 5 5"/>
+  </symbol>
+
+  <symbol id="i-bell" viewBox="0 0 24 24">
+    <path d="M18 8a6 6 0 0 0-12 0c0 8-3 8-3 10h18c0-2-3-2-3-10m-11 14h4"/>
+  </symbol>
+
+  <symbol id="i-chevron" viewBox="0 0 24 24">
+    <path d="m8 10 4 4 4-4"/>
+  </symbol>
+
+  <symbol id="i-arrow" viewBox="0 0 24 24">
+    <path d="M4 12h15m-6-6 6 6-6 6"/>
+  </symbol>
+
+  <symbol id="i-menu" viewBox="0 0 24 24">
+    <path d="M4 6h16M4 12h16M4 18h16"/>
+  </symbol>
+
+  <symbol id="i-check" viewBox="0 0 24 24">
+    <path d="m5 12 4 4L19 6"/>
+  </symbol>
+
+  <symbol id="i-target" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="9"/>
+    <circle cx="12" cy="12" r="5"/>
+    <circle cx="12" cy="12" r="1"/>
+  </symbol>
+
+  <symbol id="i-clock" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="9"/>
+    <path d="M12 7v5l3 2"/>
+  </symbol>
+
+  <symbol id="i-plus" viewBox="0 0 24 24">
+    <path d="M12 4v16M4 12h16"/>
+  </symbol>
+
+  <symbol id="i-math" viewBox="0 0 24 24">
+    <path d="M4 7h7M7.5 3.5v7M15 5l5 5m0-5-5 5M4 16h7m4-2h6m-6 4h6"/>
+  </symbol>
+
+  <symbol id="i-history" viewBox="0 0 24 24">
+    <path d="m3 8 9-5 9 5M4 9h16M5 20h14M4 22h16M6 10v8m6-8v8m6-8v8"/>
+  </symbol>
+
+  <symbol id="i-globe" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="9"/>
+    <path d="M3 12h18M12 3c5 5 5 13 0 18-5-5-5-13 0-18Z"/>
+  </symbol>
+
+  <symbol id="i-code" viewBox="0 0 24 24">
+    <path d="m8 6-6 6 6 6m8-12 6 6-6 6m-3-14-2 16"/>
+  </symbol>
+
+  <symbol id="i-close" viewBox="0 0 24 24">
+    <path d="m6 6 12 12M6 18 18 6"/>
+  </symbol>
+</svg>
+
+<!-- ===== TRANG CHÍNH ===== -->
+
+<div class="app">
+  <div class="main">
+    <main class="workspace">
+
+      <section class="hero">
+        <div>
+          <span class="eyebrow">
+            ✦ QURIO · KẾT QUẢ HỌC TẬP
+          </span>
+
+          <h1>Kết quả học sinh</h1>
+
+          <p>
+            Theo dõi điểm số, bài làm và tiến độ
+            của từng học sinh trên một không gian
+            trực quan, dễ quản lý.
+          </p>
+        </div>
+
+        <div class="hero-art" aria-hidden="true">
+          <div class="hero-visual">
+            <div class="hero-glow"></div>
+
+            <div class="visual-chart">
+              <span class="visual-star">✦</span>
+
+              <div class="visual-title">
+                Learning analytics
+              </div>
+
+              <div class="visual-bars">
+                <i></i><i></i><i></i><i></i><i></i>
+              </div>
+
+              <div class="visual-check">✓</div>
+            </div>
+
+            <div class="visual-trophy">🏆</div>
+            <div class="visual-float">✧</div>
+          </div>
+        </div>
+      </section>
+
+      <div
+        class="data-notice"
+        id="dataNotice"
+        role="status"
+        hidden
+      ></div>
+
+      <!-- ===== THỐNG KÊ NHANH ===== -->
+
+      <section class="metrics">
+
+        <div class="metric">
+          <div class="ic">👥</div>
+          <div>
+            <strong id="totalStudents">—</strong>
+            <small>Học sinh có kết quả</small>
+          </div>
+        </div>
+
+        <div class="metric">
+          <div class="ic">📋</div>
+          <div>
+            <strong id="totalAttempts">—</strong>
+            <small>Bài đã nộp</small>
+          </div>
+        </div>
+
+        <div class="metric">
+          <div class="ic">⭐</div>
+          <div>
+            <strong id="avgScore">—</strong>
+            <small>Điểm trung bình</small>
+          </div>
+        </div>
+
+        <div class="metric">
+          <div class="ic">✅</div>
+          <div>
+            <strong id="completionRate">—</strong>
+            <small>Tỷ lệ hoàn thành</small>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- ===== BIỂU ĐỒ ===== -->
+
+      <section class="insights">
+
+        <div class="insight-panel">
+
+          <div class="insight-head">
+            <div>
+              <span class="micro">
+                PHÂN TÍCH ĐIỂM SỐ
+              </span>
+
+              <h2>Phân bố kết quả</h2>
+
+              <p>
+                Thống kê các bài đã chấm
+                theo thang điểm 10
+              </p>
+            </div>
+
+            <div class="insight-icon purple">▥</div>
+          </div>
+
+          <div class="score-bars" id="scoreBars">
+            <div class="insight-empty">
+              Chưa có dữ liệu điểm số.
+            </div>
+          </div>
+
+        </div>
+
+        <div class="insight-panel">
+
+          <div class="insight-head">
+            <div>
+              <span class="micro">
+                THEO DÕI HỌC TẬP
+              </span>
+
+              <h2>Điểm nổi bật</h2>
+
+              <p>
+                Cập nhật tự động từ
+                kết quả học sinh
+              </p>
+            </div>
+
+            <div class="insight-icon blue">✦</div>
+          </div>
+
+          <div class="highlight-list">
+
+            <div class="highlight-item">
+              <span class="highlight-ico mint">↗</span>
+              <div>
+                <small>Bài đạt từ 8 điểm</small>
+                <strong id="highScores">—</strong>
+              </div>
+            </div>
+
+            <div class="highlight-item">
+              <span class="highlight-ico pink">◎</span>
+              <div>
+                <small>
+                  Bài cần hỗ trợ (dưới 5 điểm)
+                </small>
+                <strong id="lowScores">—</strong>
+              </div>
+            </div>
+
+            <div class="highlight-item">
+              <span class="highlight-ico amber">◷</span>
+              <div>
+                <small>Bài đang chờ chấm</small>
+                <strong id="ungradedCount">—</strong>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+      <!-- ===== DANH SÁCH KẾT QUẢ ===== -->
+
+      <section class="panel">
+
+        <div class="panel-head">
+          <div>
+            <h2>Danh sách kết quả học tập</h2>
+            <p>
+              Lọc theo lớp, bài kiểm tra và
+              trạng thái để xem chi tiết
+            </p>
+          </div>
+
+          <button
+            class="btn"
+            id="exportBtn"
+            type="button"
+          >
+            ↓ Xuất CSV
+          </button>
+        </div>
+
+        <div class="filters">
+
+          <select id="classFilter">
+            <option value="all">
+              Tất cả lớp
+            </option>
+          </select>
+
+          <select id="examFilter">
+            <option value="all">
+              Tất cả bài kiểm tra
+            </option>
+          </select>
+
+          <select id="statusFilter">
+            <option value="all">
+              Tất cả trạng thái
+            </option>
+
+            <option value="submitted">
+              Đã nộp
+            </option>
+
+            <option value="pending">
+              Chưa nộp
+            </option>
+          </select>
+
+          <input
+            type="search"
+            id="searchInput"
+            placeholder="⌕ Tìm tên học sinh..."
+            aria-label="Tìm tên học sinh"
+          >
+
+        </div>
+
+        <div
+          class="result-count"
+          id="resultCount"
+          aria-live="polite"
+        >
+          0 kết quả
+        </div>
+
+        <div
+          class="table-wrap"
+          style="margin-top:18px"
+        >
+          <table class="data-table">
+
+            <thead>
+              <tr>
+                <th>Học sinh</th>
+                <th>Lớp</th>
+                <th>Bài kiểm tra</th>
+                <th>Điểm</th>
+                <th>Thời gian làm</th>
+                <th>Trạng thái</th>
+                <th>Chi tiết</th>
+              </tr>
+            </thead>
+
+            <tbody id="resultsBody">
+              <tr>
+                <td colspan="7" class="empty">
+                  Đang tải kết quả...
+                </td>
+              </tr>
+            </tbody>
+
+          </table>
+        </div>
+
+      </section>
+
+      <!-- ===== TIẾN ĐỘ VÀ LỖI SAI ===== -->
+
+      <div class="grid">
+
+        <section class="panel">
+
+          <div class="panel-head">
+            <div>
+              <h2>Tiến độ hoàn thành</h2>
+              <p>
+                Tỷ lệ nộp bài của học sinh
+                trong phạm vi đã chọn
+              </p>
+            </div>
+          </div>
+
+          <div class="progress-header">
+            <span>Đã hoàn thành</span>
+            <strong id="progressText">—</strong>
+          </div>
+
+          <div class="progress-track">
+            <div
+              class="progress-fill"
+              id="progressFill"
+            ></div>
+          </div>
+
+          <div
+            class="chart-empty"
+            id="progressMessage"
+          ></div>
+
+        </section>
+
+        <section class="panel">
+
+          <div class="panel-head">
+            <div>
+              <h2>Nội dung học sinh thường sai</h2>
+              <p>
+                Tổng hợp từ các câu trả lời sai
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="chart-empty"
+            id="weakTopics"
+          ></div>
+
+        </section>
+
+      </div>
+
+    </main>
+  </div>
+</div>
+
+<!-- ===== CHI TIẾT BÀI LÀM ===== -->
+
+<dialog class="dialog" id="resultDialog">
+
+  <div class="dialog-head">
+    <h2>Chi tiết bài làm</h2>
+
+    <button
+      class="dialog-close"
+      id="closeDialog"
+      type="button"
+      aria-label="Đóng"
+    >
+      ×
+    </button>
+  </div>
+
+  <div
+    class="dialog-body"
+    id="dialogContent"
+  ></div>
+
+</dialog>
+
+<div class="toast" id="toast" hidden></div>
+
+<button
+  id="sidebarBackdrop"
+  class="teacher-sidebar-backdrop"
+  type="button"
+  aria-label="Đóng menu"
+  hidden
+></button>
+
+<!-- ===== FILE JS CHUNG CỦA QURIO ===== -->
+
+<script src="../../Chung/qurio-layout.js"></script>
+
+<script>
+if (window.QurioLayout?.mountTeacher) {
+  window.QurioLayout.mountTeacher();
+}
+</script>
+
+<script src="../../Chung/chung.js"></script>
+<script src="../../Chung/qurio-account-ui.js"></script>
+<script src="../../Chung/qurio-teacher-hub.js"></script>
+
+<!-- ===== CHỨC NĂNG TRANG KẾT QUẢ ===== -->
+
+<script>
+(() => {
+  "use strict";
+
+  const $ = id => document.getElementById(id);
+
+  const esc = value => String(value ?? "")
+    .replace(/[&<>"']/g, char => ({
+      "&": "&amp;",
+      "<": "&lt;",
+      ">": "&gt;",
+      '"': "&quot;",
+      "'": "&#39;"
+    }[char]));
+
+  const str = value => String(value ?? "");
+
+  let db = {
+    classes: [],
+    students: [],
+    exams: [],
+    assignments: [],
+    attempts: []
+  };
+
+  let loaded = false;
+
+  // ===========================
+  // THÔNG BÁO
+  // ===========================
+
+  function toast(text) {
+    const el = $("toast");
+
+    if (!el) return;
+
+    el.textContent = text;
+    el.hidden = false;
+
+    clearTimeout(toast.timer);
+
+    toast.timer = setTimeout(() => {
+      el.hidden = true;
+    }, 3300);
+  }
+
+  function notice(text) {
+    const el = $("dataNotice");
+
+    if (!el) return;
+
+    el.textContent = text || "";
+    el.hidden = !text;
+  }
+
+  // ===========================
+  // CHUẨN HÓA DỮ LIỆU
+  // ===========================
+
+  function norm(raw) {
+    raw = raw && typeof raw === "object"
+      ? raw
+      : {};
+
+    const output = {
+      classes: Array.isArray(raw.classes)
+        ? raw.classes : [],
+
+      students: Array.isArray(raw.students)
+        ? raw.students : [],
+
+      exams: Array.isArray(raw.exams)
+        ? raw.exams : [],
+
+      assignments: Array.isArray(raw.assignments)
+        ? raw.assignments : [],
+
+      attempts: Array.isArray(raw.attempts)
+        ? raw.attempts.map(a => ({ ...a }))
+        : []
+    };
+
+    // Hiển thị "Chưa nộp" đối với học sinh
+    // đã được giao bài nhưng chưa có bài làm.
+
+    const key = (student, classId, examId) =>
+      [
+        str(student),
+        str(classId),
+        str(examId)
+      ].join("::");
+
+    const existing = new Set();
+
+    for (const a of output.attempts) {
+      if (a.studentId && a.classId && a.examId) {
+        existing.add(
+          key(a.studentId, a.classId, a.examId)
+        );
+      }
+    }
+
+    const expected = new Set();
+
+    for (const assignment of output.assignments) {
+      if (!assignment.classId || !assignment.examId) {
+        continue;
+      }
+
+      for (const student of output.students) {
+        if (
+          str(student.classId) !==
+          str(assignment.classId)
+        ) {
+          continue;
+        }
+
+        if (!student.id) continue;
+
+        const k = key(
+          student.id,
+          assignment.classId,
+          assignment.examId
+        );
+
+        if (expected.has(k)) continue;
+
+        expected.add(k);
+
+        if (!existing.has(k)) {
+          output.attempts.push({
+            id: "pending-" + k,
+            studentId: str(student.id),
+            classId: str(assignment.classId),
+            examId: str(assignment.examId),
+            status: "pending",
+            score: null,
+            answers: [],
+            errors: [],
+            _assignmentExpected: true
+          });
+        }
+      }
+    }
+
+    for (const a of output.attempts) {
+      const k = key(
+        a.studentId,
+        a.classId,
+        a.examId
+      );
+
+      if (expected.has(k)) {
+        a._assignmentExpected = true;
+      }
+    }
+
+    return output;
+  }
+
+  // ===========================
+  // TRUY XUẤT THÔNG TIN
+  // ===========================
+
+  function getStudent(a) {
+    return db.students.find(
+      s => str(s.id) === str(a.studentId)
+    );
+  }
+
+  function getExam(a) {
+    return db.exams.find(
+      e => str(e.id) === str(a.examId)
+    );
+  }
+
+  function getClass(a) {
+    const student = getStudent(a);
+
+    return db.classes.find(
+      c => str(c.id) === str(
+        a.classId || student?.classId
+      )
+    );
+  }
+
+  function studentName(a) {
+    return a.studentName ||
+      getStudent(a)?.name ||
+      "Học sinh";
+  }
+
+  function examName(a) {
+    return a.examTitle ||
+      getExam(a)?.title ||
+      "Bài kiểm tra";
+  }
+
+  function className(a) {
+    return getClass(a)?.name ||
+      a.className ||
+      "—";
+  }
+
+  function score(a) {
+    if (
+      a.score === undefined ||
+      a.score === null ||
+      a.score === ""
+    ) {
+      return null;
+    }
+
+    const n = Number(a.score);
+    const max = Number(a.maxScore || 10);
+
+    if (
+      !Number.isFinite(n) ||
+      !Number.isFinite(max) ||
+      max <= 0
+    ) {
+      return null;
+    }
+
+    return max === 10
+      ? n
+      : n * 10 / max;
+  }
+
+  function submitted(a) {
+    return [
+      "submitted",
+      "graded",
+      "completed"
+    ].includes(str(a.status).toLowerCase()) ||
+      a.submitted === true ||
+      score(a) !== null;
+  }
+
+  function displayDate(value) {
+    if (!value) return "—";
+
+    const date = new Date(value);
+
+    return Number.isNaN(date.getTime())
+      ? str(value)
+      : date.toLocaleString("vi-VN");
+  }
+
+  // ===========================
+  // BỘ LỌC
+  // ===========================
+
+  function setSelect(id, items, label, textFn) {
+    const el = $(id);
+    const previous = el.value;
+
+    el.innerHTML = `
+      <option value="all">${esc(label)}</option>
+    ` + items.map(item => `
+      <option value="${esc(item.id)}">
+        ${esc(textFn(item))}
+      </option>
+    `).join("");
+
+    el.value = items.some(
+      item => str(item.id) === previous
+    ) ? previous : "all";
+  }
+
+  function renderFilters() {
+    setSelect(
+      "classFilter",
+      db.classes,
+      "Tất cả lớp",
+      c => c.name || "Lớp học"
+    );
+
+    setSelect(
+      "examFilter",
+      db.exams,
+      "Tất cả bài kiểm tra",
+      e => e.title || "Bài kiểm tra"
+    );
+  }
+
+  function filtered() {
+    const classId = $("classFilter").value;
+    const examId = $("examFilter").value;
+    const status = $("statusFilter").value;
+
+    const search = $("searchInput")
+      .value.trim().toLowerCase();
+
+    return db.attempts.filter(a => {
+      const student = getStudent(a);
+
+      const attemptClass = str(
+        a.classId || student?.classId
+      );
+
+      const matchClass =
+        classId === "all" ||
+        attemptClass === classId;
+
+      const matchExam =
+        examId === "all" ||
+        str(a.examId) === examId;
+
+      const matchStatus =
+        status === "all" ||
+        (
+          status === "submitted"
+            ? submitted(a)
+            : !submitted(a)
+        );
+
+      const text = [
+        studentName(a),
+        examName(a),
+        className(a)
+      ].join(" ").toLowerCase();
+
+      return matchClass &&
+        matchExam &&
+        matchStatus &&
+        text.includes(search);
+    });
+  }
+
+  // ===========================
+  // CẬP NHẬT GIAO DIỆN
+  // ===========================
+
+  function render() {
+    const list = filtered();
+
+    const submittedList = list.filter(submitted);
+
+    const grades = submittedList
+      .map(score)
+      .filter(n =>
+        n !== null &&
+        n >= 0 &&
+        n <= 10
+      );
+
+    const students = new Set(
+      list.map(a =>
+        str(a.studentId || studentName(a))
+      )
+    );
+
+    const average = grades.length
+      ? grades.reduce((s, n) => s + n, 0)
+        / grades.length
+      : null;
+
+    $("totalStudents").textContent =
+      loaded ? students.size : "—";
+
+    $("totalAttempts").textContent =
+      loaded ? submittedList.length : "—";
+
+    $("avgScore").textContent =
+      loaded && average !== null
+        ? average.toFixed(1)
+        : "—";
+
+    $("highScores").textContent =
+      loaded
+        ? grades.filter(n => n >= 8).length
+        : "—";
+
+    $("lowScores").textContent =
+      loaded
+        ? grades.filter(n => n < 5).length
+        : "—";
+
+    $("ungradedCount").textContent =
+      loaded
+        ? submittedList.filter(
+            a => score(a) === null
+          ).length
+        : "—";
+
+    $("resultCount").textContent =
+      list.length + " lượt làm bài";
+
+    // Tỷ lệ hoàn thành dựa trên
+    // bài giao cho học sinh có thật.
+
+    const assignmentKeys = new Set(
+      list.filter(a => a._assignmentExpected)
+        .map(a => [
+          str(a.studentId),
+          str(a.classId),
+          str(a.examId)
+        ].join("::"))
+    );
+
+    const submittedKeys = new Set(
+      list.filter(a =>
+        a._assignmentExpected &&
+        submitted(a)
+      ).map(a => [
+        str(a.studentId),
+        str(a.classId),
+        str(a.examId)
+      ].join("::"))
+    );
+
+    const percent = assignmentKeys.size
+      ? Math.round(
+          submittedKeys.size /
+          assignmentKeys.size * 100
+        )
+      : null;
+
+    $("completionRate").textContent =
+      loaded && percent !== null
+        ? percent + "%"
+        : "—";
+
+    $("progressText").textContent =
+      percent === null
+        ? "—"
+        : percent + "%";
+
+    $("progressFill").style.width =
+      (percent ?? 0) + "%";
+
+    $("progressMessage").textContent =
+      assignmentKeys.size
+        ? `${submittedKeys.size}/${assignmentKeys.size} lượt giao bài đã hoàn thành`
+        : "Chưa có đủ dữ liệu để tính tỷ lệ.";
+
+    renderChart(grades);
+    renderTable(list);
+    renderErrors(list);
+  }
+
+  // ===========================
+  // BIỂU ĐỒ ĐIỂM
+  // ===========================
+
+  function renderChart(grades) {
+    const el = $("scoreBars");
+
+    if (!grades.length) {
+      el.innerHTML = `
+        <div class="insight-empty">
+          Chưa có điểm số đã chấm.
+        </div>
+      `;
+      return;
+    }
+
+    const groups = [0, 0, 0, 0];
+
+    grades.forEach(n => {
+      if (n < 5) groups[0]++;
+      else if (n < 7) groups[1]++;
+      else if (n < 8.5) groups[2]++;
+      else groups[3]++;
+    });
+
+    const max = Math.max(...groups, 1);
+
+    const labels = [
+      "Dưới 5",
+      "5 – dưới 7",
+      "7 – dưới 8,5",
+      "8,5 – 10"
+    ];
+
+    el.innerHTML = groups.map((n, i) => `
+      <div class="score-col">
+        <b>${n}</b>
+        <span
+          class="score-bar"
+          style="height:${Math.max(4, n/max*104)}px"
+        ></span>
+        <small>${labels[i]}</small>
+      </div>
+    `).join("");
+  }
+
+  // ===========================
+  // BẢNG KẾT QUẢ
+  // ===========================
+
+  function renderTable(list) {
+    const body = $("resultsBody");
+
+    if (!list.length) {
+      body.innerHTML = `
+        <tr>
+          <td colspan="7" class="empty">
+            📭 Chưa có bài làm trong phạm vi lọc.
+          </td>
+        </tr>
+      `;
+      return;
+    }
+
+    body.innerHTML = list.map((a, index) => {
+      const isDone = submitted(a);
+      const mark = score(a);
+
+      const statusText = !isDone
+        ? "Chưa nộp"
+        : mark === null
+          ? "Chờ chấm"
+          : "Đã chấm";
+
+      const statusClass = !isDone
+        ? "missing"
+        : mark === null
+          ? "pending"
+          : "";
+
+      const duration =
+        a.durationMinutes != null
+          ? a.durationMinutes + " phút"
+          : a.timeSpent || "—";
+
+      return `
+        <tr>
+          <td>
+            <strong>${esc(studentName(a))}</strong>
+          </td>
+
+          <td>${esc(className(a))}</td>
+          <td>${esc(examName(a))}</td>
+
+          <td>
+            ${mark === null ? "—" : mark.toFixed(1)}
+          </td>
+
+          <td>${esc(duration)}</td>
+
+          <td>
+            <span class="tag ${statusClass}">
+              ${statusText}
+            </span>
+          </td>
+
+          <td>
+            <button
+              class="action"
+              data-index="${index}"
+              type="button"
+            >
+              Xem
+            </button>
+          </td>
+        </tr>
+      `;
+    }).join("");
+  }
+
+  // ===========================
+  // CHỦ ĐỀ HỌC SINH THƯỜNG SAI
+  // ===========================
+
+  function renderErrors(list) {
+    const topics = {};
+
+    for (const attempt of list) {
+      if (!submitted(attempt)) continue;
+
+      const errors = Array.isArray(attempt.errors)
+        ? attempt.errors
+        : [];
+
+      for (const error of errors) {
+        const topic = typeof error === "string"
+          ? error
+          : error?.topic;
+
+        if (!topic) continue;
+
+        topics[topic] =
+          (topics[topic] || 0) + 1;
+      }
+    }
+
+    const top = Object.entries(topics)
+      .sort((a,b) => b[1] - a[1])
+      .slice(0,5);
+
+    const el = $("weakTopics");
+
+    if (!top.length) {
+      el.className = "chart-empty";
+      el.textContent =
+        "Chưa có dữ liệu lỗi sai.";
+      return;
+    }
+
+    el.className = "";
+
+    const max = top[0][1];
+
+    el.innerHTML = top.map(([name,count]) => `
+      <div class="topic">
+        <span title="${esc(name)}">
+          ${esc(name)}
+        </span>
+
+        <div class="progress-track">
+          <div
+            class="progress-fill"
+            style="width:${count/max*100}%"
+          ></div>
+        </div>
+
+        <b>${count}</b>
+      </div>
+    `).join("");
+  }
+
+  // ===========================
+  // XEM CHI TIẾT
+  // ===========================
+
+  function showResult(a) {
+    if (!a) return;
+
+    const mark = score(a);
+
+    const answers = Array.isArray(a.answers)
+      ? a.answers
+      : [];
+
+    const fields = [
+      ["Học sinh", studentName(a)],
+      ["Lớp học", className(a)],
+      ["Bài kiểm tra", examName(a)],
+      [
+        "Điểm",
+        mark === null
+          ? "Chưa chấm"
+          : mark.toFixed(1)
+      ],
+      [
+        "Ngày nộp",
+        displayDate(a.submittedAt)
+      ],
+      [
+        "Thời gian làm bài",
+        a.durationMinutes != null
+          ? a.durationMinutes + " phút"
+          : a.timeSpent || "—"
+      ]
+    ];
+
+    $("dialogContent").innerHTML = `
+      <div class="detail-grid">
+        ${fields.map(([label,value]) => `
+          <div class="detail-field">
+            <small>${esc(label)}</small>
+            <strong>${esc(value)}</strong>
+          </div>
+        `).join("")}
+      </div>
+
+      <div class="answer-list">
+        <h3>Câu trả lời của học sinh</h3>
+
+        ${answers.length
+          ? answers.map((answer,i) => `
+            <div class="answer">
+              <b>
+                Câu ${i+1}:
+                ${esc(
+                  answer.question ||
+                  answer.questionText ||
+                  ""
+                )}
+              </b>
+
+              <p>${esc(
+                answer.answer ??
+                answer.response ??
+                "Chưa trả lời"
+              )}</p>
+
+              ${
+                answer.isCorrect === true
+                  ? '<span class="tag">Đúng</span>'
+                  : answer.isCorrect === false
+                    ? '<span class="tag pending">Chưa đúng</span>'
+                    : ""
+              }
+            </div>
+          `).join("")
+          : `
+            <p class="empty">
+              Chưa có chi tiết câu trả lời.
+            </p>
+          `
+        }
+      </div>
+    `;
+
+    $("resultDialog").showModal();
+  }
+
+  $("resultsBody").addEventListener(
+    "click",
+    e => {
+      const button = e.target.closest(
+        "[data-index]"
+      );
+
+      if (!button) return;
+
+      const index = Number(button.dataset.index);
+
+      showResult(filtered()[index]);
+    }
+  );
+
+  $("closeDialog").onclick = () =>
+    $("resultDialog").close();
+
+  // ===========================
+  // SỰ KIỆN BỘ LỌC
+  // ===========================
+
+  [
+    "classFilter",
+    "examFilter",
+    "statusFilter"
+  ].forEach(id => {
+    $(id).addEventListener(
+      "change",
+      render
+    );
+  });
+
+  $("searchInput").addEventListener(
+    "input",
+    render
+  );
+
+  $("topSearch")?.addEventListener(
+    "input",
+    e => {
+      $("searchInput").value = e.target.value;
+      render();
+    }
+  );
+
+  // ===========================
+  // XUẤT KẾT QUẢ CSV
+  // ===========================
+
+  $("exportBtn").onclick = () => {
+    const list = filtered();
+
+    if (!list.length) {
+      toast("Chưa có dữ liệu để xuất.");
+      return;
+    }
+
+    const rows = [
+      [
+        "Học sinh",
+        "Lớp",
+        "Bài kiểm tra",
+        "Điểm",
+        "Trạng thái",
+        "Ngày nộp"
+      ],
+      ...list.map(a => [
+        studentName(a),
+        className(a),
+        examName(a),
+        score(a) ?? "",
+        submitted(a)
+          ? "Đã nộp"
+          : "Chưa nộp",
+        displayDate(a.submittedAt)
+      ])
+    ];
+
+    function csvCell(value) {
+      let text = str(value);
+
+      if (/^\s*[=+@-]/.test(text)) {
+        text = "'" + text;
+      }
+
+      return '"' +
+        text.replaceAll('"','""') +
+        '"';
+    }
+
+    const csv = "\uFEFF" +
+      rows.map(row =>
+        row.map(csvCell).join(",")
+      ).join("\r\n");
+
+    const blob = new Blob(
+      [csv],
+      {type:"text/csv;charset=utf-8"}
+    );
+
+    const url = URL.createObjectURL(blob);
+
+    const link = document.createElement("a");
+    link.href = url;
+    link.download =
+      "Qurio_Ket_Qua_Hoc_Sinh.csv";
+
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+
+    setTimeout(() => {
+      URL.revokeObjectURL(url);
+    }, 1000);
+  };
+
+  // ===========================
+  // TẢI DỮ LIỆU GOOGLE SHEETS
+  // ===========================
+
+  async function loadStudentResults() {
+    notice(
+      "Đang tải kết quả học sinh từ Google Sheets..."
+    );
+
+    try {
+      let result;
+
+      if (
+        typeof window.QurioTeacherHub
+          ?.loadSummary === "function"
+      ) {
+        result = await window.QurioTeacherHub
+          .loadSummary(true);
+
+      } else if (
+        typeof window.QurioAuth
+          ?.request === "function"
+      ) {
+        result = await window.QurioAuth.request(
+          "teacherHub",
+          {operation:"summary"}
+        );
+
+      } else {
+        throw new Error(
+          "Chưa kết nối API Giáo viên."
+        );
+      }
+
+      if (
+        !result ||
+        result.ok === false ||
+        result.success === false
+      ) {
+        throw new Error(
+          result?.message ||
+          "Máy chủ không trả về dữ liệu hợp lệ."
+        );
+      }
+
+      const data =
+        result.data ||
+        result.summary ||
+        result;
+
+      db = norm(data);
+      loaded = true;
+
+      renderFilters();
+      render();
+
+      if (db.attempts.some(submitted)) {
+        notice("");
+      } else {
+        notice(
+          "Chưa có bài nộp thực tế. " +
+          "Kết quả sẽ xuất hiện sau khi " +
+          "học sinh nộp bài."
+        );
+      }
+
+    } catch (error) {
+      console.error(
+        "Qurio - Kết quả học sinh:",
+        error
+      );
+
+      db = norm({});
+      loaded = false;
+
+      renderFilters();
+      render();
+
+      notice(
+        "Không tải được kết quả: " +
+        (
+          error?.message ||
+          "Vui lòng kiểm tra đăng nhập và Apps Script."
+        )
+      );
+    }
+  }
+
+  // ===========================
+  // KHỞI ĐỘNG
+  // ===========================
+
+  if (document.readyState === "complete") {
+    loadStudentResults();
+  } else {
+    window.addEventListener(
+      "load",
+      loadStudentResults,
+      {once:true}
+    );
+  }
+
+})();
+</script>
+
+<script defer src="../../Chung/qurio-connect.js"></script>
+
+</body>
+</html>

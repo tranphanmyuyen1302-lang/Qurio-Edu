@@ -1,0 +1,2150 @@
+<!DOCTYPE html>
+
+<html lang="vi"><head><base target="_top"/><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>Qurio | Quản lý lớp học</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<style>
+:root{--ink:#202044;--muted:#85829e;--purple:#7041e9;--line:#e9e5f4;--bg:#f8f7fd;--navy:#191b34}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:14px 'Be Vietnam Pro',Arial,sans-serif}button,input,select{font:inherit}button{cursor:pointer}button:disabled{opacity:.55;cursor:wait}a{color:inherit;text-decoration:none}.app{display:grid;grid-template-columns:246px minmax(0,1fr);min-height:100vh}.legacy-sidebar{background:#fff;border-right:1px solid var(--line);position:sticky;top:0;height:100vh;padding:28px 16px;display:flex;flex-direction:column;overflow:auto}.logo{font-size:29px;font-weight:800;letter-spacing:-1.5px;margin:0 8px 3px}.logo span{color:var(--purple)}.tagline{font-size:10px;color:#a39ab8;margin:0 8px 28px}.nav-label{font-size:10px;font-weight:800;letter-spacing:1.8px;color:#aaa4bd;margin:20px 12px 9px}.nav-link{padding:13px 14px;border-radius:12px;display:flex;gap:12px;align-items:center;color:#666581;font-size:12px;font-weight:600;margin:2px 0}.nav-link.active{color:var(--purple);background:#f0ebfc}.nav-link:hover{background:#f7f4fd}.nav-link .sym{font-size:17px}.sidebar-bottom{margin-top:auto;border-radius:16px;background:#f5f0ff;padding:18px;font-size:12px;line-height:1.8;color:#5c4c8a}.cm-content{min-width:0;display:flex;flex-direction:column}.topbar{height:84px;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 38px;gap:15px}.search{background:#f8f7fd;border:1px solid #efebf7;border-radius:13px;padding:13px 17px;color:#a09ab5;font-size:12px;width:min(430px,55%)}.profile{display:flex;align-items:center;gap:12px;font-size:12px;font-weight:700}.avatar{width:42px;height:42px;border-radius:50%;background:#efe1d5;color:#a26b45;display:grid;place-items:center}.cm-content{width:100%;max-width:1510px;margin:auto;padding:28px 38px 48px;flex:1}.crumb{color:#958aa9;font-size:11px;margin-bottom:16px}.hero{background:linear-gradient(105deg,#eee7ff 0%,#f9f5ff 58%,#e6e4ff 100%);border:1px solid #ece4ff;border-radius:24px;padding:32px 36px;display:flex;align-items:center;justify-content:space-between;gap:20px;overflow:hidden}.hero h1{font-size:28px;letter-spacing:-.8px;margin:12px 0}.hero p{color:#65617e;line-height:1.8;max-width:660px;margin:0}.pill{display:inline-block;background:#7845ea;color:white;padding:8px 14px;border-radius:99px;font-size:11px;font-weight:700}.hero-art{font-size:90px;opacity:.7;transform:rotate(-10deg);flex-shrink:0}.button{border:0;background:var(--purple);color:#fff;border-radius:11px;padding:12px 17px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;gap:7px}.button:hover{filter:brightness(.96)}.button.light{background:#f0eaff;color:#7041e9}.button.ghost{background:#fff;border:1px solid var(--line);color:#6249ad}.button.danger{background:#fff0f4;color:#d33762}.button.small{padding:8px 11px;font-size:11px}.hero-actions{margin-top:20px;display:flex;gap:9px;flex-wrap:wrap}.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin:22px 0 28px}.stat{border:1px solid var(--line);border-radius:18px;background:white;padding:22px;display:flex;gap:16px;align-items:center}.stat-icon{width:56px;height:56px;border-radius:16px;display:grid;place-items:center;font-size:24px}.lav{background:#f0e7ff;color:#8752f3}.blue{background:#e5efff;color:#3784ed}.green{background:#e0f8ed;color:#10aa73}.stat strong{display:block;font-size:29px;margin-bottom:5px}.stat small{color:var(--muted)}.section-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:15px}.section-heading h2{margin:0 0 6px;font-size:20px}.section-heading p{margin:0;color:var(--muted);font-size:12px}.filters{display:flex;gap:8px;flex-wrap:wrap}.filters input,.filters select{padding:11px 12px;border:1px solid var(--line);border-radius:11px;background:white;outline:none;min-width:160px}.class-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:17px}.class-card{background:white;border:1px solid var(--line);border-radius:19px;padding:22px;box-shadow:0 8px 28px #26205b06;transition:transform .2s,box-shadow .2s}.class-card:hover{transform:translateY(-3px);box-shadow:0 14px 32px #26205b12}.class-head{display:flex;justify-content:space-between;align-items:center}.class-icon{height:50px;width:50px;border-radius:15px;background:#efe7ff;display:grid;place-items:center;font-size:23px}.class-card h3{font-size:19px;margin:18px 0 7px}.class-card p{color:var(--muted);font-size:12px;line-height:1.8;margin:0}.class-meta{display:flex;gap:14px;border-top:1px solid var(--line);padding-top:15px;margin-top:17px;color:#6f6b88;font-size:11px}.card-actions{display:flex;gap:7px;margin-top:18px;flex-wrap:wrap}.new-class{border:2px dashed #dcd2f6;background:#fcfaff;display:grid;place-content:center;text-align:center;min-height:255px;cursor:pointer;color:#7b4be7}.new-class b{font-size:16px;margin:10px 0}.new-class span{font-size:11px;color:#a49bb7}.empty{grid-column:1/-1;text-align:center;padding:55px 18px;border:1px dashed #dcd2f6;border-radius:18px;color:#8b829d;background:#fff}.detail{display:none;margin-top:28px;background:white;border:1px solid var(--line);border-radius:20px;padding:24px}.detail.open{display:block}.detail-top{display:flex;justify-content:space-between;gap:14px;align-items:center}.detail h2{margin:0 0 8px}.tabs{display:flex;gap:8px;border-bottom:1px solid var(--line);margin:20px 0;overflow:auto}.tab{border:0;background:none;color:#8a83a0;padding:13px 15px;font-weight:700;white-space:nowrap}.tab.active{color:var(--purple);border-bottom:3px solid var(--purple)}.students-toolbar{display:flex;gap:10px;justify-content:space-between;flex-wrap:wrap;margin-bottom:12px}.students-toolbar input{padding:11px 13px;border:1px solid var(--line);border-radius:10px;min-width:210px}.table-wrap{overflow:auto}table{width:100%;border-collapse:collapse;min-width:540px}th,td{text-align:left;padding:15px 12px;border-bottom:1px solid #f1edf8;font-size:12px}th{color:#918aa5;font-size:11px}td .student-icon{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;background:#ede7ff;color:var(--purple);margin-right:8px}.muted{color:var(--muted)}.modal-backdrop{position:fixed;inset:0;background:#15132990;display:none;align-items:center;justify-content:center;padding:18px;z-index:30}.modal-backdrop.show{display:flex}.modal{background:#fff;width:min(480px,100%);border-radius:22px;padding:27px;box-shadow:0 20px 70px #15132930}.modal h2{margin:0 0 8px}.modal p{color:var(--muted);font-size:12px;line-height:1.7}.field{margin:15px 0}.field label{display:block;margin-bottom:7px;font-weight:700;font-size:12px}.field input{width:100%;padding:13px;border:1px solid #ded8ec;border-radius:11px;outline:none}.field input:focus{border-color:#9469ed}.modal-actions{display:flex;justify-content:flex-end;gap:9px;margin-top:20px}.toast{position:fixed;right:22px;bottom:22px;background:#262044;color:white;border-radius:12px;padding:14px 18px;z-index:40;max-width:380px;box-shadow:0 10px 30px #0002;display:none}.toast.show{display:block}.legacy-footer{background:#191b32;color:#fff;padding:36px 38px 20px;display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:25px}.legacy-footer h3{margin:0 0 14px}.legacy-footer p{color:#b8b7cc;font-size:12px;line-height:2}.footer-bottom{grid-column:1/-1;border-top:1px solid #383a54;padding-top:17px;color:#b8b7cc;font-size:11px}.loading{color:#7d7296;padding:20px 0}.notice{background:#f4f0ff;color:#6842bc;border-radius:12px;padding:13px;font-size:12px;line-height:1.8}.mobile-menu{display:none}@media(max-width:1100px){.class-grid{grid-template-columns:repeat(2,1fr)}.cm-content{padding:25px}.topbar{padding:0 25px}}@media(max-width:760px){.app{grid-template-columns:1fr}.legacy-sidebar{display:none}.topbar{height:70px;padding:0 18px}.search{display:none}.mobile-menu{display:block;border:0;background:#f2edfc;padding:10px;border-radius:9px}.cm-content{padding:20px 14px}.hero{padding:24px}.hero-art{display:none}.hero h1{font-size:23px}.stats{grid-template-columns:1fr}.class-grid{grid-template-columns:1fr}.section-heading{align-items:flex-start;flex-direction:column}.legacy-footer{grid-template-columns:1fr;padding:30px 20px}.footer-bottom{grid-column:auto}}
+
+/* Qurio Class Manager – Visual refinement */
+html{scroll-behavior:smooth}body{background:#f9f8fd}button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{outline:3px solid #b2a2f7;outline-offset:2px}
+.app{min-height:100vh;align-items:stretch}.app>.main{display:flex;flex-direction:column;min-width:0}
+.app>.main .topbar{position:sticky;top:0;z-index:30;min-height:76px;height:auto;padding:12px clamp(18px,3vw,42px);background:#fff;box-shadow:0 1px 0 #eae7f3}
+.topbar .search{width:min(460px,60%);border-radius:16px;padding:13px 18px;background:#f7f7fc;color:#77718b}
+.topbar .profile{padding:4px 10px 4px 18px;border-left:1px solid #e6e2f2;gap:12px}
+.topbar .avatar{background:#ede7ff;color:#6947cb;border:2px solid #fff;box-shadow:0 1px 10px #5940a51a}
+.cm-content{width:100%;max-width:1440px;flex:1;margin:0 auto;padding:30px clamp(18px,3vw,46px) 62px}
+.crumb{margin-bottom:18px;font-size:12px;font-weight:600;color:#948ba9}
+.crumb strong{color:#6c4dd5}
+.hero{position:relative;padding:34px 36px;min-height:245px;border-radius:25px;box-shadow:0 10px 30px #6a4c9c0a;background:linear-gradient(105deg,#f0e9ff 3%,#f8f3ff 57%,#e8eaff 100%)}
+.hero>div:first-child{position:relative;z-index:2}.hero h1{font-size:clamp(24px,2.45vw,34px);line-height:1.32;color:#28244b;max-width:620px;letter-spacing:-1px}
+.hero p{max-width:610px;color:#69637f;font-size:13px}.pill{border-radius:99px;letter-spacing:.8px}
+.hero-art{font-size:initial;opacity:1;transform:none;position:relative;width:235px;height:178px;flex:none}
+.art-orbit{position:absolute;width:185px;height:185px;border-radius:50%;background:#e0d6ff;right:0;top:-3px;opacity:.6}
+.art-laptop{position:absolute;top:18px;right:22px;background:#fff;border:8px solid #5b50a4;border-radius:14px;width:150px;height:100px;box-shadow:0 16px 22px #5e48a025;display:grid;place-items:center}
+.art-laptop svg{width:65px;height:65px;stroke:#7f60df;fill:none;stroke-width:1.5}
+.art-laptop:after{content:'';position:absolute;bottom:-20px;left:-14px;width:162px;height:9px;border-radius:7px;background:#554b8b}
+.art-books{position:absolute;bottom:7px;left:0;width:84px;height:64px;border-bottom:12px solid #f3b867;border-radius:4px;transform:rotate(-8deg)}
+.art-books:before{content:'';position:absolute;left:5px;bottom:12px;width:76px;height:18px;border-radius:4px;background:#8b77e5;box-shadow:0 -23px 0 #5fc7b2}
+.art-star{position:absolute;right:3px;top:10px;color:#ad86f7;font-size:26px}
+.button{border-radius:12px;padding:12px 18px;background:#7453e9;box-shadow:0 6px 18px #7851eb1a;transition:transform .18s,filter .18s}
+.button:hover{transform:translateY(-2px)}.button.light{background:#eee9ff;color:#6445c7;box-shadow:none}.button.ghost{box-shadow:none}
+.stats{gap:17px;margin:24px 0 33px}.stat{border-radius:19px;min-height:112px;padding:21px;box-shadow:0 10px 24px #3c2b7808}.stat strong{font-size:29px;color:#29244d}.stat-icon{border-radius:18px}
+.stat-icon svg,.class-icon svg{width:26px;height:26px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.section-heading{margin-bottom:18px}.section-heading h2{font-size:21px}.section-heading p{line-height:1.7}
+.filters input,.filters select{font-size:12px;border:1px solid #e8e4f3;box-shadow:0 3px 10px #44328f05}
+.class-grid{gap:18px}.class-card{border-radius:21px;min-height:258px;padding:23px;box-shadow:0 10px 25px #40327a08}
+.class-card:hover{border-color:#d6caf7;box-shadow:0 15px 34px #563e9f15}.class-card h3{font-size:20px;color:#28244b}
+.class-icon{border-radius:16px;width:54px;height:54px}.class-meta{font-size:12px;gap:20px}
+.new-class{border:2px dashed #cec1ef;background:linear-gradient(140deg,#fcfaff,#f8f4ff);min-height:258px;color:#7350db}
+.detail{border-radius:23px;padding:27px;scroll-margin-top:100px;box-shadow:0 10px 32px #40327a08}.detail h2{font-size:21px}
+.modal{border-radius:24px;padding:29px}.modal-backdrop{backdrop-filter:blur(3px)}
+.qurio-footer{flex-shrink:0}.qurio-footer-top{max-width:1480px;margin:0 auto}.qurio-footer-bottom{max-width:1480px;margin-left:auto;margin-right:auto}
+.qurio-footer-socials a{cursor:default}
+@media(max-width:1100px){.app>.main .topbar{gap:10px}.topbar .search{max-width:430px}}
+@media(max-width:760px){.app>.main .topbar{padding:12px 18px}.topbar .search{display:none}.topbar .profile{border:0;padding:0}.cm-content{padding:21px 16px 42px}.hero{padding:25px 21px;min-height:auto}.hero-art{display:none}.stats{grid-template-columns:1fr}.class-grid{grid-template-columns:1fr}.section-heading{flex-direction:column;align-items:stretch}.filters input,.filters select{width:100%}}
+
+/* ===========================================================
+  QURIO SIDEBAR – GIAO DIỆN TRANG CHỦ
+  Đồng bộ kích thước, icon, màu sắc, khoảng cách với trang-chu.css.
+  Chỉ tác động Sidebar; giữ nguyên nội dung trang Giáo viên V8.
+  Các breakpoint đồng bộ: 228px desktop / 205px laptop,
+  menu trượt dưới 1100px giống trang chủ.
+=========================================================== */
+:root { --qurio-home-purple: #6b5ce2; --qurio-home-border: #eeedf5; }
+.app {display:grid!important;grid-template-columns:228px minmax(0,1fr)!important; align-items:stretch!important; min-height:100vh;}
+.app>.sidebar {
+  position:sticky!important; inset:auto!important; top:0!important;
+  display:flex!important;flex-direction:column!important;
+  align-self:start!important; width:228px!important;
+  height:100vh!important;height:100dvh!important;
+  padding:30px 19px 16px!important;gap:0!important;
+  margin:0!important; overflow-y:auto!important;overflow-x:hidden!important;
+  overscroll-behavior:contain;scrollbar-width:thin!important;
+  scrollbar-color:#e6e1f0 transparent!important;
+  background:#fff!important;border-right:1px solid var(--qurio-home-border)!important;
+  box-shadow:none!important;transform:none!important;z-index:50!important;
+  font-family:'Be Vietnam Pro',system-ui,sans-serif;line-height:1.6;
+}
+.app>.sidebar .brand {display:flex;align-items:center;gap:9px;width:fit-content;padding-left:7px!important;text-decoration:none;color:#25264b;}
+.app>.sidebar .brand img {width:46px!important;height:46px!important;object-fit:contain;}
+.app>.sidebar .brand>span {font-size:28px!important;font-weight:800;letter-spacing:-1.1px;}
+.app>.sidebar .brand-dot {color:var(--qurio-home-purple)!important;}
+.app>.sidebar .brand-note {margin:7px 0 30px 10px!important;color:#9292a7;font-size:10px!important;letter-spacing:.15px;}
+.app>.sidebar .main-nav {display:flex!important;flex-direction:column!important;gap:3px!important;margin:0!important;padding:0!important;}
+.app>.sidebar .nav-item {display:flex!important;align-items:center;gap:12px!important;min-height:42px!important;padding:10px 12px!important;
+ border-radius:10px!important;color:#7a7d94!important;font-size:12px!important;font-weight:500!important;text-decoration:none;
+ background:transparent!important;transition:background .2s,color .2s;line-height:1.6;
+}
+.app>.sidebar .nav-item>.icon {display:block;flex:none;width:18px!important;height:18px!important;fill:none;stroke:currentColor;stroke-width:1.65;stroke-linecap:round;stroke-linejoin:round;}
+.app>.sidebar .nav-item:hover {background:#f8f6fe!important;color:var(--qurio-home-purple)!important;}
+.app>.sidebar .nav-item.active {background:#efecfc!important;color:var(--qurio-home-purple)!important;font-weight:600!important;}
+.app>.sidebar .nav-item .active-dot {display:none;}
+.app>.sidebar .nav-item.active .active-dot {display:block;width:5px;height:5px;margin-left:auto;border-radius:50%;background:var(--qurio-home-purple);}
+.app>.sidebar .nav-heading {margin:18px 12px 6px!important;color:#a2a3b2!important;font-size:9px!important;font-weight:600!important;letter-spacing:1.4px!important;}
+.app>.sidebar .nav-tag {margin-left:auto!important;padding:2px 4px!important;border-radius:4px;background:#f3efff;color:#9182bf;font-size:8px!important;white-space:nowrap;}
+.app>.sidebar .sidebar-bottom {margin-top:auto!important;padding-top:30px!important;}
+.app>.sidebar .daily-note {position:relative;padding:20px 13px 15px!important;border:1px solid #efe9fc;border-radius:14px!important;
+ background:linear-gradient(135deg,#f2edff,#faf8ff);overflow:hidden;}
+.app>.sidebar .daily-note::after {content:"";position:absolute;right:-20px;bottom:-40px;width:90px;height:90px;border:1px solid #e5dcf9;border-radius:50%;}
+.app>.sidebar .note-spark {display:block;margin-bottom:11px!important;color:#a994e6;font-size:22px!important;line-height:1;}
+.app>.sidebar .daily-note strong {font-size:12px!important;font-weight:600!important;line-height:1.8!important;}
+.app>.sidebar .daily-note p {margin-top:8px!important;color:#9b91b4;font-size:9px!important;}
+.app>.sidebar .logout-button {display:flex;align-items:center;gap:12px;width:100%;margin-top:13px!important;padding:14px 12px!important;
+ border:0!important;border-radius:9px!important;background:transparent!important;color:#868498!important;font-size:12px!important;font-weight:400!important;text-align:left;}
+.app>.sidebar .logout-button:hover {background:#fff1f2!important;color:#b26170!important;}
+.app>.sidebar .logout-button .icon {width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.65;stroke-linecap:round;stroke-linejoin:round;}
+.app>.sidebar .sidebar-footer {margin-top:6px!important;color:#bbb8c6;font-size:9px!important;letter-spacing:1.1px!important;text-align:center;}
+.app>.main {width:100%;min-width:0;display:flex;flex-direction:column;}
+.teacher-menu-toggle {display:none;align-items:center;justify-content:center;flex:none;width:42px;height:42px;
+ border:1px solid #eeeaf5;border-radius:12px;padding:0;background:#fff;color:#6b5ce2;}
+.teacher-menu-toggle .ui-icon {width:23px;height:23px;}
+.teacher-sidebar-backdrop {display:none;}
+@media (min-width:1101px) and (max-width:1260px){
+  .app {grid-template-columns:205px minmax(0,1fr)!important;}
+  .app>.sidebar {width:205px!important;padding:30px 14px 16px!important;}
+}
+@media (max-width:1100px){
+  .app {display:block!important;}
+  .app>.sidebar {position:fixed!important;inset:0 auto 0 0!important;top:0!important;left:0!important;
+    width:228px!important;height:100vh!important;height:100dvh!important;padding:30px 19px 16px!important;
+    transform:translateX(-105%)!important;transition:transform .25s ease!important;box-shadow:8px 0 30px #2f23561a!important;
+  }
+  .app>.sidebar.is-open {transform:translateX(0)!important;}
+  .app>.main {margin-left:0!important;width:100%!important;}
+  .teacher-menu-toggle {display:flex;}
+  .main>header {justify-content:space-between;gap:12px;}
+  .teacher-sidebar-backdrop:not([hidden]) {display:block;position:fixed;inset:0;z-index:49;
+    background:rgba(28,20,59,.36);border:0;border-radius:0;}
+  body.teacher-menu-open {overflow:hidden;}
+}
+@media (max-width:520px){
+  .main>header {padding:0 14px!important;gap:8px;justify-content:space-between!important;}
+  .main>header .search {display:none;}
+  .teacher-menu-toggle {width:38px;height:38px;}
+}
+
+/*** 
+    CHÂN TRANG 
+            ***/
+.qurio-footer,
+.qurio-footer * {
+  box-sizing: border-box;
+}
+
+.qurio-footer {
+  position: relative;
+  width: 100%;
+  margin: 0;
+  padding: 42px clamp(20px, 4vw, 64px) 22px;
+
+  border: 0;
+  border-radius: 0;
+
+  background:
+    radial-gradient(
+      ellipse at 0% 0%,
+      #635b9b18,
+      transparent 65%
+    ),
+    #131a2e;
+
+  color: #e9ecf3;
+}
+
+.qurio-footer::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 1px;
+  background: #c4b5fd40;
+}
+
+.qurio-footer p,
+.qurio-footer h2 {
+  margin: 0;
+}
+
+.qurio-footer a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.qurio-footer-top,
+.qurio-footer-bottom {
+  max-width: 1480px;
+  margin-inline: auto;
+}
+
+.qurio-footer-top {
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1.15fr)
+    minmax(0, 1fr)
+    minmax(0, 0.9fr);
+
+  align-items: start;
+  gap: clamp(24px, 4vw, 60px);
+}
+
+.qurio-footer-top > * {
+  min-width: 0;
+}
+
+/* LOGO VÀ GIỚI THIỆU */
+.qurio-footer-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  width: fit-content;
+
+  color: #f0f2f7;
+  font-size: 34px;
+  font-weight: 700;
+  letter-spacing: -0.7px;
+  line-height: 1;
+}
+
+.qurio-footer-brand img {
+  display: block;
+  flex: none;
+
+  width: 40px;
+  height: 46px;
+  padding: 0;
+
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+
+  object-fit: contain;
+  filter: brightness(1.4) saturate(0.9);
+  box-shadow: none;
+}
+/* Bỏ dấu chấm và khẩu hiệu viết hoa */
+.qurio-footer-dot,
+.qurio-footer-tagline {
+  display: none;
+}
+
+.qurio-footer-intro .qurio-footer-description {
+  max-width: 350px;
+  margin-top: 16px;
+
+  color: #b8bfce;
+  font-size: 12px;
+  line-height: 1.9;
+}
+
+.qurio-footer h2 {
+  margin-bottom: 17px;
+
+  color: #edf0f6;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 1.6;
+}
+
+/* MẸO HỌC TẬP */
+.qurio-footer-tips {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.qurio-footer-tips li {
+  display: block;
+  color: #b8bfce;
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+.qurio-footer-tips li::before {
+  content: none;
+  display: none;
+}
+
+.qurio-footer-contact > p {
+  max-width: 310px;
+  margin-bottom: 18px;
+
+  color: #b8bfce;
+  font-size: 12px;
+  line-height: 1.9;
+}
+
+/* BIỂU TƯỢNG MẠNG XÃ HỘI */
+.qurio-footer-socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.qurio-footer-socials a {
+  display: grid;
+  place-items: center;
+  flex: 0 0 44px;
+
+  width: 44px;
+  height: 44px;
+
+  border: 1px solid #ffffff26;
+  border-radius: 50%;
+  background: #ffffff05;
+  color: #d7dce7;
+}
+
+/* Giữ SVG đúng kích thước, tránh bị phóng lớn */
+.qurio-footer-socials svg {
+  display: block;
+  flex: none;
+
+  width: 19px;
+  height: 19px;
+  max-width: 19px;
+  max-height: 19px;
+
+  fill: currentColor;
+}
+
+.qurio-footer-socials a:not([aria-disabled="true"]):hover {
+  border-color: #d7d0ee;
+  background: #d7d0ee;
+  color: #131a2e;
+}
+
+.qurio-footer-socials a[aria-disabled="true"] {
+  cursor: default;
+}
+
+/* BẢN QUYỀN VÀ CHÍNH SÁCH */
+.qurio-footer-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px 24px;
+
+  margin-top: 32px;
+  padding-top: 20px;
+  border-top: 1px solid #ffffff1a;
+
+  color: #aab2c2;
+  font-size: 11px;
+  line-height: 1.8;
+}
+
+.qurio-footer-legal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 24px;
+}
+
+.qurio-footer-legal a {
+  color: #bec5d4;
+}
+
+.qurio-footer-legal a:hover {
+  color: #d7d0ee;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.qurio-footer a:focus-visible {
+  outline: 3px solid #d7d0ee;
+  outline-offset: 4px;
+}
+
+/* MÁY TÍNH BẢNG */
+@media (max-width: 1100px) {
+  .qurio-footer-top {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 30px;
+  }
+
+  .qurio-footer-intro {
+    grid-column: 1 / -1;
+  }
+
+  .qurio-footer-intro .qurio-footer-description {
+    max-width: 560px;
+  }
+}
+
+/* ĐIỆN THOẠI */
+@media (max-width: 640px) {
+  .qurio-footer {
+    padding-top: 32px;
+  }
+
+  .qurio-footer-top {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+  }
+
+  .qurio-footer-intro {
+    grid-column: auto;
+  }
+
+  .qurio-footer-bottom {
+    align-items: flex-start;
+    flex-direction: column;
+    margin-top: 28px;
+  }
+}
+
+/* V10: footer là phần tử full-width độc lập, bỏ flex mặc định trên footer của teacher page */
+body > .qurio-footer {display:block; width:100%; max-width:none; margin:0; flex:none;}
+body > .qurio-footer .qurio-footer-top {display:grid;}
+body > .qurio-footer .qurio-footer-legal {display:flex;}
+body > .qurio-footer .qurio-footer-bottom {display:flex;}
+/* Trên máy tính, khung Sidebar + Nội dung kết thúc trước footer */
+@media (min-width:751px) {.app {min-height:100vh;} }
+
+/* CHÂN TRANG: dùng đúng CSS của trang Giáo viên */
+/*** 
+    CHÂN TRANG 
+            ***/
+.qurio-footer,
+.qurio-footer * {
+  box-sizing: border-box;
+}
+
+.qurio-footer {
+  position: relative;
+  width: 100%;
+  margin: 0;
+  padding: 42px clamp(20px, 4vw, 64px) 22px;
+
+  border: 0;
+  border-radius: 0;
+
+  background:
+    radial-gradient(
+      ellipse at 0% 0%,
+      #635b9b18,
+      transparent 65%
+    ),
+    #131a2e;
+
+  color: #e9ecf3;
+}
+
+.qurio-footer::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 1px;
+  background: #c4b5fd40;
+}
+
+.qurio-footer p,
+.qurio-footer h2 {
+  margin: 0;
+}
+
+.qurio-footer a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.qurio-footer-top,
+.qurio-footer-bottom {
+  max-width: 1480px;
+  margin-inline: auto;
+}
+
+.qurio-footer-top {
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1.15fr)
+    minmax(0, 1fr)
+    minmax(0, 0.9fr);
+
+  align-items: start;
+  gap: clamp(24px, 4vw, 60px);
+}
+
+.qurio-footer-top > * {
+  min-width: 0;
+}
+
+/* LOGO VÀ GIỚI THIỆU */
+.qurio-footer-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  width: fit-content;
+
+  color: #f0f2f7;
+  font-size: 34px;
+  font-weight: 700;
+  letter-spacing: -0.7px;
+  line-height: 1;
+}
+
+.qurio-footer-brand img {
+  display: block;
+  flex: none;
+
+  width: 40px;
+  height: 46px;
+  padding: 0;
+
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+
+  object-fit: contain;
+  filter: brightness(1.4) saturate(0.9);
+  box-shadow: none;
+}
+/* Bỏ dấu chấm và khẩu hiệu viết hoa */
+.qurio-footer-dot,
+.qurio-footer-tagline {
+  display: none;
+}
+
+.qurio-footer-intro .qurio-footer-description {
+  max-width: 350px;
+  margin-top: 16px;
+
+  color: #b8bfce;
+  font-size: 12px;
+  line-height: 1.9;
+}
+
+.qurio-footer h2 {
+  margin-bottom: 17px;
+
+  color: #edf0f6;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 1.6;
+}
+
+/* MẸO HỌC TẬP */
+.qurio-footer-tips {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.qurio-footer-tips li {
+  display: block;
+  color: #b8bfce;
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+.qurio-footer-tips li::before {
+  content: none;
+  display: none;
+}
+
+.qurio-footer-contact > p {
+  max-width: 310px;
+  margin-bottom: 18px;
+
+  color: #b8bfce;
+  font-size: 12px;
+  line-height: 1.9;
+}
+
+/* BIỂU TƯỢNG MẠNG XÃ HỘI */
+.qurio-footer-socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.qurio-footer-socials a {
+  display: grid;
+  place-items: center;
+  flex: 0 0 44px;
+
+  width: 44px;
+  height: 44px;
+
+  border: 1px solid #ffffff26;
+  border-radius: 50%;
+  background: #ffffff05;
+  color: #d7dce7;
+}
+
+/* Giữ SVG đúng kích thước, tránh bị phóng lớn */
+.qurio-footer-socials svg {
+  display: block;
+  flex: none;
+
+  width: 19px;
+  height: 19px;
+  max-width: 19px;
+  max-height: 19px;
+
+  fill: currentColor;
+}
+
+.qurio-footer-socials a:not([aria-disabled="true"]):hover {
+  border-color: #d7d0ee;
+  background: #d7d0ee;
+  color: #131a2e;
+}
+
+.qurio-footer-socials a[aria-disabled="true"] {
+  cursor: default;
+}
+
+/* BẢN QUYỀN VÀ CHÍNH SÁCH */
+.qurio-footer-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px 24px;
+
+  margin-top: 32px;
+  padding-top: 20px;
+  border-top: 1px solid #ffffff1a;
+
+  color: #aab2c2;
+  font-size: 11px;
+  line-height: 1.8;
+}
+
+.qurio-footer-legal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 24px;
+}
+
+.qurio-footer-legal a {
+  color: #bec5d4;
+}
+
+.qurio-footer-legal a:hover {
+  color: #d7d0ee;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.qurio-footer a:focus-visible {
+  outline: 3px solid #d7d0ee;
+  outline-offset: 4px;
+}
+
+/* MÁY TÍNH BẢNG */
+@media (max-width: 1100px) {
+  .qurio-footer-top {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 30px;
+  }
+
+  .qurio-footer-intro {
+    grid-column: 1 / -1;
+  }
+
+  .qurio-footer-intro .qurio-footer-description {
+    max-width: 560px;
+  }
+}
+
+/* ĐIỆN THOẠI */
+@media (max-width: 640px) {
+  .qurio-footer {
+    padding-top: 32px;
+  }
+
+  .qurio-footer-top {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+  }
+
+  .qurio-footer-intro {
+    grid-column: auto;
+  }
+
+  .qurio-footer-bottom {
+    align-items: flex-start;
+    flex-direction: column;
+    margin-top: 28px;
+  }
+}
+
+/* V10: footer là phần tử full-width độc lập, bỏ flex mặc định trên footer của teacher page */
+body > .qurio-footer {display:block; width:100%; max-width:none; margin:0; flex:none;}
+body > .qurio-footer .qurio-footer-top {display:grid;}
+body > .qurio-footer .qurio-footer-legal {display:flex;}
+body > .qurio-footer .qurio-footer-bottom {display:flex;}
+/* Trên máy tính, khung Sidebar + Nội dung kết thúc trước footer */
+@media (min-width:751px) {.app {min-height:100vh;} }
+
+/* QURIO CLASS MANAGER V14 */
+.topbar{height:82px;background:#fff;display:flex;justify-content:space-between;gap:18px}
+.teacher-search{display:flex;align-items:center;gap:12px;width:min(460px,55%);color:#a5a0b6}
+.teacher-search input{width:100%;background:transparent;border:0;outline:none;color:#2c2848;font:inherit}
+.account{display:flex;align-items:center;margin-left:auto;gap:18px}
+.account-divider{height:29px;width:1px;background:#e8e5ef}
+.profile-wrap{position:relative}
+.profile-trigger{display:flex;align-items:center;gap:11px;background:transparent;border:0;padding:5px;color:#272445;text-align:left}
+.profile-trigger-label{display:flex;flex-direction:column;gap:4px}
+.profile-trigger-label b{font-size:12px}
+.profile-trigger-label small{font-size:10px;color:#9390a6}
+.profile-chevron{color:#aaa4bc;margin-left:12px}
+.profile-menu{position:absolute;right:0;top:calc(100% + 10px);min-width:260px;background:white;border:1px solid #ece8f5;box-shadow:0 15px 40px #221a4a20;border-radius:16px;padding:12px;z-index:25}
+.profile-menu.hidden{display:none}
+.profile-menu-head{display:flex;gap:10px;align-items:center;padding:10px 8px 15px;border-bottom:1px solid #eeeaf5}
+.profile-menu-head strong,.profile-menu-head small{display:block}
+.profile-menu-head small{color:#9993a9;font-size:11px;margin-top:4px}
+.profile-menu button{display:block;width:100%;border:0;background:#f7f3ff;color:#6742b7;text-align:left;border-radius:10px;padding:12px;margin-top:10px}
+.grade-analytics{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(230px,1fr);gap:18px;margin:0 0 29px}
+.grade-panel,.grade-insights{background:#fff;border:1px solid #e9e5f4;border-radius:20px;padding:26px;box-shadow:0 10px 28px #26205b06}
+.grade-panel-head{display:flex;justify-content:space-between;align-items:start;gap:12px}
+.eyebrow{font-size:10px;letter-spacing:1.7px;font-weight:800;color:#8c70d9}
+.grade-panel h2{font-size:20px;margin:9px 0 8px;letter-spacing:-.4px}
+.grade-panel p,.grade-insights p{font-size:12px;color:#8d89a1;line-height:1.7;margin:0}
+.grade-chip{background:#f0eaff;color:#7443d9;font-size:11px;padding:8px 12px;border-radius:99px;white-space:nowrap}
+.grade-chart{height:240px;display:flex;align-items:flex-end;gap:16px;padding:30px 12px 4px;margin:22px 0 15px;border-bottom:1px solid #eeeaf6;background:repeating-linear-gradient(to top,transparent 0,transparent calc(25% - 1px),#f4f1f9 calc(25% - 1px),#f4f1f9 25%);border-radius:8px}
+.grade-bar-col{flex:1;min-width:0;height:100%;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:9px}
+.grade-bar-value{font-weight:800;font-size:14px;color:#34304e}
+.grade-bar-track{height:165px;width:min(100%,80px);display:flex;align-items:flex-end;border-radius:11px 11px 0 0;overflow:hidden}
+.grade-bar{width:100%;border-radius:10px 10px 0 0;min-height:0;transition:height .45s ease}
+.grade-bar-label{font-size:11px;color:#77718e;font-weight:700;white-space:nowrap}
+.grade-legend{display:flex;gap:16px;flex-wrap:wrap;margin-top:20px}
+.grade-legend span{display:flex;align-items:center;gap:6px;color:#77718e;font-size:10px}
+.grade-legend i{display:inline-block;width:9px;height:9px;border-radius:3px}
+.grade-panel .grade-footnote{font-size:10px;margin-top:16px;color:#9c97ad}
+.grade-insights{background:linear-gradient(145deg,#fbf9ff,#f6f2ff)}
+.grade-insights h3{font-size:19px;margin:12px 0}
+.grade-insight-rows{margin-top:24px;display:grid;gap:15px}
+.grade-insight-row{display:grid;gap:7px}
+.grade-insight-line{display:flex;justify-content:space-between;font-size:12px;color:#68617f}
+.grade-insight-line strong{color:#292441}
+.grade-progress{height:8px;border-radius:99px;background:#e9e3f6;overflow:hidden}
+.grade-progress>span{display:block;height:100%;border-radius:99px}
+.qurio-footer{width:100%;margin-top:auto}
+@media(max-width:900px){.grade-analytics{grid-template-columns:1fr}}
+@media(max-width:760px){.grade-panel,.grade-insights{padding:20px}.grade-chart{gap:8px}.grade-panel-head{flex-wrap:wrap}.profile-trigger-label,.account-divider{display:none}.topbar{gap:8px}.teacher-search{display:flex;width:auto;flex:1;min-width:0}.teacher-search input{font-size:11px}.grade-bar-label{font-size:10px}}
+
+
+/* V16 - isolate header and sprite from global Qurio styles */
+html,body{margin:0!important;padding:0!important;min-height:100%;overflow-x:hidden}
+svg.svg-defs{position:absolute!important;left:0!important;top:0!important;width:0!important;height:0!important;overflow:hidden!important;visibility:hidden!important}
+.app{display:grid!important;grid-template-columns:246px minmax(0,1fr)!important;min-height:100vh!important;align-items:stretch!important}
+.app>.main{min-width:0!important;display:flex!important;flex-direction:column!important}
+.app>.main>header.topbar{position:sticky!important;top:0!important;z-index:30!important;display:flex!important;flex-direction:row!important;align-items:center!important;justify-content:space-between!important;gap:18px!important;height:76px!important;min-height:76px!important;max-height:76px!important;flex:0 0 76px!important;padding:0 32px!important;margin:0!important;border-bottom:1px solid #eeeaf5!important;background:#fff!important;box-shadow:none!important}
+.topbar .teacher-search{display:flex!important;align-items:center!important;flex:0 1 450px!important;width:min(450px,100%)!important;max-width:450px!important;min-width:0!important;height:44px!important;min-height:44px!important;max-height:44px!important;gap:11px!important;padding:0 14px!important;margin:0!important;border:1px solid #eeebf5!important;border-radius:12px!important;background:#f8f7fc!important;box-shadow:none!important}
+.topbar .teacher-search-icon{display:block!important;flex:0 0 19px!important;width:19px!important;height:19px!important;min-width:19px!important;max-width:19px!important;min-height:19px!important;max-height:19px!important;stroke:#89839f!important;stroke-width:1.8!important;fill:none!important;background:transparent!important;border:0!important;border-radius:0!important}
+.topbar .teacher-search input{display:block!important;flex:1!important;min-width:0!important;width:100%!important;height:40px!important;min-height:0!important;padding:0!important;margin:0!important;border:0!important;outline:0!important;background:transparent!important;box-shadow:none!important;font-size:12px!important;color:#282442!important}
+.topbar .account{display:flex!important;align-items:center!important;flex:0 0 auto!important;margin-left:auto!important}
+.topbar .profile-trigger{display:flex!important;align-items:center!important;gap:10px!important;padding:0!important;margin:0!important;background:transparent!important;border:0!important;box-shadow:none!important}
+.topbar .profile-trigger .avatar{display:grid!important;place-items:center!important;flex:0 0 42px!important;width:42px!important;height:42px!important;min-width:42px!important;min-height:42px!important;border-radius:50%!important;background:#eee7ff!important;color:#7041e9!important;font-size:13px!important}
+.topbar .teacher-menu-toggle{display:none!important}
+.app>.sidebar{align-self:stretch!important}
+.qurio-footer{position:relative!important;width:100%!important;clear:both!important;margin:0!important}
+@media(max-width:960px){.app{grid-template-columns:minmax(0,1fr)!important}.app>.sidebar{position:fixed!important;top:0!important;left:0!important;bottom:0!important;z-index:100!important;width:246px!important;transform:translateX(-105%)}.app>.sidebar.open{transform:translateX(0)}.topbar .teacher-menu-toggle{display:flex!important;align-items:center!important;justify-content:center!important;flex:0 0 40px!important;width:40px!important;height:40px!important}.app>.main>header.topbar{padding:0 18px!important}}
+@media(max-width:620px){.app>.main>header.topbar{padding:0 12px!important;gap:9px!important}.topbar .teacher-search{flex:1 1 auto!important;width:auto!important;min-width:0!important}.topbar .profile-trigger-label,.topbar .account-divider{display:none!important}.topbar .profile-trigger .avatar{width:36px!important;height:36px!important;min-width:36px!important;min-height:36px!important;flex-basis:36px!important}}
+</style><style>
+/* Đồng bộ Header trang Quản lý lớp với trang Giáo viên */
+.qurio-header-bell{width:40px;height:40px;display:grid;place-items:center;background:transparent;border:0;border-radius:12px;color:#55456f;cursor:pointer}
+.qurio-header-bell:hover{background:#f5f0ff;color:#7544e9}
+.qurio-header-bell .ui-icon{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.topbar .account{display:flex;align-items:center;gap:14px}
+@media(max-width:520px){.qurio-header-bell{width:34px;height:34px}}
+</style>
+<style id="qurio-class-layout-final">
+/* Desktop: sidebar sticks only inside .app. Footer is outside .app. */
+@media (min-width: 1101px) {
+  html, body { overflow-x: clip; }
+  .app {display:grid!important;grid-template-columns:228px minmax(0,1fr)!important;align-items:start!important;min-height:100vh!important;position:relative!important;overflow:visible!important;}
+  .app > aside.sidebar {
+    position:sticky!important;inset:auto!important;top:0!important;left:auto!important;bottom:auto!important;
+    display:flex!important;flex-direction:column!important;align-self:start!important;
+    grid-column:1!important;grid-row:1!important;
+    width:228px!important;min-width:0!important;height:100vh!important;height:100dvh!important;
+    max-height:100dvh!important;margin:0!important;transform:none!important;
+    overflow-y:auto!important;overflow-x:hidden!important;z-index:10!important;
+    scrollbar-width:thin!important;
+  }
+  .app > .main {grid-column:2!important;grid-row:1!important;align-self:stretch!important;min-width:0!important;width:100%!important;margin:0!important;}
+  .teacher-menu-toggle {display:none!important;}
+}
+@media (min-width:1101px) and (max-width:1260px) {
+  .app {grid-template-columns:205px minmax(0,1fr)!important;}
+  .app > aside.sidebar {width:205px!important;}
+}
+@media (max-width:1100px) {
+  .app {display:block!important;grid-template-columns:none!important;overflow:visible!important;}
+  .app > aside.sidebar {
+    position:fixed!important;inset:0 auto 0 0!important;left:0!important;top:0!important;bottom:0!important;
+    width:228px!important;height:100dvh!important;max-height:100dvh!important;
+    align-self:auto!important;transform:translateX(-105%)!important;
+    transition:transform .25s ease!important;overflow-y:auto!important;z-index:100!important;
+  }
+  .app > aside.sidebar.is-open,.app > aside.sidebar.open {transform:translateX(0)!important;}
+  .app > .main {width:100%!important;min-width:0!important;margin-left:0!important;}
+  .topbar .teacher-menu-toggle {display:flex!important;}
+}
+/* The full-width footer is a sibling of .app, never inside its 2-column grid. */
+body > footer.qurio-footer {display:block!important;position:relative!important;inset:auto!important;clear:both!important;
+ width:100%!important;max-width:none!important;margin:0!important;z-index:15!important;transform:none!important;}
+body > footer.qurio-footer .qurio-footer-top,
+body > footer.qurio-footer .qurio-footer-bottom {box-sizing:border-box!important;}
+</style>
+<style id="qurio-class-breadcrumb-fix">
+.cm-content .crumb a{color:#958aa9;text-decoration:none;font-weight:600}
+.cm-content .crumb a:hover{color:#7041e9;text-decoration:underline}
+.app>.sidebar .sidebar-bottom{margin-top:auto!important;padding-top:12px!important}
+.app>.sidebar .sidebar-bottom .logout-button{margin-top:0!important}
+</style><style id="qurio-login-plain-sidebar-fix">
+/* Chỉ hiển thị nút Đăng nhập, không còn khung tím bên ngoài */
+.app > .sidebar .sidebar-bottom,
+.sidebar .sidebar-bottom,
+.sidebar-bottom {
+    background: transparent !important;
+    background-image: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin-top: auto !important;
+    width: 100%;
+}
+.app > .sidebar .sidebar-bottom .logout-button,
+.sidebar-bottom .logout-button {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    background: transparent !important;
+    box-shadow: none !important;
+    margin: 0 !important;
+    border: 0 !important;
+    border-radius: 10px;
+    padding: 12px !important;
+}
+</style>
+<style id="qurio-login-strong-red">
+/* Nút Đăng nhập: đỏ đậm, không có khung nền */
+.app > .sidebar .sidebar-bottom .logout-button,
+.sidebar-bottom .logout-button {
+    color: #c62828 !important;
+    font-weight: 700 !important;
+    background: transparent !important;
+}
+.app > .sidebar .sidebar-bottom .logout-button .icon,
+.sidebar-bottom .logout-button .icon {
+    color: #c62828 !important;
+    stroke: currentColor !important;
+}
+.app > .sidebar .sidebar-bottom .logout-button:hover,
+.sidebar-bottom .logout-button:hover {
+    color: #a31621 !important;
+    background: #fff1f2 !important;
+}
+</style>
+<link href="../../Chung/qurio-layout.css" rel="stylesheet"/><link rel="stylesheet" href="../../Chung/qurio-accent.css"><link rel="stylesheet" href="../../Chung/qurio-global.css">
+<script defer src="../../Chung/qurio-global.js"></script>
+</head><body><svg aria-hidden="true" class="svg-defs" focusable="false" height="0" style="position:absolute!important;width:0!important;height:0!important;overflow:hidden!important;visibility:hidden!important;pointer-events:none!important" width="0" xmlns="http://www.w3.org/2000/svg">
+<symbol id="i-home" viewbox="0 0 24 24">
+<path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1Z"></path>
+</symbol>
+<symbol id="i-book" viewbox="0 0 24 24">
+<path d="M12 5v16M3 4c4-1 7 0 9 2 2-2 5-3 9-2v15c-4-1-7 0-9 2-2-2-5-3-9-2Z"></path>
+</symbol>
+<symbol id="i-route" viewbox="0 0 24 24">
+<circle cx="6" cy="5" r="2"></circle>
+<circle cx="18" cy="19" r="2"></circle>
+<path d="M8 5h7a4 4 0 0 1 0 8H9a3 3 0 0 0 0 6h7"></path>
+</symbol>
+<symbol id="i-chart" viewbox="0 0 24 24">
+<path d="M4 3v17h17M9 16v-5m5 5V6m5 10V9"></path>
+</symbol>
+<symbol id="i-teacher" viewbox="0 0 24 24">
+<rect height="12" rx="2" width="14" x="7" y="3"></rect>
+<path d="M12 21h7m-3-6v6M3 20v-5a3 3 0 0 1 3-3h3"></path>
+<circle cx="4.5" cy="7" r="2.5"></circle>
+</symbol>
+<symbol id="i-chat" viewbox="0 0 24 24">
+<path d="M21 11a8 8 0 0 1-8 8H8l-5 3V6a3 3 0 0 1 3-3h7a8 8 0 0 1 8 8Z"></path>
+<path d="M7 8h9M7 12h6"></path>
+</symbol>
+<symbol id="i-spark" viewbox="0 0 24 24">
+<path d="m12 3 2.5 6.5L21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5Z"></path>
+</symbol>
+<symbol id="i-calendar" viewbox="0 0 24 24">
+<rect height="16" rx="3" width="18" x="3" y="5"></rect>
+<path d="M7 3v4m10-4v4M3 10h18M7 14h2m4 0h2m-8 3h2"></path>
+</symbol>
+<symbol id="i-trophy" viewbox="0 0 24 24">
+<path d="M8 3h8v7a4 4 0 0 1-8 0Zm8 2h4v3a4 4 0 0 1-4 4M8 5H4v3a4 4 0 0 0 4 4m4 2v6m-5 1h10"></path>
+</symbol>
+<symbol id="i-lab" viewbox="0 0 24 24">
+<path d="M9 3h6m-5 0v6L4 19a1 1 0 0 0 1 2h14a1 1 0 0 0 1-2L14 9V3M7 15h10"></path>
+</symbol>
+<symbol id="i-exit" viewbox="0 0 24 24">
+<path d="M10 4H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h5m5-13 5 5-5 5M8 12h12"></path>
+</symbol>
+<symbol id="i-search" viewbox="0 0 24 24">
+<circle cx="10.5" cy="10.5" r="6.5"></circle>
+<path d="m16 16 5 5"></path>
+</symbol>
+<symbol id="i-bell" viewbox="0 0 24 24">
+<path d="M18 8a6 6 0 0 0-12 0c0 8-3 8-3 10h18c0-2-3-2-3-10m-11 14h4"></path>
+</symbol>
+<symbol id="i-chevron" viewbox="0 0 24 24">
+<path d="m8 10 4 4 4-4"></path>
+</symbol>
+<symbol id="i-arrow" viewbox="0 0 24 24">
+<path d="M4 12h15m-6-6 6 6-6 6"></path>
+</symbol>
+<symbol id="i-menu" viewbox="0 0 24 24">
+<path d="M4 6h16M4 12h16M4 18h16"></path>
+</symbol>
+<symbol id="i-check" viewbox="0 0 24 24">
+<path d="m5 12 4 4L19 6"></path>
+</symbol>
+<symbol id="i-target" viewbox="0 0 24 24">
+<circle cx="12" cy="12" r="9"></circle>
+<circle cx="12" cy="12" r="5"></circle>
+<circle cx="12" cy="12" r="1"></circle>
+</symbol>
+<symbol id="i-clock" viewbox="0 0 24 24">
+<circle cx="12" cy="12" r="9"></circle>
+<path d="M12 7v5l3 2"></path>
+</symbol>
+<symbol id="i-plus" viewbox="0 0 24 24">
+<path d="M12 4v16M4 12h16"></path>
+</symbol>
+<symbol id="i-math" viewbox="0 0 24 24">
+<path d="M4 7h7M7.5 3.5v7M15 5l5 5m0-5-5 5M4 16h7m4-2h6m-6 4h6"></path>
+</symbol>
+<symbol id="i-history" viewbox="0 0 24 24">
+<path d="m3 8 9-5 9 5M4 9h16M5 20h14M4 22h16M6 10v8m6-8v8m6-8v8"></path>
+</symbol>
+<symbol id="i-globe" viewbox="0 0 24 24">
+<circle cx="12" cy="12" r="9"></circle>
+<path d="M3 12h18M12 3c5 5 5 13 0 18-5-5-5-13 0-18Z"></path>
+</symbol>
+<symbol id="i-code" viewbox="0 0 24 24">
+<path d="m8 6-6 6 6 6m8-12 6 6-6 6m-3-14-2 16"></path>
+</symbol>
+<symbol id="i-close" viewbox="0 0 24 24">
+<path d="m6 6 12 12M6 18 18 6"></path>
+</symbol>
+</svg>
+<div class="app"><button aria-label="Đóng menu điều hướng" class="teacher-sidebar-backdrop" hidden="" id="sidebarBackdrop" type="button"></button>
+<div class="main">
+<main class="cm-content"><section class="hero"><div><span class="pill">✦ KHÔNG GIAN LỚP HỌC</span><h1>Mỗi lớp học, một hành trình khám phá</h1><p>Tổ chức lớp học, quản lý học sinh và đồng hành cùng sự tiến bộ của các em trên Qurio.</p><div class="hero-actions"><button class="button" onclick="openModal('class')">＋ Tạo lớp học mới</button><button class="button ghost" onclick="loadData()">↻ Làm mới dữ liệu</button></div></div><div class="hero-art"><span class="art-orbit"></span><span class="art-laptop"><svg viewbox="0 0 24 24"><rect height="16" rx="3" width="18" x="3" y="4"></rect><path d="M7 10h10M7 14h6"></path></svg></span><span class="art-books"></span><span class="art-star">✦</span></div></section>
+<section class="stats"><div class="stat"><span class="stat-icon lav"><svg viewbox="0 0 24 24"><use href="#i-teacher"></use></svg></span><div><strong id="countClasses">—</strong><small>Lớp học</small></div></div><div class="stat"><span class="stat-icon blue"><svg viewbox="0 0 24 24"><use href="#i-book"></use></svg></span><div><strong id="countStudents">—</strong><small>Học sinh</small></div></div><div class="stat"><span class="stat-icon green"><svg viewbox="0 0 24 24"><use href="#i-calendar"></use></svg></span><div><strong id="countAssignments">—</strong><small>Bài đã giao</small></div></div></section>
+<section aria-labelledby="gradeChartTitle" class="grade-analytics">
+<div class="grade-panel">
+<div class="grade-panel-head">
+<div><span class="eyebrow">THỐNG KÊ HỌC SINH</span>
+<h2 id="gradeChartTitle">Số lượng học sinh theo khối</h2>
+<p>Thống kê số lượng học sinh theo từng khối.</p>
+</div>
+<span class="grade-chip" id="gradeTotalLabel">Đang tải...</span>
+</div>
+<div aria-label="Biểu đồ số học sinh theo khối" class="grade-chart" id="gradeChart" role="img">
+<p class="muted">Đang tải...</p>
+</div>
+<div class="grade-legend">
+<span><i style="background:#8d68ed"></i>Khối 10</span>
+<span><i style="background:#5b9cf4"></i>Khối 11</span>
+<span><i style="background:#31b79c"></i>Khối 12</span>
+<span><i style="background:#b8b4c6"></i>Chưa xác định</span>
+</div>
+<p class="grade-footnote">Thống kê theo khối lớp.</p>
+</div>
+<aside class="grade-insights">
+<span class="eyebrow">TỔNG QUAN</span>
+<h3>Phân bố học sinh</h3>
+<p>Quan sát quy mô học sinh ở từng khối để hỗ trợ kế hoạch giảng dạy.</p>
+<div class="grade-insight-rows" id="gradeInsightRows"></div>
+</aside>
+</section>
+<div class="section-heading"><div><h2>Lớp học của tôi</h2><p>Danh sách các lớp bạn đang quản lý</p></div><div class="filters"><input aria-label="Tìm tên lớp" id="classSearch" placeholder="⌕ Tìm tên lớp..."/><select aria-label="Lọc môn học" id="subjectFilter"><option value="">Tất cả môn học</option></select></div></div><div class="class-grid" id="classGrid"><div class="empty">Đang tải dữ liệu...</div></div>
+<section class="detail" id="detail"><div class="detail-top"><div><h2 id="detailTitle">Chi tiết lớp</h2><p class="muted" id="detailSubtitle"></p></div><button class="button light" onclick="closeDetail()">✕ Đóng</button></div><div class="tabs"><button class="tab active" data-tab="students">Danh sách học sinh</button><button class="tab" data-tab="assignments">Bài đã giao</button><button class="tab" data-tab="results">Kết quả học tập</button><button class="tab" data-tab="analysis">Phân tích lớp</button><button class="tab" data-tab="settings">Cài đặt lớp</button></div><div id="detailBody"></div></section>
+<!-- =====================================
+  QURIO - QUẢN LÝ THAM GIA LỚP HỌC
+===================================== -->
+
+<style>
+.qcl-manager {
+  margin: 28px 0;
+  padding: 25px;
+  border: 1px solid #e5ddfa;
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 8px 28px #4d34800a;
+}
+
+.qcl-manager * {
+  box-sizing: border-box;
+}
+
+.qcl-manager h2 {
+  margin: 0 0 9px;
+  color: #302452;
+  font-size: 21px;
+  font-weight: 800;
+}
+
+.qcl-manager h3 {
+  color: #382b5c;
+  font-size: 15px;
+  margin: 25px 0 12px;
+}
+
+.qcl-manager p {
+  color: #817792;
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+.qcl-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 17px 0;
+}
+
+.qcl-controls select {
+  min-width: 180px;
+  flex: 1;
+  padding: 13px;
+  border: 1px solid #e1d8f6;
+  border-radius: 11px;
+  background: #fff;
+  color: #42365f;
+  font: inherit;
+}
+
+.qcl-btn {
+  border: 0;
+  border-radius: 11px;
+  padding: 12px 17px;
+  background: #7046df;
+  color: #fff;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.qcl-btn:hover {
+  background: #5e35ce;
+}
+
+.qcl-btn:disabled {
+  opacity: .55;
+  cursor: not-allowed;
+}
+
+.qcl-btn-light {
+  background: #f0ebff;
+  color: #6541d2;
+}
+
+.qcl-btn-light:hover {
+  background: #e6ddff;
+}
+
+.qcl-btn-danger {
+  background: #fff0f2;
+  color: #be3657;
+}
+
+.qcl-btn-danger:hover {
+  background: #ffe2e9;
+}
+
+.qcl-code-box {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 18px;
+  border-radius: 14px;
+  background: #f6f2ff;
+  border: 1px solid #e5dbff;
+  margin-top: 15px;
+}
+
+.qcl-code-box strong {
+  font-size: 20px;
+  letter-spacing: 2px;
+  color: #6040c9;
+  user-select: all;
+}
+
+.qcl-message {
+  font-size: 12px;
+  line-height: 1.7;
+  color: #6748ba;
+  margin-top: 12px;
+}
+
+.qcl-requests {
+  display: grid;
+  gap: 11px;
+  margin-top: 15px;
+}
+
+.qcl-request {
+  padding: 17px;
+  border: 1px solid #e9e4f5;
+  border-radius: 13px;
+  background: #fbfaff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.qcl-request strong {
+  color: #332754;
+  font-size: 13px;
+}
+
+.qcl-request p {
+  margin: 6px 0;
+}
+
+.qcl-request small {
+  color: #8a809d;
+  font-size: 10px;
+}
+
+.qcl-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.qcl-empty {
+  padding: 20px;
+  background: #faf9fe;
+  border: 1px dashed #e4dcf3;
+  border-radius: 12px;
+  text-align: center;
+  color: #8a809e;
+  font-size: 12px;
+}
+
+@media(max-width:600px) {
+  .qcl-manager {
+    padding: 18px;
+  }
+
+  .qcl-controls {
+    flex-direction: column;
+  }
+
+  .qcl-controls select,
+  .qcl-controls button {
+    width: 100%;
+  }
+}
+</style>
+
+<section class="qcl-manager" id="qclManager">
+
+  <h2>🔑 Quản lý mã tham gia lớp học</h2>
+
+  <p>
+    Tạo mã tham gia để học sinh đăng ký vào lớp.
+    Giáo viên có thể duyệt hoặc từ chối yêu cầu
+    trước khi học sinh được nhận bài tập.
+  </p>
+
+  <!-- CHỌN LỚP -->
+
+  <div class="qcl-controls">
+
+    <select id="qclClassSelect">
+      <option value="">Chọn lớp học</option>
+    </select>
+
+    <button
+      type="button"
+      class="qcl-btn"
+      id="qclGenerateCode">
+      🔑 Lấy mã tham gia
+    </button>
+
+    <button
+      type="button"
+      class="qcl-btn qcl-btn-light"
+      id="qclReloadClasses">
+      ↻ Làm mới
+    </button>
+
+  </div>
+
+  <!-- MÃ THAM GIA -->
+
+  <div class="qcl-code-box" id="qclCodeBox" hidden>
+
+    <div>
+      <p style="margin:0 0 6px">
+        Mã tham gia lớp học
+      </p>
+
+      <strong id="qclCodeValue"></strong>
+    </div>
+
+    <button
+      type="button"
+      class="qcl-btn"
+      id="qclCopyCode">
+      Sao chép mã
+    </button>
+
+  </div>
+
+  <p
+    id="qclTeacherMessage"
+    class="qcl-message"
+    role="status">
+  </p>
+
+  <!-- YÊU CẦU ĐANG CHỜ -->
+
+  <div style="margin-top:30px">
+
+    <h3>👥 Yêu cầu tham gia lớp</h3>
+
+    <p>
+      Xem các học sinh đang chờ được duyệt
+      vào lớp học của bạn.
+    </p>
+
+    <button
+      type="button"
+      class="qcl-btn qcl-btn-light"
+      id="qclReloadRequests">
+      ↻ Làm mới yêu cầu
+    </button>
+
+    <div
+      class="qcl-requests"
+      id="qclRequestList">
+      <div class="qcl-empty">
+        Đang tải yêu cầu tham gia…
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+<script>
+(() => {
+  "use strict";
+
+  const $q = id => document.getElementById(id);
+
+  function qclSafe(value) {
+    return String(value ?? "").replace(
+      /[&<>"']/g,
+      c => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#39;"
+      }[c])
+    );
+  }
+
+  async function qclAPI(action, data = {}) {
+    if (!window.QurioAuth?.request) {
+      throw new Error(
+        "Chưa kết nối hệ thống Qurio."
+      );
+    }
+
+    const result = await window.QurioAuth.request(
+      action,
+      data
+    );
+
+    if (result?.ok === false) {
+      throw new Error(
+        result.message || "Thao tác thất bại."
+      );
+    }
+
+    return result;
+  }
+
+  function qclNotice(text) {
+    $q("qclTeacherMessage").textContent = text;
+  }
+
+  // =================================
+  // TẢI LỚP CỦA GIÁO VIÊN
+  // =================================
+
+  async function qclLoadClasses() {
+    const select = $q("qclClassSelect");
+    const previous = select.value;
+
+    select.innerHTML =
+      '<option value="">Đang tải lớp học…</option>';
+
+    try {
+      const result = await qclAPI(
+        "classManager",
+        { operation: "getDashboard" }
+      );
+
+      const classes = Array.isArray(result.classes)
+        ? result.classes
+        : [];
+
+      select.innerHTML =
+        '<option value="">Chọn lớp học</option>' +
+        classes.map(cls => `
+          <option value="${qclSafe(cls.id)}">
+            ${qclSafe(cls.name)}
+            ${cls.subject
+              ? " - " + qclSafe(cls.subject)
+              : ""}
+          </option>
+        `).join("");
+
+      if (classes.some(c => String(c.id) === previous)) {
+        select.value = previous;
+      }
+
+      if (!classes.length) {
+        qclNotice(
+          "Bạn chưa có lớp học. " +
+          "Hãy tạo lớp ở phía trên trước."
+        );
+      }
+
+    } catch (error) {
+      select.innerHTML =
+        '<option value="">Không tải được lớp</option>';
+
+      qclNotice(
+        "Lỗi tải lớp: " + error.message
+      );
+    }
+  }
+
+  // =================================
+  // GIÁO VIÊN LẤY MÃ LỚP
+  // =================================
+
+  $q("qclGenerateCode").addEventListener(
+    "click",
+    async () => {
+      const classId = $q("qclClassSelect").value;
+
+      if (!classId) {
+        qclNotice("Vui lòng chọn lớp học trước.");
+        return;
+      }
+
+      const button = $q("qclGenerateCode");
+
+      button.disabled = true;
+      button.textContent = "Đang xử lý…";
+
+      try {
+        const result = await qclAPI(
+          "classInviteCreate",
+          { classId }
+        );
+
+        if (!result.code) {
+          throw new Error(
+            "Máy chủ chưa trả về mã tham gia."
+          );
+        }
+
+        $q("qclCodeValue").textContent =
+          result.code;
+
+        $q("qclCodeBox").hidden = false;
+
+        qclNotice(
+          "Đã lấy mã lớp thành công. " +
+          "Bạn có thể gửi mã này cho học sinh."
+        );
+
+      } catch (error) {
+        qclNotice(
+          "Không lấy được mã: " +
+          error.message
+        );
+
+      } finally {
+        button.disabled = false;
+        button.textContent = "🔑 Lấy mã tham gia";
+      }
+    }
+  );
+
+  // =================================
+  // SAO CHÉP MÃ LỚP
+  // =================================
+
+  $q("qclCopyCode").addEventListener(
+    "click",
+    async () => {
+      const code = $q("qclCodeValue").textContent;
+
+      if (!code) return;
+
+      try {
+        await navigator.clipboard.writeText(code);
+
+        qclNotice("Đã sao chép mã tham gia lớp.");
+      } catch (_) {
+        window.prompt(
+          "Sao chép mã lớp:",
+          code
+        );
+      }
+    }
+  );
+
+  // =================================
+  // TẢI YÊU CẦU THAM GIA
+  // =================================
+
+  async function qclLoadRequests() {
+    const list = $q("qclRequestList");
+
+    list.innerHTML = `
+      <div class="qcl-empty">
+        Đang tải yêu cầu…
+      </div>
+    `;
+
+    try {
+      const result = await qclAPI(
+        "classJoinRequests"
+      );
+
+      const requests = Array.isArray(result.requests)
+        ? result.requests
+        : [];
+
+      if (!requests.length) {
+        list.innerHTML = `
+          <div class="qcl-empty">
+            Chưa có yêu cầu tham gia nào.
+          </div>
+        `;
+        return;
+      }
+
+      list.innerHTML = requests.map(item => `
+        <div class="qcl-request">
+
+          <div>
+
+            <strong>
+              ${qclSafe(item.studentName)}
+            </strong>
+
+            <p>${qclSafe(item.studentEmail)}</p>
+
+            <small>
+              Mã lớp: ${qclSafe(item.classId)}
+            </small>
+
+          </div>
+
+          <div class="qcl-actions">
+
+            <button
+              type="button"
+              class="qcl-btn"
+              data-request="${qclSafe(item.id)}"
+              data-decision="approve">
+              ✓ Duyệt
+            </button>
+
+            <button
+              type="button"
+              class="qcl-btn qcl-btn-danger"
+              data-request="${qclSafe(item.id)}"
+              data-decision="reject">
+              Từ chối
+            </button>
+
+          </div>
+
+        </div>
+      `).join("");
+
+    } catch (error) {
+      list.textContent =
+        "Không tải được yêu cầu: " +
+        error.message;
+    }
+  }
+
+  // =================================
+  // DUYỆT HOẶC TỪ CHỐI HỌC SINH
+  // =================================
+
+  $q("qclRequestList").addEventListener(
+    "click",
+    async event => {
+      const button = event.target.closest(
+        "button[data-request]"
+      );
+
+      if (!button) return;
+
+      const requestId = button.dataset.request;
+      const decision = button.dataset.decision;
+
+      const question = decision === "approve"
+        ? "Duyệt học sinh tham gia lớp?"
+        : "Từ chối yêu cầu tham gia này?";
+
+      if (!confirm(question)) return;
+
+      button.disabled = true;
+
+      try {
+        await qclAPI(
+          "classJoinDecide",
+          { requestId, decision }
+        );
+
+        qclNotice(
+          decision === "approve"
+            ? "Đã duyệt học sinh thành công."
+            : "Đã từ chối yêu cầu."
+        );
+
+        await qclLoadRequests();
+
+        // Cập nhật thống kê lớp nếu có.
+        if (typeof window.loadData === "function") {
+          await window.loadData();
+        }
+
+      } catch (error) {
+        qclNotice(
+          "Không xử lý được: " +
+          error.message
+        );
+
+        button.disabled = false;
+      }
+    }
+  );
+
+  // =================================
+  // LÀM MỚI
+  // =================================
+
+  $q("qclReloadClasses").addEventListener(
+    "click",
+    qclLoadClasses
+  );
+
+  $q("qclReloadRequests").addEventListener(
+    "click",
+    qclLoadRequests
+  );
+
+  $q("qclClassSelect").addEventListener(
+    "change",
+    () => {
+      $q("qclCodeBox").hidden = true;
+      qclNotice("");
+    }
+  );
+
+  // =================================
+  // KHỞI ĐỘNG
+  // =================================
+
+  window.addEventListener(
+    "load",
+    () => {
+      qclLoadClasses();
+      qclLoadRequests();
+    },
+    { once: true }
+  );
+
+})();
+</script>
+</main>
+</div></div>
+<div class="modal-backdrop" id="modalBackdrop"><div aria-labelledby="modalTitle" aria-modal="true" class="modal" role="dialog"><h2 id="modalTitle">Tạo lớp học</h2><p id="modalDescription">Nhập thông tin lớp học để lưu vào Qurio.</p><form id="modalForm"><div id="modalFields"></div><div class="modal-actions"><button class="button ghost" onclick="closeModal()" type="button">Hủy</button><button class="button" id="saveButton" type="submit">Lưu thông tin</button></div></form></div></div><div class="toast" id="toast" role="status"></div>
+<script src="../../Chung/qurio-layout.js"></script><script>window.QurioLayout.mountTeacher();</script><script>
+'use strict';
+const $=id=>document.getElementById(id);
+let data={classes:[],students:[],exams:[],assignments:[],activities:[]},selectedClassId=null,currentTab='students',modalMode='',editingId=null,busy=false;
+const safe=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+async function api(name,...args){
+  if(!window.QurioAuth?.request) throw new Error('Chưa tải kết nối Qurio. Hãy tải lại trang.');
+  const payload={operation:name};
+  if(name==='createClass') Object.assign(payload,{name:args[0],subject:args[1]});
+  else if(name==='renameClass') Object.assign(payload,{classId:args[0],name:args[1],subject:args[2]});
+  else if(name==='deleteClass') payload.classId=args[0];
+  else if(name==='addStudent') Object.assign(payload,{classId:args[0],name:args[1],email:args[2]});
+  else if(name==='removeStudent') payload.studentId=args[0];
+  else if(name!=='getDashboard') throw new Error('Thao tác không được hỗ trợ.');
+  return window.QurioAuth.request('classManager',payload);
+}
+function toast(message,error=false){const t=$('toast');t.textContent=message;t.style.background=error?'#a52e4d':'#262044';t.classList.add('show');clearTimeout(toast.timer);toast.timer=setTimeout(()=>t.classList.remove('show'),4200)}
+async function loadData(){
+  try{
+    const next=await api('getDashboard');
+    if(!next||typeof next!=='object')throw new Error('Dữ liệu trả về không hợp lệ');
+    data={
+      classes:Array.isArray(next.classes)?next.classes:[],
+      students:Array.isArray(next.students)?next.students:[],
+      exams:Array.isArray(next.exams)?next.exams:[],
+      assignments:Array.isArray(next.assignments)?next.assignments:[],
+      activities:Array.isArray(next.activities)?next.activities:[]
+    };
+    $('teacherName').textContent=next.teacherName||next.name||(next.email?String(next.email).split('@')[0]:'Giáo viên Qurio');
+    $('countClasses').textContent=data.classes.length;
+    $('countStudents').textContent=data.students.length;
+    $('countAssignments').textContent=data.assignments.length;
+    renderFilters();renderClasses();renderGradeChart();
+    if(selectedClassId){if(data.classes.some(c=>String(c.id)===String(selectedClassId)))renderDetail();else closeDetail()}
+  }catch(e){
+    console.error('Qurio class dashboard:',e);
+    $('gradeTotalLabel').textContent='—';
+    $('gradeChart').innerHTML='<div class="empty"></div>';
+    $('gradeInsightRows').innerHTML='';
+    $('classGrid').innerHTML='<div class="empty">Chưa thể hiển thị danh sách lớp học</div>';
+    toast('Không tải được danh sách lớp học.',true);
+  }
+}
+function renderFilters(){const v=$('subjectFilter').value;const subjects=[...new Set(data.classes.map(c=>c.subject).filter(Boolean))];$('subjectFilter').innerHTML='<option value="">Tất cả môn học</option>'+subjects.map(s=>`<option value="${safe(s)}">${safe(s)}</option>`).join('');$('subjectFilter').value=subjects.includes(v)?v:''}
+function renderClasses(){const q=$('classSearch').value.toLowerCase().trim(),subject=$('subjectFilter').value;const classes=data.classes.filter(c=>(c.name+' '+c.subject).toLowerCase().includes(q)&&(!subject||c.subject===subject));$('classGrid').innerHTML=(classes.map((c,i)=>{const count=data.students.filter(s=>String(s.classId)===String(c.id)).length;return `<article class="class-card"><div class="class-head"><div class="class-icon"><svg viewBox="0 0 24 24"><use href="#i-book"></use></svg></div><span class="pill" style="background:#f1ebff;color:#7041e9">Đang hoạt động</span></div><h3>${safe(c.name)}</h3><p>${safe(c.subject||'Chưa chọn môn học')}</p><div class="class-meta"><span>♙ ${count} học sinh</span><span>▤ ${data.assignments.filter(a=>String(a.classId)===String(c.id)).length} bài giao</span></div><div class="card-actions"><button class="button small" data-action="view" data-id="${safe(c.id)}">Xem lớp →</button><button class="button light small" data-action="edit" data-id="${safe(c.id)}">Sửa</button><button class="button danger small" data-action="delete" data-id="${safe(c.id)}">Xóa</button></div></article>`}).join('')||'<div class="empty">Không tìm thấy lớp học phù hợp.</div>')+'<button class="class-card new-class" onclick="openModal(\'class\')"><span style="font-size:34px;color:#8b5aee">⊕</span><b>Tạo lớp học mới</b><span>Bắt đầu một lớp học mới trên Qurio</span></button>'}
+$('classSearch').addEventListener('input',renderClasses);$('subjectFilter').addEventListener('change',renderClasses);
+$('classGrid').addEventListener('click',e=>{const b=e.target.closest('button[data-action]');if(!b)return;const id=b.dataset.id,action=b.dataset.action;if(action==='view')showDetail(id);if(action==='edit')openModal('editClass',id);if(action==='delete')deleteClassUI(id)});
+function showDetail(id){selectedClassId=id;currentTab='students';$('detail').classList.add('open');renderDetail();$('detail').scrollIntoView({behavior:'smooth',block:'start'})}
+function closeDetail(){selectedClassId=null;$('detail').classList.remove('open')}
+function renderDetail(){const c=data.classes.find(x=>x.id===selectedClassId);if(!c)return;$('detailTitle').textContent='Lớp '+c.name;$('detailSubtitle').textContent=(c.subject||'Chưa có môn học')+' · '+data.students.filter(s=>String(s.classId)===String(c.id)).length+' học sinh';document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('active',b.dataset.tab===currentTab));const body=$('detailBody');if(currentTab==='students'){const students=data.students.filter(s=>String(s.classId)===String(c.id));body.innerHTML=`<div class="students-toolbar"><input id="studentSearch" placeholder="⌕ Tìm học sinh..." aria-label="Tìm học sinh"><button class="button" onclick="openModal('student')">＋ Thêm học sinh</button></div><div class="table-wrap"><table><thead><tr><th>HỌ VÀ TÊN</th><th>EMAIL</th><th>THAO TÁC</th></tr></thead><tbody id="studentRows"></tbody></table></div>`;function paint(){const q=$('studentSearch').value.toLowerCase();$('studentRows').innerHTML=students.filter(s=>(s.name+' '+s.email).toLowerCase().includes(q)).map(s=>`<tr><td><span class="student-icon">♙</span>${safe(s.name)}</td><td>${safe(s.email)}</td><td><button class="button danger small" data-remove="${safe(s.id)}">Xóa</button></td></tr>`).join('')||'<tr><td colspan="3" class="muted"></td></tr>'}$('studentSearch').addEventListener('input',paint);paint()}
+else if(currentTab==='assignments'){const assignments=data.assignments.filter(a=>String(a.classId)===String(c.id));body.innerHTML=assignments.length?assignments.map(a=>`<div class="student-row" style="padding:15px;border-bottom:1px solid #eee"><strong>${safe(data.exams.find(x=>x.id===a.examId)?.title||'Đề kiểm tra')}</strong><p class="muted">Hạn nộp: ${safe(a.dueAt)}</p></div>`).join(''):'<div class="notice"></div>'}
+else if(currentTab==='settings'){body.innerHTML='<div class="notice">Bạn có thể chỉnh sửa tên lớp và môn học hoặc xóa lớp khi không còn học sinh và bài giao.</div><div class="card-actions"><button class="button" onclick="openModal(\'editClass\',selectedClassId)">Sửa thông tin lớp</button><button class="button danger" onclick="deleteClassUI(selectedClassId)">Xóa lớp</button></div>'}
+else{body.innerHTML='<div class="notice">Chưa có dữ liệu '+(currentTab==='results'?'kết quả học tập':'phân tích lớp')+'.</div>'}}
+document.querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>{currentTab=b.dataset.tab;renderDetail()}));
+$('detailBody').addEventListener('click',e=>{const b=e.target.closest('[data-remove]');if(b)removeStudentUI(b.dataset.remove)});
+function openModal(mode,id=null){modalMode=mode;editingId=id;const c=data.classes.find(x=>x.id===id);$('modalTitle').textContent=mode==='class'?'Tạo lớp học mới':mode==='editClass'?'Chỉnh sửa lớp học':'Thêm học sinh';$('modalDescription').textContent=mode==='student'?'Thêm học sinh vào lớp đang chọn.':'Nhập thông tin lớp học.';$('modalFields').innerHTML=mode==='student'?'<div class="field"><label for="fieldName">Họ và tên học sinh</label><input id="fieldName" name="name" maxlength="100" required></div><div class="field"><label for="fieldEmail">Email học sinh</label><input id="fieldEmail" name="email" type="email" maxlength="150" required></div>':`<div class="field"><label for="fieldName">Tên lớp</label><input id="fieldName" name="name" maxlength="60" required value="${safe(c?.name||'')}" placeholder="Ví dụ: 11A1"></div><div class="field"><label for="fieldSubject">Môn học</label><input id="fieldSubject" name="subject" maxlength="60" value="${safe(c?.subject||'')}" placeholder="Ví dụ: Vật lý 11"></div>`;$('modalBackdrop').classList.add('show');$('fieldName').focus()}
+function closeModal(){if(busy)return;$('modalBackdrop').classList.remove('show')}
+$('modalBackdrop').addEventListener('click',e=>{if(e.target===$('modalBackdrop'))closeModal()});document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
+$('modalForm').addEventListener('submit',async e=>{e.preventDefault();if(busy)return;busy=true;$('saveButton').disabled=true;const f=new FormData(e.target);try{if(modalMode==='class')await api('createClass',f.get('name'),f.get('subject'));else if(modalMode==='editClass')await api('renameClass',editingId,f.get('name'),f.get('subject'));else await api('addStudent',selectedClassId,f.get('name'),f.get('email'));busy=false;$('modalBackdrop').classList.remove('show');await loadData();toast('Đã lưu dữ liệu thành công!')}catch(error){toast(error.message||String(error),true)}finally{busy=false;$('saveButton').disabled=false}});
+async function deleteClassUI(id){const c=data.classes.find(x=>x.id===id);if(!c||!confirm('Bạn muốn xóa lớp '+c.name+'? Lớp có học sinh hoặc bài giao sẽ không thể xóa.'))return;try{await api('deleteClass',id);if(selectedClassId===id)closeDetail();await loadData();toast('Đã xóa lớp')}catch(e){toast(e.message||String(e),true)}}
+async function removeStudentUI(id){if(!confirm('Xóa học sinh này khỏi lớp?'))return;try{await api('removeStudent',id);await loadData();toast('Đã xóa học sinh')}catch(e){toast(e.message||String(e),true)}}
+const sidebarToggle=$('sidebarToggle');
+const sidebar=$('sidebar');
+const sidebarBackdrop=$('sidebarBackdrop');
+function closeSidebar(){sidebar.classList.remove('is-open');sidebarBackdrop.hidden=true;document.body.classList.remove('teacher-menu-open');sidebarToggle.setAttribute('aria-expanded','false')}
+sidebarToggle?.addEventListener('click',()=>{const opened=sidebar.classList.toggle('is-open');sidebarBackdrop.hidden=!opened;document.body.classList.toggle('teacher-menu-open',opened);sidebarToggle.setAttribute('aria-expanded',String(opened))});
+sidebarBackdrop?.addEventListener('click',closeSidebar);
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeSidebar()});
+$('logoutButton')?.addEventListener('click',()=>toast('Quản lý tài khoản trong hồ sơ Qurio.'));
+document.addEventListener('DOMContentLoaded',loadData);
+
+// Thống kê theo khối: đếm học sinh theo classId, không dùng số liệu mẫu.
+function gradeOfClass(name) {
+  const normalized=String(name||'').trim().replace(/^lớp\\s*/i,'');
+  const match=normalized.match(/^(10|11|12)(?=[^0-9]|$)/);
+  return match?match[1]:'other';
+}
+function renderGradeChart(){
+  const counts={'10':0,'11':0,'12':0,other:0};
+  const byId=new Map(data.classes.map(c=>[String(c.id),gradeOfClass(c.name)]));
+  data.students.forEach(student=>{
+    const grade=byId.get(String(student.classId))||'other';
+    counts[grade]++;
+  });
+  const total=Object.values(counts).reduce((a,b)=>a+b,0);
+  const max=Math.max(1,...Object.values(counts));
+  const rows=[['10','Khối 10','#8d68ed'],['11','Khối 11','#5b9cf4'],['12','Khối 12','#31b79c'],['other','Chưa xác định','#b8b4c6']];
+  $('gradeTotalLabel').textContent=total+' học sinh';
+  $('gradeChart').setAttribute('aria-label',rows.map(([key,label])=>label+': '+counts[key]+' học sinh').join('; '));
+  $('gradeChart').innerHTML=rows.map(([key,label,color])=>`
+    <div class="grade-bar-col">
+      <span class="grade-bar-value">${counts[key]}</span>
+      <div class="grade-bar-track"><div class="grade-bar" style="height:${counts[key]===0?0:Math.max(4,counts[key]/max*100)}%;background:${color}"></div></div>
+      <span class="grade-bar-label">${label}</span>
+    </div>`).join('');
+  $('gradeInsightRows').innerHTML=rows.map(([key,label,color])=>`
+    <div class="grade-insight-row">
+      <div class="grade-insight-line"><span>${label}</span><strong>${counts[key]} <small>(${total?Math.round(counts[key]/total*100):0}%)</small></strong></div>
+      <div class="grade-progress"><span style="width:${total?counts[key]/total*100:0}%;background:${color}"></span></div>
+    </div>`).join('');
+}
+$('globalClassSearch').addEventListener('input',e=>{
+  $('classSearch').value=e.target.value;
+  renderClasses();
+});
+$('teacherProfileTrigger').addEventListener('click',()=>{
+  const menu=$('teacherProfileMenu');
+  menu.classList.toggle('hidden');
+  $('teacherProfileTrigger').setAttribute('aria-expanded',String(!menu.classList.contains('hidden')));
+});
+$('teacherBackDashboard').addEventListener('click',()=>qurioNavigate('teacher')); 
+document.addEventListener('click',e=>{
+  if(!e.target.closest('.profile-wrap')){
+    $('teacherProfileMenu').classList.add('hidden');
+    $('teacherProfileTrigger').setAttribute('aria-expanded','false');
+  }
+});
+
+
+// Liên kết nội bộ hoạt động trực tiếp với cấu trúc thư mục Qurio.
+// Khi chạy qua Apps Script, các URL hợp lệ từ máy chủ có thể ghi đè.
+const qurioLocalPaths = {
+  home: '../../trang-chu.html',
+  teacher: 'giao-vien.html',
+  learning: '../hoc-tap.html',
+  roadmap: '../lo-trinh-hoc.html',
+  progress: '../Tiến Độ/tien-do.html',
+  forum: '../Diễn Đàn/dien-dan.html',
+  ai: '../gia-su-ai.html',
+  planner: '../../Trang Chủ/trang-chu.html',
+  challenge: '../Thử Thách/thu-thach.html',
+  lab: '../Phòng Lab/phong-lab.html'
+};
+let qurioNavigation = {};
+function qurioNavigate(key) {
+  const configured = qurioNavigation[key];
+  if (configured) {
+    try {
+      const url = new URL(configured, window.location.href);
+      if (url.protocol !== 'https:' && url.protocol !== 'http:') throw Error('Đường dẫn không hợp lệ');
+      window.location.assign(url.href);
+      return;
+    } catch (error) { console.warn('Qurio navigation:', error); }
+  }
+  if (qurioLocalPaths[key]) window.location.assign(qurioLocalPaths[key]);
+}
+function loadNavigation() {
+  if (window.google?.script?.run) {
+    api('qurioGetNavigation')
+      .then(links => { qurioNavigation = links || {}; })
+      .catch(() => {});
+  }
+}
+// Chỉ can thiệp vào click khi có link từ Apps Script; bình thường trình duyệt tự điều hướng.
+document.querySelectorAll('.sidebar a.nav-item[data-nav], .sidebar a.brand, .qurio-footer-brand').forEach(a => {
+  const key = a.classList.contains('brand') || a.classList.contains('qurio-footer-brand')
+    ? 'home' : a.dataset.nav;
+  if (!key || !qurioLocalPaths[key]) return;
+  a.setAttribute('href', qurioLocalPaths[key]);
+  a.removeAttribute('role');
+  a.removeAttribute('tabindex');
+  a.addEventListener('click', event => {
+    if (qurioNavigation[key]) {event.preventDefault();qurioNavigate(key);}
+  });
+});
+loadNavigation();
+// Nút quay lại, breadcrumb đều dùng cùng một điều hướng.
+document.getElementById('teacherBreadcrumbLink')?.addEventListener('click', event => {
+  if (qurioNavigation.teacher) {event.preventDefault();qurioNavigate('teacher');}
+});
+</script><script>document.addEventListener('DOMContentLoaded', () => { const menu = document.getElementById('sidebar'); if(menu) menu.scrollTop = 0; });</script><script defer src="../../Chung/qurio-connect.js"></script>
+<!-- Qurio: đồng bộ tên và phiên đăng nhập giữa các trang -->
+<script defer src="../../Chung/chung.js"></script>
+<script defer src="../../Chung/qurio-account-ui.js"></script>
+
+<script>
+/*
+  QURIO - KẾT QUẢ HỌC TẬP & PHÂN TÍCH LỚP
+  Bổ sung vào cuối quan-ly-lop-hoc.html
+*/
+(() => {
+  "use strict";
+
+  const originalRenderDetail = renderDetail;
+  let latestRequest = 0;
+
+  const esc = value =>
+    String(value ?? "").replace(/[&<>"']/g, c => ({
+      "&": "&amp;",
+      "<": "&lt;",
+      ">": "&gt;",
+      '"': "&quot;",
+      "'": "&#39;"
+    }[c]));
+
+  const fmt = value => {
+    if (!value) return "—";
+
+    const date = new Date(value);
+
+    return Number.isNaN(date.getTime())
+      ? String(value)
+      : date.toLocaleString("vi-VN", {
+          day: "2-digit",
+          month: "2-digit",
+          year: "numeric",
+          hour: "2-digit",
+          minute: "2-digit"
+        });
+  };
+
+  const pct = value =>
+    Number.isFinite(Number(value))
+      ? Number(value).toFixed(1) + "%"
+      : "—";
+
+  const count = value =>
+    Number.isFinite(Number(value))
+      ? Number(value)
+      : 0;
+
+  function notice(message) {
+    return `
+      <div class="notice" style="margin-top:14px">
+        ${esc(message)}
+      </div>
+    `;
+  }
+
+  // Giữ nguyên những chức năng đã có.
+  renderDetail = function (...args) {
+    originalRenderDetail.apply(this, args);
+
+    const requestId = ++latestRequest;
+    const tab = currentTab;
+
+    if (
+      tab !== "results" &&
+      tab !== "analysis"
+    ) {
+      return;
+    }
+
+    const classId = String(selectedClassId || "");
+    const panel = document.getElementById("detailBody");
+
+    if (!panel || !classId) return;
+
+    panel.innerHTML = `
+      <div class="notice">
+        Đang tải kết quả từ Google Sheets…
+      </div>
+    `;
+
+    async function loadResults() {
+      if (!window.QurioAuth?.request) {
+        throw new Error(
+          "Chưa kết nối được hệ thống Qurio."
+        );
+      }
+
+      const info = await window.QurioAuth.request(
+        "classLearningResults",
+        { classId }
+      );
+
+      if (info?.ok === false) {
+        throw new Error(
+          info.message || "Máy chủ từ chối yêu cầu."
+        );
+      }
+
+      if (
+        requestId !== latestRequest ||
+        currentTab !== tab ||
+        String(selectedClassId) !== classId
+      ) {
+        return;
+      }
+
+      const rows = Array.isArray(info.results)
+        ? info.results
+        : [];
+
+      const graded = rows.filter(
+        row => !row.pendingReview
+      );
+
+      const average = info.average == null
+        ? "Chưa có"
+        : pct(info.average);
+
+      // ================================
+      // TAB KẾT QUẢ HỌC TẬP
+      // ================================
+
+      if (tab === "results") {
+        let html = `
+          <div class="notice">
+            <strong>📊 Tổng quan kết quả</strong>
+
+            <p>
+              Học sinh:
+              <b>${count(info.studentCount)}</b>
+            </p>
+
+            <p>
+              Bài đã giao:
+              <b>${count(info.assignmentCount)}</b>
+            </p>
+
+            <p>
+              Lượt nộp:
+              <b>${rows.length}</b>
+            </p>
+
+            <p>
+              Đã chấm:
+              <b>${graded.length}</b>
+            </p>
+
+            <p>
+              Điểm trung bình:
+              <b>${average}</b>
+            </p>
+          </div>
+        `;
+
+        if (!rows.length) {
+          html += notice(
+            "Chưa có bài nộp thực tế từ học sinh."
+          );
+
+        } else {
+          html += `
+            <div class="table-wrap"
+                 style="margin-top:18px">
+              <table>
+                <thead>
+                  <tr>
+                    <th>HỌC SINH</th>
+                    <th>BÀI KIỂM TRA</th>
+                    <th>ĐIỂM</th>
+                    <th>TRẠNG THÁI</th>
+                    <th>NGÀY NỘP</th>
+                  </tr>
+                </thead>
+                <tbody>
+          `;
+
+          html += rows.map(row => `
+            <tr>
+              <td>
+                ${esc(row.studentName)}
+              </td>
+
+              <td>
+                ${esc(row.title)}
+              </td>
+
+              <td>
+                ${esc(row.score)} /
+                ${esc(row.maxScore)}
+                (${pct(row.percent)})
+              </td>
+
+              <td>
+                ${
+                  row.pendingReview
+                    ? "Chờ giáo viên chấm thêm"
+                    : "Đã chấm"
+                }
+              </td>
+
+              <td>
+                ${esc(fmt(row.submittedAt))}
+              </td>
+            </tr>
+          `).join("");
+
+          html += `
+                </tbody>
+              </table>
+            </div>
+          `;
+        }
+
+        panel.innerHTML = html;
+      }
+
+      // ================================
+      // TAB PHÂN TÍCH LỚP
+      // ================================
+
+      else {
+        const low = graded.filter(
+          row => Number(row.percent) < 50
+        );
+
+        const medium = graded.filter(
+          row =>
+            Number(row.percent) >= 50 &&
+            Number(row.percent) < 80
+        );
+
+        const high = graded.filter(
+          row => Number(row.percent) >= 80
+        );
+
+        const total = graded.length;
+
+        const groups = [
+          ["Dưới 50%", low.length, "#e87f8c"],
+          ["50% – dưới 80%", medium.length, "#e6ac53"],
+          ["Từ 80%", high.length, "#69bd9c"]
+        ];
+
+        let html = `
+          <div class="notice">
+            <strong>📈 Phân tích kết quả lớp</strong>
+
+            <p>
+              Số lượt bài đã chấm:
+              <b>${total}</b>
+            </p>
+
+            <p>
+              Điểm trung bình:
+              <b>${average}</b>
+            </p>
+
+            <p>
+              Dữ liệu được thống kê theo lượt bài
+              đã chấm, chưa phải phân tích lỗi sai
+              theo từng câu hỏi.
+            </p>
+          </div>
+
+          <div style="
+            display:grid;
+            gap:14px;
+            margin-top:20px;
+          ">
+        `;
+
+        groups.forEach(([name, number, color]) => {
+          const percentage = total
+            ? Math.round(number / total * 100)
+            : 0;
+
+          html += `
+            <div>
+              <div style="
+                display:flex;
+                justify-content:space-between;
+                gap:12px;
+                font-size:12px;
+              ">
+                <span>${esc(name)}</span>
+
+                <strong>
+                  ${number} lượt
+                  (${percentage}%)
+                </strong>
+              </div>
+
+              <div style="
+                background:#eee9f7;
+                height:10px;
+                border-radius:20px;
+                overflow:hidden;
+                margin-top:8px;
+              ">
+                <div style="
+                  width:${percentage}%;
+                  height:100%;
+                  background:${color};
+                  border-radius:20px;
+                "></div>
+              </div>
+            </div>
+          `;
+        });
+
+        html += "</div>";
+
+        if (low.length) {
+          const titles = [
+            ...new Set(
+              low.map(
+                row => String(
+                  row.title || "Bài kiểm tra"
+                )
+              )
+            )
+          ];
+
+          html += `
+            <div class="notice"
+                 style="margin-top:20px">
+
+              <strong>
+                Các bài cần ưu tiên hỗ trợ
+              </strong>
+
+              <p>${esc(titles.join(", "))}</p>
+            </div>
+          `;
+        }
+
+        if (!total) {
+          html += notice(
+            "Chưa có bài đã chấm để phân tích."
+          );
+        }
+
+        panel.innerHTML = html;
+      }
+    }
+
+    loadResults().catch(error => {
+      if (
+        requestId !== latestRequest ||
+        currentTab !== tab ||
+        String(selectedClassId) !== classId
+      ) {
+        return;
+      }
+
+      panel.innerHTML = `
+        <div class="notice" style="
+          background:#fff3f5;
+          color:#ad3852;
+        ">
+          <strong>
+            Chưa tải được kết quả học tập
+          </strong>
+
+          <p>
+            ${esc(error?.message || String(error))}
+          </p>
+
+          <p>
+            Kiểm tra API classLearningResults
+            trong Google Apps Script.
+          </p>
+        </div>
+      `;
+    });
+  };
+})();
+</script>
+
+</body></html>
