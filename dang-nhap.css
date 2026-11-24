@@ -1,0 +1,1462 @@
+
+/* ========================================
+   QURIO - TRANG DANG NHAP
+   Modern • Minimal • Responsive
+======================================== */
+
+:root {
+  --primary: #625cff;
+  --primary-dark: #4947e8;
+  --blue: #4c8cff;
+  --navy: #10275b;
+  --text: #243966;
+  --muted: #7283ad;
+  --border: #dce4fb;
+  --white: #ffffff;
+  --surface: #f6f7ff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  width: 100%;
+  min-height: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  min-height: 100vh;
+  padding: 12px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-family: "Be Vietnam Pro", "Nunito Sans",
+    "Segoe UI", Arial, sans-serif;
+
+  color: var(--navy);
+  background:
+    radial-gradient(
+      ellipse at 10% 10%,
+      #ffffff 0%,
+      transparent 42%
+    ),
+    radial-gradient(
+      ellipse at 90% 90%,
+      #dce2ff 0%,
+      transparent 40%
+    ),
+    linear-gradient(135deg, #f5f6ff, #e9edff);
+
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* ========================================
+   KHUNG CHINH
+======================================== */
+
+.login-container {
+  width: min(1270px, 100%);
+  height: min(820px, calc(100vh - 24px));
+  min-height: 0;
+
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(0, 0.95fr);
+
+  background: var(--white);
+  border: 1px solid rgba(207, 216, 255, 0.8);
+  border-radius: 26px;
+  overflow: hidden;
+
+  box-shadow: 0 25px 75px rgba(79, 99, 190, 0.15);
+}
+
+/* ========================================
+   COT TRAI - GIOI THIEU QURIO
+======================================== */
+
+.welcome-panel {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+
+  min-width: 0;
+  padding: clamp(22px, 2.6vw, 36px);
+
+  background:
+    radial-gradient(
+      circle at 85% 15%,
+      #ffffff 0%,
+      transparent 30%
+    ),
+    linear-gradient(145deg, #f5f6ff 0%, #edf0ff 100%);
+}
+
+.welcome-panel::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+
+  width: 310px;
+  height: 310px;
+  right: -190px;
+  top: -180px;
+
+  border: 1px solid #d8dfff;
+  border-radius: 50%;
+}
+
+.welcome-panel::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+
+  width: 230px;
+  height: 230px;
+  left: -160px;
+  bottom: -150px;
+
+  border: 1px solid #d8dfff;
+  border-radius: 50%;
+}
+
+/* LOGO */
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+
+  width: fit-content;
+  max-width: 100%;
+
+  text-decoration: none;
+  color: var(--navy);
+}
+
+.brand img {
+  width: 60px;
+  height: 60px;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 0;
+}
+
+.brand-text strong {
+  font-size: 29px;
+  line-height: 1.15;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.brand-text small {
+  color: #5c6f9e;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+/* NOI DUNG GIOI THIEU */
+
+.welcome-content {
+  position: relative;
+  z-index: 1;
+  margin-top: clamp(18px, 3.5vh, 38px);
+}
+
+.eyebrow {
+  margin-bottom: 15px;
+
+  color: #6c70ff;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.3px;
+  line-height: 1.6;
+}
+
+.welcome-content h1 {
+  max-width: 460px;
+
+  color: var(--navy);
+  font-size: clamp(27px, 2.7vw, 38px);
+  line-height: 1.25;
+  letter-spacing: -1px;
+  font-weight: 800;
+
+  overflow-wrap: break-word;
+}
+
+.welcome-content h1 span {
+  display: block;
+  color: var(--primary);
+  font-weight: 800;
+}
+
+.description {
+  margin-top: 16px;
+
+  color: #687ba8;
+  font-size: 13px;
+  line-height: 1.9;
+}
+
+/* ========================================
+   HINH MINH HOA
+======================================== */
+
+.illustration {
+  position: relative;
+  flex: 1 1 auto;
+
+  min-height: 120px;
+  height: clamp(130px, 22vh, 205px);
+
+  margin-top: 10px;
+}
+
+.orbit {
+  position: absolute;
+
+  width: min(200px, 48%);
+  aspect-ratio: 1;
+
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  border-radius: 50%;
+  background: linear-gradient(145deg, #e0f4ff, #d9deff);
+  opacity: 0.9;
+}
+
+.study-card {
+  position: absolute;
+  z-index: 2;
+
+  width: 58px;
+  height: 58px;
+
+  display: grid;
+  place-items: center;
+
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid #e4e9ff;
+  border-radius: 17px;
+
+  font-size: 26px;
+
+  box-shadow: 0 12px 25px rgba(88, 105, 194, 0.12);
+}
+
+.card-one {
+  left: 9%;
+  top: 65px;
+  transform: rotate(-10deg);
+}
+
+.card-two {
+  left: 44%;
+  top: 12px;
+  transform: rotate(5deg);
+}
+
+.card-three {
+  right: 8%;
+  top: 78px;
+
+  color: #f4a93d;
+  font-size: 32px;
+  transform: rotate(12deg);
+}
+
+/* CHONG SACH */
+
+.book-stack {
+  position: absolute;
+  z-index: 2;
+
+  left: 50%;
+  bottom: 18px;
+
+  width: 145px;
+  height: 60px;
+
+  transform: translateX(-50%);
+}
+
+.book {
+  position: absolute;
+  height: 17px;
+  border-radius: 5px;
+
+  box-shadow: 0 5px 8px rgba(53, 75, 160, 0.12);
+}
+
+.book-one {
+  width: 135px;
+  left: 5px;
+  bottom: 0;
+
+  background: linear-gradient(90deg, #6b78ff, #a5b5ff);
+  border-bottom: 4px solid #4e62d9;
+}
+
+.book-two {
+  width: 120px;
+  left: 12px;
+  bottom: 19px;
+
+  background: linear-gradient(90deg, #fff, #d8e6ff);
+  border-bottom: 4px solid #88a6ed;
+}
+
+.book-three {
+  width: 105px;
+  left: 20px;
+  bottom: 38px;
+
+  background: linear-gradient(90deg, #9f8cff, #c8bcff);
+  border-bottom: 4px solid #8373e8;
+}
+
+/* CAY TRANG TRI */
+
+.plant {
+  position: absolute;
+  right: 13%;
+  bottom: 23px;
+
+  width: 55px;
+  height: 85px;
+}
+
+.plant div {
+  position: absolute;
+
+  width: 37px;
+  height: 20px;
+
+  bottom: 0;
+  left: 9px;
+
+  border-radius: 4px 4px 14px 14px;
+  background: linear-gradient(90deg, #89a9ff, #c2d5ff);
+}
+
+.plant span {
+  position: absolute;
+
+  bottom: 25px;
+  left: 23px;
+
+  width: 15px;
+  height: 36px;
+
+  border-radius: 100% 0 100% 0;
+  background: #8adbc6;
+  transform-origin: bottom;
+}
+
+.plant span:nth-child(1) {
+  transform: rotate(-42deg);
+}
+
+.plant span:nth-child(2) {
+  bottom: 36px;
+  transform: rotate(35deg);
+}
+
+.plant span:nth-child(3) {
+  bottom: 43px;
+  transform: rotate(-5deg);
+  background: #b0ead9;
+}
+
+/* ========================================
+   SLOGAN
+======================================== */
+
+.quote {
+  position: relative;
+  z-index: 1;
+
+  margin-top: auto;
+  padding-top: 12px;
+
+  color: #60739f;
+  font-size: 13px;
+  line-height: 1.85;
+  font-style: italic;
+}
+
+.quote-mark {
+  display: grid;
+  place-items: center;
+
+  width: 38px;
+  height: 38px;
+
+  margin-bottom: 10px;
+  border-radius: 13px;
+
+  color: #625cff;
+  background: linear-gradient(135deg, #e6eaff, #f2edff);
+  box-shadow: 0 6px 16px rgba(98, 92, 255, 0.12);
+
+  font-size: 20px;
+  font-weight: 800;
+  font-style: normal;
+}
+
+.quote-mark svg {
+  display: block;
+  width: 21px;
+  height: 21px;
+}
+
+/* ========================================
+   COT PHAI - FORM DANG NHAP
+======================================== */
+
+.form-panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 0;
+  padding: clamp(22px, 3vw, 42px);
+
+  background: rgba(255, 255, 255, 0.97);
+}
+
+.form-inner {
+  width: 100%;
+  max-width: 430px;
+  min-width: 0;
+}
+
+.form-inner h2 {
+  margin-bottom: 10px;
+
+  color: #10265b;
+  font-size: clamp(28px, 2.5vw, 34px);
+  font-weight: 800;
+  letter-spacing: -0.7px;
+  line-height: 1.3;
+}
+
+.subtitle {
+  margin-bottom: clamp(16px, 2.5vh, 24px);
+
+  color: #7181a7;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+/* CAC O NHAP */
+
+.form-group {
+  min-width: 0;
+  margin-bottom: 17px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 9px;
+
+  color: #253a6c;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.input-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  width: 100%;
+  height: 49px;
+  min-width: 0;
+  padding: 0 13px;
+
+  border: 1px solid var(--border);
+  border-radius: 11px;
+  background: #fbfcff;
+
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s,
+    background 0.2s;
+}
+
+.input-box:focus-within {
+  border-color: #7975ff;
+  background: #fff;
+  box-shadow: 0 0 0 4px rgba(98, 92, 255, 0.09);
+}
+
+.input-icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  color: #6478a7;
+}
+
+.input-box input {
+  width: 100%;
+  min-width: 0;
+  height: 100%;
+
+  border: none;
+  outline: none;
+  background: transparent;
+
+  color: #1c3264;
+  font-family: inherit;
+  font-size: 13px;
+}
+
+.input-box input::placeholder {
+  color: #9aa8c7;
+}
+
+.eye-button {
+  width: 30px;
+  height: 34px;
+  flex-shrink: 0;
+
+  display: grid;
+  place-items: center;
+
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+
+  color: #6377a5;
+  cursor: pointer;
+}
+
+.eye-button:hover {
+  color: var(--primary);
+  background: #f0f1ff;
+}
+
+.eye-button svg {
+  width: 19px;
+  height: 19px;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+/* GHI NHO / QUEN MAT KHAU */
+
+.form-options {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+
+  margin-bottom: 17px;
+  font-size: 12px;
+}
+
+.remember {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  color: #64769f;
+  cursor: pointer;
+}
+
+.remember input {
+  width: 15px;
+  height: 15px;
+  accent-color: var(--primary);
+}
+
+.form-options a,
+.register-footer a {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.form-options a:hover,
+.register-footer a:hover {
+  text-decoration: underline;
+}
+
+/* NUT DANG NHAP */
+
+.primary-button {
+  width: 100%;
+  min-height: 50px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(110deg, #695bff, #498bff);
+
+  box-shadow: 0 10px 22px rgba(95, 99, 255, 0.2);
+
+  color: white;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.primary-button span {
+  font-size: 19px;
+  transition: transform 0.2s;
+}
+
+.primary-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 13px 26px rgba(95, 99, 255, 0.3);
+}
+
+.primary-button:hover span {
+  transform: translateX(4px);
+}
+
+/* DUONG KE */
+
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+
+  margin: 17px 0 13px;
+
+  color: #8593b5;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  height: 1px;
+  flex: 1;
+  background: #e1e7f7;
+}
+
+/* GOOGLE / MICROSOFT */
+
+.social-buttons {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.social-button {
+  min-width: 0;
+  min-height: 45px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+
+  border: 1px solid var(--border);
+  border-radius: 11px;
+  background: #fff;
+
+  color: #304675;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.social-button:hover {
+  background: #f7f8ff;
+  border-color: #aeb8ff;
+}
+
+.google-logo {
+  width: 19px;
+  height: 19px;
+  flex-shrink: 0;
+}
+
+.microsoft-logo {
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 2px;
+}
+
+.microsoft-logo i:nth-child(1) {
+  background: #f25022;
+}
+
+.microsoft-logo i:nth-child(2) {
+  background: #7fba00;
+}
+
+.microsoft-logo i:nth-child(3) {
+  background: #00a4ef;
+}
+
+.microsoft-logo i:nth-child(4) {
+  background: #ffb900;
+}
+
+/* FACE ID / PASSKEY */
+
+.face-button {
+  width: 100%;
+  min-height: 47px;
+  margin-top: 11px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 9px;
+
+  border: 1px solid #dce0ff;
+  border-radius: 11px;
+  background: #f7f7ff;
+
+  color: #5559dc;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.face-button svg {
+  width: 19px;
+  height: 19px;
+  flex-shrink: 0;
+}
+
+.face-button:hover {
+  background: #eeefff;
+  border-color: #b9baff;
+}
+
+/* THONG BAO */
+
+.message {
+  margin-top: 12px;
+  padding: 11px 13px;
+
+  border-radius: 9px;
+  background: #f0f4ff;
+
+  color: #36538e;
+  font-size: 12px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.message.error {
+  background: #fff0f0;
+  color: #b42332;
+}
+
+.message.success {
+  background: #eafaf1;
+  color: #167347;
+}
+
+/* DANG KY */
+
+.register-footer {
+  margin-top: 16px;
+
+  color: #7887aa;
+  font-size: 12px;
+  line-height: 1.8;
+  text-align: center;
+}
+
+.register-footer a {
+  margin-left: 4px;
+}
+
+.bottom-tagline {
+  margin-top: 12px;
+
+  color: #98a4c0;
+  font-size: 11px;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.bottom-tagline span {
+  padding: 0 5px;
+  color: #7772ff;
+}
+
+/* ========================================
+   MAN HINH THAP
+======================================== */
+
+@media (min-width: 761px) and (max-height: 800px) {
+  body {
+    padding: 8px;
+  }
+
+  .login-container {
+    height: calc(100vh - 16px);
+  }
+
+  .welcome-panel,
+  .form-panel {
+    padding-top: 18px;
+    padding-bottom: 18px;
+  }
+
+  .brand img {
+    width: 52px;
+    height: 52px;
+  }
+
+  .welcome-content {
+    margin-top: 14px;
+  }
+
+  .welcome-content h1 {
+    font-size: clamp(25px, 2.5vw, 33px);
+    line-height: 1.22;
+  }
+
+  .description {
+    margin-top: 9px;
+    line-height: 1.6;
+  }
+
+  .illustration {
+    height: clamp(95px, 15vh, 135px);
+    min-height: 95px;
+    margin-top: 2px;
+  }
+
+  .orbit {
+    width: 135px;
+  }
+
+  .study-card {
+    width: 45px;
+    height: 45px;
+  }
+
+  .book-stack {
+    transform: translateX(-50%) scale(.76);
+    transform-origin: bottom center;
+  }
+
+  .plant {
+    transform: scale(.75);
+    transform-origin: bottom right;
+  }
+
+  .quote {
+    padding-top: 7px;
+    font-size: 11px;
+    line-height: 1.55;
+  }
+
+  .form-inner h2 {
+    font-size: 28px;
+    margin-bottom: 6px;
+  }
+
+  .subtitle {
+    margin-bottom: 13px;
+  }
+
+  .form-group {
+    margin-bottom: 11px;
+  }
+
+  .input-box {
+    height: 44px;
+  }
+
+  .form-options {
+    margin-bottom: 12px;
+  }
+
+  .primary-button {
+    min-height: 45px;
+  }
+
+  .divider {
+    margin: 12px 0 9px;
+  }
+
+  .social-button {
+    min-height: 39px;
+  }
+
+  .face-button {
+    min-height: 40px;
+    margin-top: 8px;
+  }
+
+  .register-footer {
+    margin-top: 11px;
+  }
+
+  .bottom-tagline {
+    margin-top: 7px;
+  }
+}
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (max-width: 900px) {
+  body {
+    padding: 12px;
+    align-items: flex-start;
+  }
+
+  .login-container {
+    width: min(650px, 100%);
+    height: auto;
+    max-height: none;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .welcome-panel {
+    padding: 25px 28px;
+  }
+
+  .welcome-content {
+    margin-top: 23px;
+  }
+
+  .welcome-content h1 {
+    max-width: 560px;
+    font-size: clamp(28px, 5vw, 38px);
+  }
+
+  .illustration {
+    flex: none;
+    height: 150px;
+    margin-top: 5px;
+  }
+
+  .orbit {
+    width: 145px;
+  }
+
+  .quote {
+    margin-top: 0;
+    padding-top: 10px;
+  }
+
+  .form-panel {
+    padding: 30px 28px;
+  }
+
+  .form-inner {
+    max-width: 460px;
+    margin: 0 auto;
+  }
+}
+
+/* ========================================
+   DIEN THOAI
+======================================== */
+
+@media (max-width: 480px) {
+  body {
+    padding: 7px;
+  }
+
+  .login-container {
+    border-radius: 18px;
+  }
+
+  .welcome-panel {
+    padding: 20px 17px;
+  }
+
+  .brand {
+    gap: 10px;
+  }
+
+  .brand img {
+    width: 46px;
+    height: 46px;
+  }
+
+  .brand-text strong {
+    font-size: 24px;
+  }
+
+  .brand-text small {
+    font-size: 10px;
+    white-space: normal;
+  }
+
+  .welcome-content {
+    margin-top: 22px;
+  }
+
+  .eyebrow {
+    font-size: 9px;
+    letter-spacing: 1px;
+  }
+
+  .welcome-content h1 {
+    font-size: 27px;
+    line-height: 1.27;
+    letter-spacing: -0.6px;
+  }
+
+  .description {
+    margin-top: 10px;
+    font-size: 12px;
+    line-height: 1.7;
+  }
+
+  .illustration {
+    height: 135px;
+    min-height: 135px;
+  }
+
+  .study-card {
+    width: 42px;
+    height: 42px;
+    font-size: 20px;
+  }
+
+  .quote {
+    font-size: 11px;
+    line-height: 1.7;
+  }
+
+  .quote-mark {
+    width: 32px;
+    height: 32px;
+  }
+
+  .form-panel {
+    padding: 25px 17px;
+  }
+
+  .form-inner h2 {
+    font-size: 27px;
+  }
+
+  .subtitle {
+    margin-bottom: 19px;
+  }
+
+  .form-group {
+    margin-bottom: 15px;
+  }
+
+  .input-box {
+    height: 46px;
+    padding: 0 10px;
+    gap: 8px;
+  }
+
+  .input-box input {
+    font-size: 12px;
+  }
+
+  .form-options {
+    font-size: 10px;
+    gap: 8px;
+  }
+
+  .primary-button {
+    min-height: 47px;
+  }
+
+  .social-buttons {
+    gap: 7px;
+  }
+
+  .social-button {
+    min-height: 42px;
+    gap: 5px;
+    font-size: 11px;
+  }
+
+  .face-button {
+    min-height: 44px;
+    font-size: 11px;
+  }
+
+  .register-footer {
+    margin-top: 16px;
+  }
+
+  .bottom-tagline {
+    margin-top: 12px;
+  }
+}
+
+
+
+/* Hinh minh hoa moi cua Qurio */
+.new-illustration {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 0;
+  flex: 1 1 auto;
+  overflow: hidden;
+}
+
+.new-illustration img {
+  display: block;
+  width: min(100%, 500px);
+  max-height: 100%;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 14px 22px rgba(91, 91, 220, 0.10));
+}
+
+
+/* ===== CAN CHINH LOGO QURIO ===== */
+
+.brand {
+  display: flex;
+  align-items: flex-end;
+  gap: 14px;
+  width: fit-content;
+  max-width: 100%;
+}
+
+.brand img {
+  display: block;
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.brand-text {
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 3px;
+}
+
+.brand-text strong {
+  font-family: "Be Vietnam Pro", "Segoe UI", Arial, sans-serif;
+  font-size: 32px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -1px;
+  color: #10275b;
+}
+
+/* Slogan can theo mep trai cua khung logo */
+.brand-slogan {
+  margin: 10px 0 0 0;
+  padding: 0;
+  text-align: left;
+
+  font-family: "Be Vietnam Pro", "Segoe UI", Arial, sans-serif;
+  font-size: 13px;
+  line-height: 1.6;
+  color: #6579a8;
+}
+
+@media (max-width: 480px) {
+  .brand img {
+    width: 52px;
+    height: 52px;
+  }
+
+  .brand-text strong {
+    font-size: 27px;
+  }
+
+  .brand-slogan {
+    margin-top: 8px;
+    font-size: 11px;
+  }
+}
+
+
+/* =====================================
+   QURIO - TYPOGRAPHY UPGRADE
+   Lam noi bat cac chu quan trong
+===================================== */
+
+/* Ten thuong hieu */
+.brand-text strong {
+  font-size: 36px;
+  font-weight: 800;
+  letter-spacing: -1.2px;
+  line-height: 1.15;
+}
+
+/* Slogan duoi logo */
+.brand-slogan {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.7;
+  letter-spacing: 0.1px;
+}
+
+/* Dong chao mung nho */
+.eyebrow {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  line-height: 1.7;
+}
+
+/* Tieu de lon ben trai */
+.welcome-content h1 {
+  max-width: 500px;
+  font-size: clamp(32px, 3vw, 42px);
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: -1.1px;
+}
+
+/* Dong tieu de co mau noi bat */
+.welcome-content h1 span {
+  font-size: inherit;
+  font-weight: 800;
+  line-height: inherit;
+}
+
+/* Mo ta ben trai */
+.description {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.9;
+}
+
+/* Tieu de Dang nhap */
+.form-inner h2 {
+  font-size: clamp(32px, 2.7vw, 38px);
+  font-weight: 800;
+  line-height: 1.3;
+  letter-spacing: -0.8px;
+  margin-bottom: 12px;
+}
+
+/* Mo ta phan dang nhap */
+.subtitle {
+  font-size: 14px;
+  line-height: 1.85;
+  margin-bottom: 24px;
+}
+
+/* Nhan Email va Mat khau */
+.form-group label {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+/* Chu trong o nhap */
+.input-box input {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Ghi nho dang nhap va quen mat khau */
+.form-options {
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.remember {
+  font-size: 13px;
+}
+
+.form-options a {
+  font-weight: 700;
+}
+
+/* Nut dang nhap chinh */
+.primary-button {
+  min-height: 52px;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0.1px;
+}
+
+/* Dong phan cach dang nhap */
+.divider {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+/* Nut Google va Microsoft */
+.social-button {
+  min-height: 46px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* Nut dang nhap bang khuon mat */
+.face-button {
+  min-height: 48px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* Dong dang ky tai khoan */
+.register-footer {
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.register-footer a {
+  font-size: 13px;
+  font-weight: 800;
+}
+
+/* Cau trich dan ben trai */
+.quote {
+  font-size: 13px;
+  line-height: 1.85;
+}
+
+/* Thong bao */
+.message {
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+/* =====================================
+   MAN HINH THAP
+===================================== */
+
+@media (min-width: 901px) and (max-height: 800px) {
+  .brand-text strong {
+    font-size: 32px;
+  }
+
+  .welcome-content h1 {
+    font-size: clamp(30px, 2.7vw, 38px);
+  }
+
+  .form-inner h2 {
+    font-size: 32px;
+  }
+
+  .subtitle {
+    margin-bottom: 16px;
+  }
+
+  .form-group label {
+    font-size: 13px;
+  }
+
+  .primary-button {
+    min-height: 47px;
+  }
+
+  .social-button {
+    min-height: 41px;
+  }
+
+  .face-button {
+    min-height: 43px;
+  }
+}
+
+/* =====================================
+   DIEN THOAI
+===================================== */
+
+@media (max-width: 480px) {
+  .brand-text strong {
+    font-size: 29px;
+  }
+
+  .brand-slogan {
+    font-size: 12px;
+  }
+
+  .welcome-content h1 {
+    font-size: 29px;
+    line-height: 1.3;
+  }
+
+  .description {
+    font-size: 13px;
+  }
+
+  .form-inner h2 {
+    font-size: 30px;
+  }
+
+  .subtitle {
+    font-size: 13px;
+  }
+
+  .form-group label {
+    font-size: 13px;
+  }
+
+  .input-box input {
+    font-size: 13px;
+  }
+
+  .primary-button {
+    font-size: 14px;
+  }
+
+  .social-button,
+  .face-button {
+    font-size: 12px;
+  }
+}
+/* Dau ngoac kep ket thuc slogan */
+.quote {
+  width: fit-content;
+  max-width: 100%;
+}
+
+.quote .quote-mark:last-child {
+  margin-left: auto;
+  margin-right: 0;
+  align-self: flex-end;
+}

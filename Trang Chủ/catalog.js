@@ -8,7 +8,7 @@ export const SUBJECTS = [
     subtitle: 'Tư duy logic, mở lối sáng tạo',
     color: '#7d68df',
     lessonId: 'math-linear',
-    page: '../page/Khám Phá/kham-pha.html'
+    page: 'page/toan-hoc.html'
   },
   {
     id: 'history',
@@ -16,7 +16,7 @@ export const SUBJECTS = [
     subtitle: 'Hiểu hôm qua, khám phá hôm nay',
     color: '#d59659',
     lessonId: 'history-1945',
-    page: '../page/Khám Phá/kham-pha.html'
+    page: 'page/lich-su.html'
   },
   {
     id: 'english',
@@ -24,7 +24,7 @@ export const SUBJECTS = [
     subtitle: 'Tự tin kết nối với thế giới',
     color: '#5e9a8f',
     lessonId: 'english-present',
-    page: '../page/Khám Phá/kham-pha.html'
+    page: 'page/ngoai-ngu.html'
   },
   {
     id: 'it',
@@ -32,7 +32,7 @@ export const SUBJECTS = [
     subtitle: 'Bắt đầu hành trình công nghệ',
     color: '#6a94cd',
     lessonId: 'it-algorithm',
-    page: '../page/Khám Phá/kham-pha.html'
+    page: 'page/tin-hoc.html'
   }
 ];
 

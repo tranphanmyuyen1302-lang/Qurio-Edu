@@ -1,0 +1,35 @@
+:root {
+    /* Màu sắc thương hiệu Qurio */
+    --primary-color: #5d6dff;
+    --secondary-color: #7c4dff;
+    --text-color: #10205d;
+    --muted-color: #65749f;
+    --background-color: #f4f6ff;
+
+    /* Quy chuẩn giao diện */
+    --border-radius: 12px;
+    --font-family: Arial, sans-serif;
+}
+
+/* Áp dụng chung cho toàn website */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-family);
+    color: var(--text-color);
+    background: var(--background-color);
+}
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+}
+
+
+.social-buttons > .social-button:only-child {
+  grid-column: 1 / -1;
+  width: 100%;
+}

@@ -1,0 +1,138 @@
+*{box-sizing:border-box}.roadmap-shell{display:flex;min-height:100vh}.roadmap-shell .lab-main{flex:1;min-width:0}.roadmap-content{background:#f8f7ff;min-height:90vh;padding:28px 32px 70px}.roadmap-app{max-width:1440px;margin:auto;font-family:'Be Vietnam Pro',sans-serif;color:#282348;font-size:13px}.roadmap-app button,.roadmap-app select,.test-dialog button{font:inherit;cursor:pointer}.roadmap-app h1,.roadmap-app h2,.test-dialog h2{margin:0;line-height:1.4}.roadmap-app h2{font-size:19px}.roadmap-app p{line-height:1.7}.road-hero{display:flex;justify-content:space-between;align-items:center;gap:22px;padding:34px 42px;border-radius:24px;background:linear-gradient(110deg,#6d45df,#9062ef 67%,#b391f5);color:white;overflow:hidden;min-height:240px;box-shadow:0 14px 30px #7042d51d}.road-hero>div:first-child{max-width:680px;position:relative;z-index:1}.eyebrow{font-size:11px;font-weight:800;letter-spacing:1.5px;color:#eee1ff}.road-hero h1{font-size:clamp(23px,2.7vw,35px);margin:10px 0}.road-hero p{font-size:13px;color:#f1eaff;max-width:570px}.hero-actions{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-top:20px}.hero-actions span{color:#f1eaff;font-size:11px}.primary{border:0;border-radius:11px;background:#7547e8;color:white;padding:12px 18px;font-weight:750!important;box-shadow:0 5px 12px #6c42d523}.road-hero .primary{background:white;color:#7045d9}.hero-art{position:relative;width:190px;height:170px;display:grid;place-items:center;flex-shrink:0}.hero-art strong{font-size:74px;color:white;background:#ffffff25;border:2px solid #ffffff70;width:116px;height:116px;border-radius:32px;display:grid;place-items:center;transform:rotate(-9deg)}.orbit span{position:absolute;background:#ffffff35;padding:12px;border-radius:16px;font-size:23px}.orbit span:nth-child(1){top:0;right:0}.orbit span:nth-child(2){bottom:0;left:0}.orbit span:nth-child(3){bottom:5px;right:0}.road-toolbar{display:flex;align-items:center;justify-content:space-between;gap:15px;margin:27px 0 18px}.road-toolbar h2{font-size:21px}.road-toolbar p,.panel-head p{color:#827d99;margin:4px 0 0}.filters{display:flex;gap:10px;flex-wrap:wrap}.filters label{font-size:11px;color:#827d99;font-weight:700}.filters select{display:block;margin-top:5px;border:1px solid #e5dff1;background:white;border-radius:10px;padding:10px 13px;color:#45336c;min-width:130px}.notice{padding:13px 16px;background:#fff4db;color:#7d5400;border-radius:12px;margin-bottom:16px}.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}.stat,.panel{background:white;border:1px solid #eee9f8;border-radius:18px;box-shadow:0 7px 24px #654a9c0a}.stat{padding:20px;min-height:158px}.stat-icon{display:inline-grid;place-items:center;width:35px;height:35px;border-radius:11px;font-size:20px;margin-bottom:11px}.purple{background:#f1eaff;color:#7950df}.red{background:#fff0ef;color:#e46b72}.green{background:#e8f9ef;color:#24a46e}.amber{background:#fff5df;color:#d99b24}.stat small{display:block;color:#76708e;font-size:11px;font-weight:700}.stat strong{display:block;font-size:29px;margin:6px 0;color:#312758}.stat strong.status{font-size:18px;margin:13px 0}.stat p{font-size:10px;color:#9b95ad;margin:0}.road-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:18px;margin-top:19px}.panel{padding:23px;min-width:0}.panel-head{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}.section-tag{font-size:10px;font-weight:800;letter-spacing:1px;color:#8556e8;display:block;margin-bottom:7px}.soft-btn{border:1px solid #e9ddff;background:#f8f3ff;color:#7544d9;border-radius:10px;padding:10px 12px;white-space:nowrap}.legend{display:flex;flex-wrap:wrap;gap:12px;margin-top:21px;color:#827b98;font-size:10px}.dot{width:8px;height:8px;border-radius:50%;display:inline-block;margin-right:5px}.dot.green{background:#37bf85}.dot.yellow{background:#f0b951}.dot.red{background:#ee777c}.dot.gray{background:#b8b1c9}.graph{height:310px;position:relative;background:radial-gradient(circle at 50% 50%,#f0eaff 0,#fff 65%);border:1px dashed #eee5fc;border-radius:17px;margin-top:16px;overflow:hidden}.graph svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}.graph-center{position:absolute;top:43%;left:50%;transform:translate(-50%,-50%);background:linear-gradient(135deg,#7650e8,#a178f2);width:70px;height:70px;border-radius:22px;color:white;font-size:32px;font-weight:800;display:grid;place-items:center;box-shadow:0 10px 20px #7451df45;z-index:2}.graph-center span{position:absolute;bottom:7px;font-size:9px;font-weight:500}.node{position:absolute;transform:translate(-50%,-50%);border:2px solid #ded8ea;background:white;border-radius:14px;padding:9px 8px;min-width:110px;max-width:135px;color:#524a6b;text-align:center;font-size:10px;font-weight:700;box-shadow:0 5px 12px #2c174c10;z-index:3}.node b{display:block;font-size:14px;margin-top:3px}.node.mastered{border-color:#44c994;background:#edfff5}.node.practice{border-color:#f0c35c;background:#fffaf0}.node.priority{border-color:#ee8288;background:#fff4f4}.node.selected{outline:3px solid #b7a1f6}.detail{margin-top:13px;background:#f8f6ff;border-radius:12px;padding:14px;min-height:83px}.detail strong{font-size:13px}.detail p{margin:5px 0 0;color:#746e8d;font-size:11px}.journey{margin-top:20px;display:flex;flex-direction:column;gap:11px}.step{display:flex;gap:13px;align-items:center;padding:13px;border:1px solid #eee8f8;border-radius:13px;background:#fff}.step-num{height:34px;width:34px;border-radius:11px;background:#f0e9ff;color:#7e4be4;display:grid;place-items:center;font-weight:800;flex-shrink:0}.step-body{flex:1;min-width:0}.step-body strong{display:block;font-size:12px}.step-body small{font-size:10px;color:#8c86a1}.step-meter{height:5px;background:#f0edf7;border-radius:6px;overflow:hidden;margin-top:8px}.step-meter i{display:block;height:100%;background:#a681ef;border-radius:6px}.step-tag{font-size:10px;font-weight:700;color:#c36565;white-space:nowrap}.step-tag.mastered{color:#25a276}.step-tag.practice{color:#c99b35}.road-bottom{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}.recommendation{background:linear-gradient(120deg,#f3edff,#fff)}.recommendation h2,.why h2{font-size:17px}.recommendation p,.why p{color:#716b89;font-size:12px}.why-chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}.why-chips span{background:#f4efff;color:#7751c5;border-radius:20px;padding:7px 9px;font-size:10px}.research-note{font-size:11px;color:#9992ad;margin:20px 2px}.modal[hidden]{display:none!important}.modal{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;padding:20px}.modal-backdrop{position:absolute;inset:0;background:#1e173c99}.test-dialog{position:relative;width:min(720px,100%);max-height:90vh;display:flex;flex-direction:column;background:white;border-radius:20px;overflow:hidden;font-family:'Be Vietnam Pro',sans-serif;color:#30284e}.test-head,.test-foot{padding:20px 24px;display:flex;justify-content:space-between;align-items:center;gap:12px;border-bottom:1px solid #eee8f8}.test-head p{font-size:11px;color:#8a829e}.close-btn{border:0;background:#f4f0fb;border-radius:9px;padding:8px}.test-body{padding:8px 24px 20px;overflow:auto}.question{padding:16px 0;border-bottom:1px solid #eee9f6}.question strong{font-size:13px}.question label{display:block;margin:9px 0;padding:10px 12px;background:#faf9ff;border:1px solid #eee9f7;border-radius:9px;font-size:12px;cursor:pointer}.question label:has(input:checked){border-color:#8e65ed;background:#f4efff}.question input{accent-color:#7d4ce2;margin-right:9px}.test-foot{border-top:1px solid #eee8f8;border-bottom:0}.test-foot span{font-size:11px;color:#817a96}#roadToast{position:fixed;bottom:24px;right:24px;z-index:10000;background:#30234e;color:white;border-radius:12px;padding:12px 18px;display:none;font:12px 'Be Vietnam Pro',sans-serif}@media(max-width:1100px){.road-grid{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}}@media(max-width:680px){.roadmap-content{padding:16px 12px 40px}.road-hero{padding:25px 20px}.hero-art{display:none}.road-toolbar{align-items:stretch;flex-direction:column}.road-bottom{grid-template-columns:1fr}.stats{gap:9px}.stat{padding:13px;min-height:145px}.panel{padding:16px}.graph{height:320px}.node{min-width:84px;max-width:94px;font-size:9px;padding:7px 4px}.panel-head{flex-wrap:wrap}.step-tag{font-size:9px}.road-hero h1{font-size:24px}}
+body{margin:0;background:#f8f7ff;font-family:"Be Vietnam Pro",sans-serif}.roadmap-shell{display:grid;grid-template-columns:228px minmax(0,1fr)}.roadmap-shell>#qurio-sidebar-mount{grid-column:1;grid-row:1;min-width:0}.roadmap-shell .sidebar{position:sticky!important;top:0;width:228px;height:100dvh;overflow-y:auto;background:#fff;z-index:50;border-right:1px solid #eeeaf5}.roadmap-shell .lab-main{grid-column:2;display:flex;flex-direction:column}.roadmap-shell #qurio-header-mount .topbar{min-height:88px;height:88px;padding:0 clamp(20px,3vw,50px);display:flex;align-items:center;background:#fff;border-bottom:1px solid #eeeaf5}.roadmap-shell #qurio-header-mount .search-wrap{width:min(570px,47vw);max-width:570px}.roadmap-shell #qurio-header-mount .topbar-actions{margin-left:auto}@media(max-width:850px){.roadmap-shell{grid-template-columns:minmax(0,1fr)}.roadmap-shell>#qurio-sidebar-mount{grid-column:1;grid-row:1;position:fixed;z-index:100}.roadmap-shell .lab-main{grid-column:1}.roadmap-shell #qurio-header-mount .topbar{height:68px;min-height:68px}}
+
+/* Qurio · hồ sơ năng lực đa môn */
+.multi-dashboard{margin:22px 0;padding:25px}.multi-demo{font-size:12px;color:#7659a8}.multi-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:20px 0}.multi-stats article{padding:17px;background:#f7f4ff;border:1px solid #eee6ff;border-radius:15px;display:flex;flex-direction:column;gap:7px}.multi-stats small{color:#777}.multi-stats strong{font-size:27px;color:#633ac1}.multi-subjects{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.multi-subject{position:relative;display:grid;grid-template-columns:38px 1fr auto;align-items:center;gap:9px;text-align:left;border:1px solid #e9e3f5;border-radius:16px;background:white;padding:16px;cursor:pointer;font:inherit;color:inherit}.multi-subject.active{border-color:#8757e3;background:#faf7ff}.multi-emoji{font-size:24px}.multi-subject b,.multi-subject small{display:block}.multi-subject small{font-size:11px;color:#7d7890;margin-top:5px}.multi-subject strong{color:#6943c3}.multi-meter{grid-column:1/-1;height:6px;background:#eee9f7;border-radius:10px;overflow:hidden}.multi-meter i{display:block;height:100%;background:linear-gradient(90deg,#9873ed,#55c4db);border-radius:10px}.multi-columns{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:24px}.multi-columns>div{padding:18px;border:1px solid #eee9f6;border-radius:17px;min-width:0}.multi-columns h3{font-size:16px;margin:0 0 12px}.multi-caption,.multi-hint{font-size:12px;color:#777;line-height:1.7}.multi-map{display:flex;align-items:center;flex-direction:column;gap:13px}.multi-hub{width:112px;height:112px;border-radius:50%;background:linear-gradient(135deg,#7448d4,#b58df4);color:white;display:flex;align-items:center;justify-content:center;flex-direction:column;font-size:23px;font-weight:800;box-shadow:0 8px 24px #7647c344}.multi-hub small{font-size:10px;font-weight:400}.multi-branches{display:flex;gap:8px;width:100%;position:relative;padding-top:16px}.multi-branches:before{content:"";position:absolute;top:0;left:50%;height:16px;border-left:2px dashed #b9a3e5}.multi-branch{flex:1;min-width:0;border:1px solid #e3d8f8;border-radius:12px;background:#faf8ff;padding:12px 6px;display:flex;flex-direction:column;gap:5px;align-items:center;cursor:pointer;font:inherit;color:inherit}.multi-branch span{font-size:12px;font-weight:700}.multi-branch b{color:#7148ce}.multi-branch small{font-size:10px;color:#777;text-align:center}.multi-task{display:flex;gap:10px;align-items:center;padding:11px 0;border-bottom:1px solid #eee}.multi-task>span{background:#eee7ff;color:#6e42bd;border-radius:9px;min-width:27px;text-align:center;padding:5px}.multi-task>div{flex:1;min-width:0}.multi-task b,.multi-task small{display:block}.multi-task b{font-size:12px}.multi-task small{font-size:11px;color:#777;margin-top:3px}.multi-task em{font-size:10px;color:#8254b8;font-style:normal}.multi-empty{font-size:13px;color:#777}.multi-hint{margin:15px 0 0}@media(max-width:950px){.multi-columns{grid-template-columns:1fr}}@media(max-width:650px){.multi-subjects,.multi-stats{grid-template-columns:1fr}.multi-dashboard{padding:15px}.multi-branch span{font-size:10px}}
+
+/* Kết quả chỉ hiển thị sau khi hoàn tất đánh giá */
+.assessment-empty{margin-top:18px;min-height:280px;border:1px dashed #d9cdf5;background:linear-gradient(145deg,#faf7ff,#fff);border-radius:18px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12px;text-align:center;padding:26px;color:#635879}.assessment-empty h3{font-size:17px;color:#473070;margin:0}.assessment-empty p{font-size:12px;line-height:1.8;max-width:420px;margin:0}.assessment-empty.small{min-height:210px}.empty-symbol{font-size:38px}.roadmap-app [hidden]{display:none!important}#mapResult{min-width:0}#mapResult .legend{margin-top:20px}#journey[hidden],#multiMap[hidden]{display:none!important}
+
+
+/* Interactive roadmap additions */
+.control-panel{margin:22px 0}.control-grid{display:flex;flex-wrap:wrap;align-items:end;gap:12px}.control-grid label:not(.import-label){display:flex;flex-direction:column;gap:7px;font-weight:600;font-size:13px;flex:1;min-width:155px}.control-grid input{border:1px solid #ddd5ef;border-radius:10px;padding:11px;width:100%;background:white;color:#25213a}.outline-action{display:inline-flex;align-items:center;justify-content:center;border:1px solid #d7c9f5;border-radius:11px;padding:11px 14px;background:#fff;color:#6431a6;font-weight:700;cursor:pointer;font:inherit}.goal-notice{margin:12px 0;color:#6d5792;font-size:13px}.history-head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:18px}.history-head h3{margin:0}.history-list{max-height:230px;overflow:auto;margin-top:10px}.history-item{padding:10px 0;border-top:1px solid #eee6fa;display:flex;justify-content:space-between;gap:10px;font-size:13px}.history-item strong{white-space:nowrap}.practice-area{border-top:1px solid #ece6f8;margin-top:18px;padding-top:14px}.practice-area h3{margin:0 0 6px}.practice-area p{font-size:13px}.feedback-summary{padding:14px;background:#f2ebff;border-radius:12px;font-weight:700;margin-bottom:15px}.feedback-item{border-bottom:1px solid #eee;padding:12px 0}.feedback-item p{margin:6px 0}.feedback-item small{color:#655877}.feedback-dialog{max-width:760px}.import-label{cursor:pointer}@media(max-width:720px){.control-grid{flex-direction:column;align-items:stretch}.control-grid>*{width:100%}.history-item{flex-wrap:wrap}}
+
+/* Chẩn đoán theo chủ đề */
+.diag-panel{margin:22px 0}.diag-layout{display:grid;grid-template-columns:1.25fr 1fr;gap:18px}.diag-alert,.diag-side{border:1px solid #e7ddfa;border-radius:17px;padding:20px;background:#faf8ff}.diag-alert strong{font-size:17px}.diag-alert p,.diag-side p{line-height:1.7;color:#5e5870}.diag-alert.warn{background:#fff8ed;border-color:#f3c98c}.diag-alert.success{background:#f0fcf7;border-color:#a8dfc3}.diag-side{display:flex;flex-direction:column;align-items:flex-start;gap:10px}.diag-side h3{margin:0}.diag-side button{max-width:100%}.diag-side small{color:#746d83}.diag-pill{padding:8px 13px;border-radius:99px;background:#eee8ff;color:#653ac0;font-weight:700;font-size:12px}.diag-skill-map{margin-top:18px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.diag-skill{background:#faf9ff;border:1px solid #e4def1;border-radius:15px;padding:15px}.diag-skill strong{display:block;min-height:38px}.diag-skill b{font-size:22px}.diag-skill .diag-bar{height:8px;background:#e6e0f1;border-radius:9px;margin-top:9px;overflow:hidden}.diag-skill .diag-bar i{display:block;height:100%;background:#7b53d6;border-radius:9px}.diag-question-meta{font-size:12px;color:#7658ae;margin:7px 0}.diag-feedback{padding:13px 0;border-bottom:1px solid #e9e4f2}.diag-feedback p{margin:5px 0}.diag-feedback small{color:#5d5870}.diag-result-head{background:#f3efff;border-radius:14px;padding:17px;margin-bottom:12px}.diag-result-head strong{font-size:23px}.diag-result-head p{margin:6px 0}.diag-skill-row{padding:12px 0;border-bottom:1px solid #e8e3ef}.diag-skill-row span{float:right;font-weight:700}.diag-recommend{background:#f7f4ff;padding:15px;border-radius:13px;margin:16px 0;line-height:1.65}@media(max-width:760px){.diag-layout{grid-template-columns:1fr}.diag-skill-map{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* Match shared layout after mounts become actual elements */
+.roadmap-shell > .sidebar{grid-column:1;grid-row:1;position:sticky!important;top:0;width:228px;height:100dvh;overflow-y:auto;z-index:50;background:#fff;border-right:1px solid #eeeaf5}
+.roadmap-shell .lab-main > .topbar{min-height:88px;height:88px;padding:0 clamp(20px,3vw,50px);display:flex;align-items:center;background:#fff;border-bottom:1px solid #eeeaf5}
+.roadmap-shell .lab-main > .topbar .search-wrap{width:min(570px,47vw);max-width:570px}
+.roadmap-shell .lab-main > .topbar .topbar-actions{margin-left:auto}
+body > .qurio-footer{position:relative!important;width:100%!important;max-width:none!important;clear:both}
+@media(max-width:850px){.roadmap-shell > .sidebar{position:fixed!important;grid-column:1;grid-row:1;transform:translateX(-105%);transition:transform .25s ease}.roadmap-shell > .sidebar.is-open{transform:translateX(0)}.roadmap-shell .lab-main > .topbar{height:68px;min-height:68px}}
+
+/* Qurio: share the same grid and sidebar contract as Trang Chủ. */
+html,body{margin:0;padding:0}
+body>.roadmap-shell.app{display:grid!important;grid-template-columns:228px minmax(0,1fr)!important;align-items:start;min-height:100vh;width:100%;margin:0;padding:0}
+body>.roadmap-shell.app>.sidebar{grid-column:1;grid-row:1;position:sticky!important;inset:auto!important;top:0!important;width:228px;height:100dvh;max-height:100dvh;min-width:0;align-self:start;transform:none!important;overflow-y:auto}
+body>.roadmap-shell.app>.main{grid-column:2;grid-row:1;min-width:0;width:100%;display:flex;flex-direction:column;margin:0;padding:0}
+body>.roadmap-shell.app>.main>.topbar{position:sticky;top:0;height:87px;min-height:87px;flex-shrink:0;margin:0}
+body>.roadmap-shell.app>.main>.roadmap-content{padding:28px clamp(16px,2.6vw,40px) 65px;min-width:0;flex:1}
+body>.roadmap-shell.app>.sidebar .icon{width:19px!important;height:19px!important;flex:none;fill:none;stroke:currentColor;stroke-width:1.65}
+body>.roadmap-shell.app>.sidebar .nav-item{font-size:11px;text-decoration:none}
+body>.roadmap-shell.app>.sidebar .brand{text-decoration:none}
+body>.roadmap-shell.app>.sidebar .brand img{height:46px;width:46px}
+body>.roadmap-shell.app+.qurio-footer{width:100%;position:relative;clear:both}
+@media(max-width:1100px){body>.roadmap-shell.app{display:block!important}body>.roadmap-shell.app>.sidebar{position:fixed!important;inset:0 auto 0 0!important;transform:translateX(-110%)!important;transition:transform .25s ease;z-index:120}body>.roadmap-shell.app>.sidebar.is-open,body>.roadmap-shell.app>.sidebar.open{transform:translateX(0)!important}body>.roadmap-shell.app>.main{display:flex;width:100%}.roadmap-shell .mobile-menu{display:inline-flex!important}}
+@media(max-width:600px){body>.roadmap-shell.app>.main>.topbar{height:68px;min-height:68px;padding:0 14px}body>.roadmap-shell.app>.main>.roadmap-content{padding:16px 14px 45px}}
+
+/* Footer is part of the main column, after content, visible only at page end. */
+body>.roadmap-shell.app>.main>.qurio-footer{position:relative!important;display:block!important;width:100%!important;max-width:none!important;flex-shrink:0;clear:both;margin:0!important;z-index:1}
+body>.roadmap-shell.app>.main{min-height:100vh}
+body>.roadmap-shell.app>.main>.roadmap-content{flex:1 0 auto}
+@media(max-width:850px){body>.roadmap-shell.app>.main>.qurio-footer{width:100%!important}}
+
+/* Footer aligned with the content column, below all content. */
+body > .roadmap-shell.app { align-items:stretch!important; }
+body > .roadmap-shell.app > .main {
+  min-height:100vh!important; min-height:100dvh!important;
+  display:flex!important; flex-direction:column!important;
+  overflow:visible!important; min-width:0;
+}
+body > .roadmap-shell.app > .main > .roadmap-content {
+  flex:1 0 auto!important;
+  padding-bottom:32px!important;
+}
+body > .roadmap-shell.app > .main > footer.qurio-footer {
+  position:relative!important; inset:auto!important;
+  display:block!important; flex:0 0 auto!important;
+  width:100%!important; max-width:100%!important;
+  margin:0!important; transform:none!important;
+  box-sizing:border-box!important;
+  padding:42px clamp(20px,4vw,64px) 22px!important;
+}
+@media(max-width:720px){
+ body > .roadmap-shell.app > .main > footer.qurio-footer {padding:30px 18px 18px!important;}
+ body > .roadmap-shell.app > .main > footer.qurio-footer .qurio-footer-top {grid-template-columns:1fr!important;}
+}
+
+/* Footer: follow the exact Trang Chủ document structure and stylesheet. */
+body > .roadmap-shell.app + footer.qurio-footer {
+  position:relative!important;
+  display:block!important;
+  width:100%!important;
+  max-width:none!important;
+  margin:0!important;
+  padding:42px clamp(20px,4vw,64px) 22px!important;
+  clear:both!important;
+  transform:none!important;
+  border-radius:0!important;
+}
+body > .roadmap-shell.app + footer.qurio-footer .qurio-footer-top {
+  display:grid!important;
+  grid-template-columns:minmax(0,1.15fr) minmax(0,1fr) minmax(0,.9fr)!important;
+}
+@media(max-width:760px){
+ body > .roadmap-shell.app + footer.qurio-footer .qurio-footer-top {grid-template-columns:1fr!important;}
+}
+
+#roadmapAiResult {
+  margin-top: 18px;
+  padding: 18px 20px;
+  background: #f5f1ff;
+  border: 1px solid #e6dcff;
+  border-left: 4px solid #7449e8;
+  border-radius: 14px;
+  color: #33265e;
+  font-size: 13px;
+  line-height: 1.9;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+#roadmapAiResult:empty {
+  display: none;
+}
+
+#roadmapAi:disabled {
+  opacity: 0.65;
+  cursor: wait;
+}
+
+.qurio-ai-progress-link {
+  display: inline-flex;
+  margin-top: 15px;
+  padding: 12px 18px;
+  align-items: center;
+  gap: 8px;
+  border-radius: 12px;
+  background: linear-gradient(120deg, #7047df, #9b6aff);
+  color: #fff !important;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 12px;
+  transition: transform .2s, box-shadow .2s;
+}
+
+.qurio-ai-progress-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px #7047df30;
+}
+
+#roadmapAiResult {
+  white-space: pre-wrap;
+  line-height: 1.9;
+  overflow-wrap: anywhere;
+  margin-top: 15px;
+}
