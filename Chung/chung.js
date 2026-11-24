@@ -15,18 +15,155 @@
   const loginForm = $('loginForm');
   const registerForm = $('registerForm');
 
-  function show(text, type = 'info') {
-    if (!message) return;
+// ======================================
+// QURIO - FULLSCREEN AUTH LOADING
+// ======================================
 
-    message.textContent = text;
-    message.className = 'message ' + type;
-    message.hidden = false;
+const authOverlay = $('qurioAuthOverlay');
+const authOverlayText = $('qurioAuthOverlayText');
+const authProgressFill = $('qurioAuthProgressFill');
+const authProgressMeta = $('qurioAuthProgressMeta');
 
+let authProgressTimer = null;
+let authProgressStartedAt = 0;
+
+// Cập nhật % và thời gian
+function updateAuthProgress() {
+  if (
+    !authProgressStartedAt ||
+    !authOverlay ||
+    authOverlay.hidden
+  ) return;
+
+  const elapsed = Date.now() - authProgressStartedAt;
+
+  // Phần trăm mô phỏng, tối đa 95%
+  const percent = Math.min(
+    95,
+    Math.round(
+      100 * (1 - Math.exp(-elapsed / 3900))
+    )
+  );
+
+  if (authProgressFill) {
+    authProgressFill.style.width = percent + '%';
+  }
+
+  if (authProgressMeta) {
+    const seconds = (elapsed / 1000)
+      .toFixed(1)
+      .replace('.', ',');
+
+    authProgressMeta.textContent =
+      percent + '% · ' + seconds + ' giây';
+  }
+}
+
+// Bật / tắt màn hình loading
+function setAuthOverlay(loading, text = '') {
+  if (!authOverlay) return;
+
+  if (loading) {
+
+    const lower = String(text).toLowerCase();
+
+    if (authOverlayText) {
+      authOverlayText.textContent =
+        lower.includes('tạo tài khoản')
+          ? 'Đang đăng ký...'
+          : lower.includes('google') ||
+            lower.includes('cửa sổ')
+            ? 'Đang kết nối Google...'
+            : 'Đang đăng nhập...';
+    }
+
+    if (!authProgressStartedAt) {
+      authProgressStartedAt = Date.now();
+
+      if (authProgressFill) {
+        authProgressFill.style.width = '0%';
+      }
+
+      if (authProgressMeta) {
+        authProgressMeta.textContent =
+          '0% · 0,0 giây';
+      }
+    }
+
+    authOverlay.hidden = false;
+
+    authOverlay.setAttribute(
+      'aria-hidden',
+      'false'
+    );
+
+    document.body.classList.add(
+      'qurio-auth-pending'
+    );
+
+    if (authProgressTimer === null) {
+      authProgressTimer = setInterval(
+        updateAuthProgress,
+        120
+      );
+    }
+
+    updateAuthProgress();
+
+  } else {
+
+    if (authProgressTimer !== null) {
+      clearInterval(authProgressTimer);
+      authProgressTimer = null;
+    }
+
+    authProgressStartedAt = 0;
+
+    authOverlay.hidden = true;
+
+    authOverlay.setAttribute(
+      'aria-hidden',
+      'true'
+    );
+
+    document.body.classList.remove(
+      'qurio-auth-pending'
+    );
+  }
+}
+
+  
+function show(text, type = 'info') {
+  const isLoading = type === 'loading';
+
+  // Bật loading hoặc tắt khi có kết quả
+  setAuthOverlay(isLoading, text);
+
+  if (!message) return;
+
+  // Loading thì không hiện ô thông báo nhỏ
+  if (isLoading && authOverlay) {
+    message.hidden = true;
+    message.className = 'message';
+    return;
+  }
+
+  // Thông báo kết quả như bình thường
+  message.textContent = text;
+  message.className = 'message ' + type;
+  message.hidden = false;
+
+  if (
+    type === 'success' ||
+    type === 'error'
+  ) {
     message.scrollIntoView({
       behavior: 'smooth',
       block: 'nearest'
     });
   }
+}
+
   function clearMessage() {
     if (message) message.hidden = true;
   }
@@ -67,28 +204,42 @@
     return result;
   }
 
-  async function submit(form, label, task) {
-    const button = form.querySelector(
-      'button[type="submit"]'
+  
+async function submit(form, label, task) {
+  const button = form.querySelector(
+    'button[type="submit"]'
+  );
+
+  if (!button || button.disabled) return;
+
+  clearMessage();
+
+  button.disabled = true;
+  button.setAttribute('aria-busy', 'true');
+
+  // Bật vòng quay toàn màn hình
+  show(label, 'loading');
+
+  try {
+    // Chờ Apps Script xử lý
+    await task();
+
+  } catch (error) {
+    // Thông báo lỗi nếu thất bại
+    show(
+      error.message || 'Có lỗi xảy ra.',
+      'error'
     );
 
-    if (button.disabled) return;
+  } finally {
+    // Luôn tắt màn hình loading
+    setAuthOverlay(false);
 
-    clearMessage();
-    button.disabled = true;
-    button.setAttribute('aria-busy', 'true');
-
-    show(label);
-
-    try {
-      await task();
-    } catch (error) {
-      show(error.message, 'error');
-    } finally {
-      button.disabled = false;
-      button.removeAttribute('aria-busy');
-    }
+    button.disabled = false;
+    button.removeAttribute('aria-busy');
   }
+}
+
 
   function loadSession() {
     // A stale per-tab session must not conceal a valid remembered session.
@@ -550,19 +701,26 @@
           ),
           'error'
         );
-      } finally {
-        try {
-          await firebase.sdk.signOut(firebase.auth);
-        } catch (_) {}
+      
+} finally {
+  // Tắt màn hình loading khi hoàn tất
+  setAuthOverlay(false);
 
-        googleBusy = false;
+  try {
+    if (firebase) {
+      await firebase.sdk.signOut(firebase.auth);
+    }
+  } catch (_) {}
 
-        googleButtons.forEach(item => {
-          item.disabled = false;
-        });
+  googleBusy = false;
 
-        button.removeAttribute('aria-busy');
-      }
+  googleButtons.forEach(item => {
+    item.disabled = false;
+  });
+
+  button.removeAttribute('aria-busy');
+}
+
     });
   });
 })();
