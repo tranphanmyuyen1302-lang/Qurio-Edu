@@ -1,0 +1,74 @@
+
+/* QURIO - THÔNG BÁO PHÂN QUYỀN */
+
+#qurioAccessDialog {
+  width: min(420px, calc(100% - 40px));
+  box-sizing: border-box;
+  border: none;
+  border-radius: 24px;
+  padding: 32px;
+  background: #ffffff;
+  text-align: center;
+  font-family: inherit;
+  color: #242044;
+  box-shadow: 0 20px 80px #17112b40;
+}
+
+#qurioAccessDialog::backdrop {
+  background: rgba(24, 27, 48, 0.55);
+  backdrop-filter: blur(5px);
+}
+
+.qurio-access-icon {
+  width: 76px;
+  height: 76px;
+  display: grid;
+  place-items: center;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  background: #eee8ff;
+  color: #7954e8;
+}
+
+#qurioAccessDialog h2 {
+  font-size: 23px;
+  font-weight: 800;
+  margin: 0 0 12px;
+}
+
+#qurioAccessDialog p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #77758d;
+  margin-bottom: 22px;
+}
+
+.qurio-access-note {
+  background: #f5f1ff;
+  color: #7954e8;
+  padding: 14px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+}
+
+#qurioAccessDialog button {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(
+    135deg, #7954e8, #6255f5
+  );
+  color: white;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+#qurioAccessDialog button:hover {
+  filter: brightness(0.95);
+}

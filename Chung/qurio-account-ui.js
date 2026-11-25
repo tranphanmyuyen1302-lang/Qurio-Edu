@@ -15,6 +15,84 @@
   let pending = null;
   let status = 'loading';
 
+// QURIO - HIỂN THỊ NHANH TÀI KHOẢN
+
+function getActiveSession() {
+  const sessions = [];
+
+  for (const storage of [sessionStorage, localStorage]) {
+    try {
+      const data = JSON.parse(
+        storage.getItem(SESSION_KEY) || 'null'
+      );
+
+      if (
+        typeof data?.token === 'string' &&
+        Number(data.expiresAt) > Date.now()
+      ) {
+        sessions.push({ storage, data });
+      }
+    } catch (_) {}
+  }
+
+  sessions.sort(
+    (a, b) =>
+      Number(b.data.expiresAt) -
+      Number(a.data.expiresAt)
+  );
+
+  return sessions[0] || null;
+}
+
+function readDisplayUser() {
+  const cached = getActiveSession()?.data.displayUser;
+
+  if (
+    !cached ||
+    typeof cached.name !== 'string' ||
+    !cached.name.trim() ||
+    !['teacher', 'student', 'GV', 'gv'].includes(
+      cached.role
+    )
+  ) {
+    return null;
+  }
+
+  return {
+    fullName: cached.name,
+    role: cached.role
+  };
+}
+
+function saveDisplayUser(user) {
+  const session = getActiveSession();
+
+  if (!session) return;
+
+  try {
+    session.storage.setItem(
+      SESSION_KEY,
+      JSON.stringify({
+        ...session.data,
+
+        displayUser: {
+          name: String(
+            user.fullName ||
+            user.username ||
+            user.name ||
+            'Người dùng'
+          ).slice(0, 100),
+
+          role: user.role
+        }
+      })
+    );
+  } catch (_) {}
+}
+
+// Dùng để hiển thị, không cấp quyền truy cập
+let previewUser = readDisplayUser();
+
   function sessionExists() {
     try {
       return [sessionStorage, localStorage].some(store => {
@@ -59,7 +137,7 @@
   }
 
   function render() {
-    const user = currentUser;
+    const user = currentUser || previewUser;
     const name = user ? String(user.fullName || user.username || user.name || 'Người dùng') : 'Khách';
     const email = user ? String(user.email || '') : '';
     const role = user ? (user.role === 'teacher' || user.role === 'GV' ? 'Giáo viên' : 'Học sinh') :
@@ -95,15 +173,31 @@
     if (loginLink) { loginLink.hidden = !!user; loginLink.href = getLoginURL(); }
     const qLink = $('qUserLink');
     if (qLink) qLink.href = user ? new URL('Trang Chủ/trang-chu.html', base).href : getLoginURL();
-    window.dispatchEvent(new CustomEvent('qurio:account', { detail: { user, status } }));
+    window.dispatchEvent(new CustomEvent(
+  'qurio:account',
+  { detail: { user: currentUser, status } }
+));
   }
 
-  function apply(user, newStatus) {
-    currentUser = user && user.id ? user : null;
-    status = newStatus;
-    render();
-    return currentUser;
+  
+function apply(user, newStatus) {
+  currentUser = user && user.id ? user : null;
+  status = newStatus;
+
+  // Không giữ dữ liệu hiển thị cũ
+  // sau khi xác thực đã có kết quả
+  previewUser = null;
+
+  // Chỉ cập nhật bộ nhớ hiển thị
+  // sau khi máy chủ xác thực thành công
+  if (currentUser) {
+    saveDisplayUser(currentUser);
   }
+
+  render();
+  return currentUser;
+}
+
 
   async function refresh() {
     if (pending) return pending;

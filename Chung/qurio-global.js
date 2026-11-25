@@ -130,7 +130,202 @@
     });
     updateTop();
   }
-  function init() { normalizeFooter(); hideAIFromSidebar(); showTools(); }
+
+/* QURIO - ĐỒNG BỘ TÀI KHOẢN TOÀN WEBSITE */
+
+function loadAccountScript(path, isReady, loadingKey) {
+  if (isReady()) return Promise.resolve();
+
+  if (!window[loadingKey]) {
+    window[loadingKey] = new Promise((resolve, reject) => {
+      const script = document.createElement('script');
+
+      script.src = link(path);
+
+      script.onload = () => {
+        if (isReady()) {
+          resolve();
+        } else {
+          reject(new Error(
+            'Chức năng chưa sẵn sàng: ' + path
+          ));
+        }
+      };
+
+      script.onerror = () => {
+        reject(new Error('Không tải được: ' + path));
+      };
+
+      document.head.appendChild(script);
+    }).catch(error => {
+      window[loadingKey] = null;
+      throw error;
+    });
+  }
+
+  return window[loadingKey];
+}
+
+async function syncAccountAcrossPages() {
+  const pageName = decodeURIComponent(
+    location.pathname.split('/').pop() || ''
+  ).toLowerCase();
+
+  // Trang Chủ đã có hệ thống tài khoản riêng
+  if ([
+    'trang-chu.html',
+    'dang-nhap.html',
+    'dang-ky.html'
+  ].includes(pageName)) {
+    return;
+  }
+
+  try {
+    // 1. Tải hệ thống xác thực nếu chưa có
+    const authWasReady =
+      typeof window.QurioAuth?.me === 'function';
+
+    await loadAccountScript(
+      'Chung/chung.js',
+      () => typeof window.QurioAuth?.me === 'function',
+      '__qgAuthLoading'
+    );
+
+    // 2. Tải bộ hiển thị tài khoản nếu chưa có
+    const accountWasReady =
+      typeof window.QurioAccountUI?.refresh === 'function';
+
+    await loadAccountScript(
+      'Chung/qurio-account-ui.js',
+      () => typeof window.QurioAccountUI?.refresh === 'function',
+      '__qgAccountLoading'
+    );
+
+    // 3. Đồng bộ nếu bộ giao diện đã tải trước xác thực
+    if (accountWasReady && !authWasReady) {
+      await window.QurioAccountUI.refresh();
+    }
+
+  } catch (error) {
+    console.warn(
+      'Qurio - Không thể đồng bộ tài khoản:',
+      error
+    );
+  }
+}
+
+function loadTeacherGuard() {
+  // Tải CSS thông báo phân quyền
+  if (!document.getElementById('qurioGuardCSS')) {
+    const css = document.createElement('link');
+    css.id = 'qurioGuardCSS';
+    css.rel = 'stylesheet';
+    css.href = link('Chung/qurio-teacher-guard.css');
+    document.head.appendChild(css);
+  }
+
+  // Tải JavaScript phân quyền
+  if (!document.getElementById('qurioGuardJS')) {
+    const script = document.createElement('script');
+    script.id = 'qurioGuardJS';
+    script.src = link('Chung/qurio-teacher-guard.js');
+    document.body.appendChild(script);
+  }
+}
+
+  
+
+/* QURIO - HIỂN THỊ TÀI KHOẢN NGAY LẬP TỨC */
+
+function paintAccountImmediately() {
+  try {
+    const sessions = [];
+
+    for (const storage of [sessionStorage, localStorage]) {
+      const raw = storage.getItem('qurio_session');
+      if (!raw) continue;
+
+      const session = JSON.parse(raw);
+
+      if (
+        typeof session?.token === 'string' &&
+        Number(session.expiresAt) > Date.now()
+      ) {
+        sessions.push(session);
+      }
+    }
+
+    // Chọn phiên đang được QurioAuth sử dụng
+    sessions.sort(
+      (a, b) => Number(b.expiresAt) - Number(a.expiresAt)
+    );
+
+    const display = sessions[0]?.displayUser;
+    if (!display?.name) return;
+
+    const name = String(display.name).trim();
+    const role = ['teacher', 'gv'].includes(
+      String(display.role || '').toLowerCase()
+    ) ? 'Giáo viên' : 'Học sinh';
+
+    const avatar = name
+      .split(/\s+/)
+      .slice(-2)
+      .map(part => part[0] || '')
+      .join('')
+      .toUpperCase();
+
+    const update = (ids, value) => {
+      for (const id of ids) {
+        const el = document.getElementById(id);
+        if (el) el.textContent = value;
+      }
+    };
+
+    // Hiển thị ngay, không gọi API
+    update([
+      'profileName',
+      'teacherHeaderName',
+      'teacherName',
+      'teacherMenuName',
+      'qUserName'
+    ], name);
+
+    update([
+      'profileRole',
+      'teacherHeaderSubtitle',
+      'qUserRole'
+    ], role);
+
+    update([
+      'profileAvatar',
+      'teacherAvatar',
+      'teacherMenuAvatar',
+      'qAvatar'
+    ], avatar);
+
+  } catch (error) {
+    console.warn('Qurio: Không đọc được tài khoản tạm.');
+  }
+}
+
+
+function init() {
+  // Hiển thị tên ngay, không đợi API
+  paintAccountImmediately();
+
+  normalizeFooter();
+  hideAIFromSidebar();
+  showTools();
+
+  // Xác thực và cập nhật thông tin phía sau
+  syncAccountAcrossPages();
+
+  // Giữ nguyên phân quyền Giáo viên
+  loadTeacherGuard();
+}
+
+
   if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded',init,{once:true});
   else init();
   // Layout scripts can replace footer mounts shortly after initial HTML processing.

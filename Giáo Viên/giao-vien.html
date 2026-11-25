@@ -15,6 +15,56 @@
 <link href="../../Chung/qurio-layout.css" rel="stylesheet"/><link rel="stylesheet" href="../../Chung/qurio-accent.css"><link rel="stylesheet" href="../../Chung/qurio-global.css">
 <script defer src="../../Chung/qurio-global.js"></script>
 </head>
+
+<!-- QURIO - BẢO VỆ TRANG GIÁO VIÊN -->
+
+<style>
+  html.qurio-checking body {
+    visibility: hidden !important;
+  }
+</style>
+
+<script>
+  document.documentElement.classList.add(
+    'qurio-checking'
+  );
+</script>
+
+<script defer src="../../Chung/chung.js"></script>
+
+<script>
+  document.addEventListener(
+    'DOMContentLoaded',
+    async function () {
+      try {
+        const user = await window.QurioAuth.me();
+
+        // Chỉ cho phép tài khoản giáo viên
+        if (user && user.role === 'teacher') {
+          document.documentElement.classList.remove(
+            'qurio-checking'
+          );
+          return;
+        }
+
+        alert(
+          'Khu vực này chỉ dành cho tài khoản giáo viên. ' +
+          'Bạn không có quyền truy cập!'
+        );
+
+      } catch (error) {
+        alert(
+          'Không thể xác thực quyền truy cập. ' +
+          'Vui lòng đăng nhập lại.'
+        );
+      }
+
+      // Quay về trang chủ
+      window.location.replace('../../index.html');
+    }
+  );
+</script>
+
 <body>
 <!-- ========================================= -->
 <!-- 1. THƯ VIỆN ICON SVG                    -->

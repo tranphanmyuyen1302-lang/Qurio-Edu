@@ -306,10 +306,23 @@ async function submit(form, label, task) {
 
       storage.setItem(
         STORAGE_KEY,
-        JSON.stringify({
-          token: result.token,
-          expiresAt: result.expiresAt
-        })
+        
+JSON.stringify({
+  token: result.token,
+  expiresAt: result.expiresAt,
+
+  // Chỉ lưu thông tin để hiển thị nhanh
+  displayUser: result.user ? {
+    name: String(
+      result.user.fullName ||
+      result.user.username ||
+      result.user.name ||
+      'Người dùng'
+    ),
+    role: result.user.role
+  } : null
+})
+
       );
 
       show(result.message, 'success');
