@@ -2926,3 +2926,148 @@ body.menu-open {
 .sidebar .nav-item.active .icon, .sidebar .nav-item[aria-current="page"] .icon { color:#5a46e4; }
 .sidebar .nav-item.active .active-dot, .sidebar .nav-item[aria-current="page"] .active-dot { background:#604be7; }
 .brand-note { color:#838aab; }
+
+/* ========================================
+   QURIO - MACARON SUBJECT CARDS
+   ======================================== */
+
+/* Toán học - Tím pastel */
+.math-card {
+  background-color: #E8D3F8;
+  border: 1px solid #D8B5ED;
+}
+
+/* Lịch sử - Hồng pastel */
+.history-card {
+  background-color: #FFD9DF;
+  border: 1px solid #F5BAC6;
+}
+
+/* Ngoại ngữ - Xanh lá pastel */
+.english-card {
+  background-color: #D8EEC9;
+  border: 1px solid #BDDCA9;
+}
+
+/* Tin học - Xanh da trời pastel */
+.it-card {
+  background-color: #CDEAF7;
+  border: 1px solid #A9D5EE;
+}
+
+/* Hiệu ứng khi di chuột */
+.subject-card {
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.subject-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(59, 45, 97, 0.12);
+}
+
+/* ======================================
+   QURIO - MACARON PROGRESS DASHBOARD
+   ====================================== */
+
+/* 3 biểu tượng thống kê phía trên */
+.quick-stats .stat-icon.lavender {
+  background: #E8D3F8;
+  color: #9A59C5;
+}
+
+.quick-stats .stat-icon.mint {
+  background: #D8EEC9;
+  color: #649B4B;
+}
+
+.quick-stats .stat-icon.peach {
+  background: #FFD9DF;
+  color: #D7728B;
+}
+
+/* Khung Tiến độ học tập */
+.progress-panel {
+  background: #FFFFFF;
+  border: 1px solid #EAE3F2;
+}
+
+/* Vòng tròn tiến độ */
+.progress-panel .progress-ring {
+  background: conic-gradient(
+    from -90deg,
+    #B989DF calc(var(--progress) * 1%),
+    #F0E4F8 0
+  );
+}
+
+/* Nhãn Bài khởi động */
+.progress-panel .pill {
+  background: #E8D3F8;
+  color: #8C4AB5;
+  border-radius: 7px;
+  padding: 5px 10px;
+  font-weight: 700;
+}
+
+/* Chữ thông tin tiến độ */
+.progress-panel .progress-legend {
+  color: #655D75;
+}
+
+/* 4 chấm môn học theo bộ màu Macaron */
+.progress-panel .progress-legend-item:nth-child(1) > i {
+  background: #9A59C5 !important;
+}
+
+.progress-panel .progress-legend-item:nth-child(2) > i {
+  background: #D7728B !important;
+}
+
+.progress-panel .progress-legend-item:nth-child(3) > i {
+  background: #649B4B !important;
+}
+
+.progress-panel .progress-legend-item:nth-child(4) > i {
+  background: #458EBD !important;
+}
+
+/* Chân khung tiến độ */
+.progress-panel .panel-footnote {
+  border-top-color: #F0E8F7;
+  color: #967EB0;
+}
+
+/* Khung Việc sắp tới đồng bộ */
+.upcoming-panel {
+  background: #FFFFFF;
+  border: 1px solid #EAE3F2;
+}
+
+/* Hiệu ứng nhẹ cho các khung */
+.progress-panel,
+.upcoming-panel {
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.progress-panel:hover,
+.upcoming-panel:hover {
+  border-color: #D8B5ED;
+  box-shadow: 0 8px 24px rgba(109, 77, 147, 0.07);
+}
+
+/* QURIO - BANNER TÍM LAVENDER ĐẬM HƠN */
+
+.TEN-CLASS-BANNER {
+  background: linear-gradient(
+    115deg,
+    #DCCEFF 0%,
+    #E2D9FF 48%,
+    #DCE5FF 100%
+  ) !important;
+
+  border: 1px solid #CBB9F5 !important;
+}
