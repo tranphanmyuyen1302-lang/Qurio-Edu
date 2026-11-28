@@ -244,6 +244,7 @@ function apply(user, newStatus) {
     document.addEventListener('click', handleGuestLoginClick, true);
     document.addEventListener('click', handleLogout, true);
     refresh();
+    render();
   }
 
   window.QurioAccountUI = { get user() { return currentUser; }, get status() { return status; }, refresh };

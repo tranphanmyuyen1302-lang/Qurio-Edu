@@ -19,11 +19,144 @@ function resolveLinks(el){
 }
 function template(type){const n=node(SOURCE[type]);resolveLinks(n);if(type==='sidebar')n.querySelectorAll('[data-nav]').forEach(a=>{if(navPaths[a.dataset.nav])a.href=new URL(navPaths[a.dataset.nav],base).href});return n;}
 function replaceMount(id,element){const m=document.getElementById(id);if(m)m.replaceWith(element);}
-function mountHome(){
- replaceMount('qurio-header-mount',template('header'));
- replaceMount('qurio-sidebar-mount',template('sidebar'));
- replaceMount('qurio-footer-mount',template('footer'));
+
+/* QURIO - ICON DÙNG CHUNG MỌI TRANG */
+
+function ensureSharedIcons() {
+  // Trang nào đã có icon thì không cần tạo lại
+  if (document.getElementById('i-home')) return;
+
+  const icons = {
+    'i-home':
+      '<path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1Z"/>',
+
+    'i-book':
+      '<path d="M12 5v16M3 4c4-1 7 0 9 2 2-2 5-3 9-2v15c-4-1-7 0-9 2-2-2-5-3-9-2Z"/>',
+
+    'i-route':
+      '<circle cx="6" cy="5" r="2"/><circle cx="18" cy="19" r="2"/><path d="M8 5h7a4 4 0 0 1 0 8H9a3 3 0 0 0 0 6h7"/>',
+
+    'i-chart':
+      '<path d="M4 3v17h17M9 16v-5m5 5V6m5 10V9"/>',
+
+    'i-teacher':
+      '<rect x="7" y="3" width="14" height="12" rx="2"/><path d="M12 21h7m-3-6v6M3 20v-5a3 3 0 0 1 3-3h3"/><circle cx="4.5" cy="7" r="2.5"/>',
+
+    'i-chat':
+      '<path d="M21 11a8 8 0 0 1-8 8H8l-5 3V6a3 3 0 0 1 3-3h7a8 8 0 0 1 8 8Z"/><path d="M7 8h9M7 12h6"/>',
+
+    'i-calendar':
+      '<rect x="3" y="5" width="18" height="16" rx="3"/><path d="M7 3v4m10-4v4M3 10h18M7 14h2m4 0h2m-8 3h2"/>',
+
+    'i-trophy':
+      '<path d="M8 3h8v7a4 4 0 0 1-8 0Zm8 2h4v3a4 4 0 0 1-4 4M8 5H4v3a4 4 0 0 0 4 4m4 2v6m-5 1h10"/>',
+
+    'i-lab':
+      '<path d="M9 3h6m-5 0v6L4 19a1 1 0 0 0 1 2h14a1 1 0 0 0 1-2L14 9V3M7 15h10"/>',
+
+    'i-search':
+      '<circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/>',
+
+    'i-bell':
+      '<path d="M18 8a6 6 0 0 0-12 0c0 8-3 8-3 10h18c0-2-3-2-3-10m-11 14h4"/>',
+
+    'i-chevron':
+      '<path d="m8 10 4 4 4-4"/>',
+
+    'i-menu':
+      '<path d="M4 6h16M4 12h16M4 18h16"/>',
+
+    'i-exit':
+      '<path d="M10 4H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h5m5-13 5 5-5 5M8 12h12"/>'
+  };
+
+  const sprite = document.createElementNS(
+    'http://www.w3.org/2000/svg',
+    'svg'
+  );
+
+  sprite.setAttribute('aria-hidden', 'true');
+  sprite.setAttribute(
+    'style',
+    'position:absolute;width:0;height:0;overflow:hidden'
+  );
+
+  sprite.innerHTML = Object.entries(icons)
+    .map(([id, content]) => `
+      <symbol id="${id}" viewBox="0 0 24 24">
+        ${content}
+      </symbol>
+    `).join('');
+
+  document.body.prepend(sprite);
 }
+
+function mountHome() {
+  const sidebar = template('sidebar');
+
+  // Xác định trang hiện tại
+  const path = decodeURIComponent(
+    window.location.pathname
+  ).toLowerCase();
+
+  let current = 'home';
+
+  if (path.includes('khám phá')) {
+    current = 'learning';
+  } else if (path.includes('lộ trình học tập')) {
+    current = 'roadmap';
+  } else if (path.includes('tiến độ')) {
+    current = 'progress';
+  } else if (path.includes('giáo viên')) {
+    current = 'teachers';
+  } else if (path.includes('diễn đàn')) {
+    current = 'forum';
+  } else if (path.includes('kế hoạch')) {
+    current = 'planner';
+  } else if (path.includes('thử thách')) {
+    current = 'challenge';
+  } else if (path.includes('phòng lab')) {
+    current = 'lab';
+  }
+
+  // Xóa trạng thái active cũ
+  sidebar.querySelectorAll('[data-nav]').forEach(item => {
+    const active = item.dataset.nav === current;
+
+    item.classList.toggle('active', active);
+
+    item.removeAttribute('aria-current');
+
+    item.querySelector('.active-dot')?.remove();
+
+    if (active) {
+      item.setAttribute('aria-current', 'page');
+
+      const dot = document.createElement('span');
+      dot.className = 'active-dot';
+
+      item.appendChild(dot);
+    }
+  });
+
+  replaceMount(
+    'qurio-header-mount',
+    template('header')
+  );
+
+  replaceMount(
+    'qurio-sidebar-mount',
+    sidebar
+  );
+
+  replaceMount(
+    'qurio-footer-mount',
+    template('footer')
+  );
+
+  ensureSharedIcons();
+}
+
 function mountTeacher(){
  const app=document.querySelector('.app'),main=app?.querySelector(':scope > .main');if(!app||!main)return;
  const page=location.pathname.split('/').pop().replace(/\.html$/,'');
